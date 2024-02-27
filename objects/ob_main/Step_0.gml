@@ -746,7 +746,7 @@ else if event_transition=-1 and event_transition_standby=-1 and fade_black<=0 {
 					for (var i=0; i<5; i++;) {
 						if serial_card_indeck[i][0]=false { event_conditions=false; } //checks serials 0-4 (first 5 cards acquired)
 					}
-					if berry_num_used[0][0]<5 { event_conditions=false; }
+					if berry_num_used[0][0]<5 and berry_num_used[1][0]<5 and berry_num_used[2][0]<5 { event_conditions=false; }
 				}
 				else if event_kind[mouse_in_event][roadmap_area]=ref_event_battle or event_kind[mouse_in_event][roadmap_area]=ref_event_gymbattle or
 				event_kind[mouse_in_event][roadmap_area]=ref_event_elitebattle or event_kind[mouse_in_event][roadmap_area]=ref_event_championbattle {

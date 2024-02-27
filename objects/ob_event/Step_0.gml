@@ -102,26 +102,31 @@ if apply_event=true {
 	else if event_kind=ref_event_glyph and card_id_in_space[0]!=-1 {
 		if card_id_in_space[0].card_glyph_c=-1 and card_id_in_space[0].card_innate>0 and
 		card_id_in_space[0].card_glyph_a!=glyph_add_id and card_id_in_space[0].card_glyph_b!=glyph_add_id and card_id_in_space[0].card_glyph_c!=glyph_add_id {
-			if card_id_in_space[0].card_glyph_a=-1 {
-				card_id_in_space[0].card_glyph_a=glyph_add_id;
+			if card_id_in_space[0].card_environment=false or (card_id_in_space[0].card_environment=true and
+			(glyph_add_id=ref_glyph_lucky or glyph_add_id=ref_glyph_debilitate or glyph_add_id=ref_glyph_ruthless or glyph_add_id=ref_glyph_courage or
+			glyph_add_id=ref_glyph_counter or glyph_add_id=ref_glyph_shield or glyph_add_id=ref_glyph_medic or glyph_add_id=ref_glyph_tenacity or
+			glyph_add_id=ref_glyph_bulwark or glyph_add_id=ref_glyph_curse or glyph_add_id=ref_glyph_memento or glyph_add_id=ref_glyph_recovery)) {
+				if card_id_in_space[0].card_glyph_a=-1 {
+					card_id_in_space[0].card_glyph_a=glyph_add_id;
+				}
+				else if card_id_in_space[0].card_glyph_b=-1 {
+					card_id_in_space[0].card_glyph_b=glyph_add_id;
+				}
+				else if card_id_in_space[0].card_glyph_c=-1 {
+					card_id_in_space[0].card_glyph_c=glyph_add_id;
+				}
+				sc_card_effect(event_space_id[0].x,event_space_id[0].y,0,false,true);
+				with (card_id_in_space[0]) {
+					sc_card_level_stats_all(true,true);
+				}
+				//
+				event_applied=true;
+				ob_main.stats_glyphs_added++;
+				sc_playsound(sn_upgrade,50,false,false);
+				ob_main.main_card_glyph_a[card_id_in_space[0].num_in_all]=card_id_in_space[0].card_glyph_a;
+				ob_main.main_card_glyph_b[card_id_in_space[0].num_in_all]=card_id_in_space[0].card_glyph_b;
+				ob_main.main_card_glyph_c[card_id_in_space[0].num_in_all]=card_id_in_space[0].card_glyph_c;
 			}
-			else if card_id_in_space[0].card_glyph_b=-1 {
-				card_id_in_space[0].card_glyph_b=glyph_add_id;
-			}
-			else if card_id_in_space[0].card_glyph_c=-1 {
-				card_id_in_space[0].card_glyph_c=glyph_add_id;
-			}
-			sc_card_effect(event_space_id[0].x,event_space_id[0].y,0,false,true);
-			with (card_id_in_space[0]) {
-				sc_card_level_stats_all(true,true);
-			}
-			//
-			event_applied=true;
-			ob_main.stats_glyphs_added++;
-			sc_playsound(sn_upgrade,50,false,false);
-			ob_main.main_card_glyph_a[card_id_in_space[0].num_in_all]=card_id_in_space[0].card_glyph_a;
-			ob_main.main_card_glyph_b[card_id_in_space[0].num_in_all]=card_id_in_space[0].card_glyph_b;
-			ob_main.main_card_glyph_c[card_id_in_space[0].num_in_all]=card_id_in_space[0].card_glyph_c;
 		}
 	}
 	else if event_kind=ref_event_tribute and card_id_in_space[0]!=-1 and card_id_in_space[1]!=-1 {

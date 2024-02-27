@@ -1,6 +1,27 @@
 function sc_textbox(argument0) {
 /// @param message_set
 //————————————————————————————————————————————————————————————————————————————————————————————————————
+if argument0<=21 { //tutorial
+	if ob_main.berry_num_used[0][0]>0 {
+		var berry_name="Oran";
+		var normal_card="Rattata";
+		var misc_card="Pidgey";
+		var flying_card="Spearow";
+	}
+	else if ob_main.berry_num_used[1][0]>0 {
+		var berry_name="Leppa";
+		var normal_card="Sentret";
+		var misc_card="Geodude";
+		var flying_card="Hoothoot";
+	}
+	else if ob_main.berry_num_used[2][0]>0 {
+		var berry_name="Lum";
+		var normal_card="Zigzagoon";
+		var misc_card="Taillow";
+		var flying_card="Starly";
+	}
+}
+//————————————————————————————————————————————————————————————————————————————————————————————————————
 if argument0=0 {
 	ob_main.textbox_string[0]="Welcome to the world of Pokemon cards!";
 	ob_main.textbox_string[1]="I am Prof. Aspen of the Kyoumu region, here to help you with the basics.";
@@ -24,18 +45,18 @@ else if argument0=4 { //tutorial: new turn
 	ob_main.textbox_string[3]="Right now you have 5 DP, which means you can draw cards!\nDrawing a Pokemon costs 2 DP, while drawing Berries costs only 1 DP. Go ahead and draw, let's say, 2 Pokemon and 1 Berry.";
 }
 else if argument0=5 { //tutorial: drawn
-	ob_main.textbox_string[0]="Good! It seems both of your Pokemon require an Oran Berry to be played (you can see the little Berry icon next to their picture). Play the Oran Berry you just got anywhere you want, and then play your Rattata on top of it.";
-	ob_main.textbox_string[1]="Pokemon can't attack during your first turn, so once your Rattata is played, click the big green button to end your turn.";
+	ob_main.textbox_string[0]="Good! It seems both of your Pokemon require " + berry_name + " Berries to be played (you can see the little Berry icon next to their picture). Play the " + berry_name + " Berry you just got anywhere you want, and then play your " + normal_card + " on top of it.";
+	ob_main.textbox_string[1]="Pokemon can't attack during your first turn, so once your " + normal_card + " is played, click the big green button to end your turn.";
 }
 else if argument0=6 { //tutorial: new turn
 	ob_main.textbox_string[0]="I played my Sentret, but since it was my first turn, I couldn't attack either.";
-	ob_main.textbox_string[1]="It is now your turn again! You get 2 DP on all turns after your first. Go ahead and draw two more Berries, so that you can play your Pidgey!";
+	ob_main.textbox_string[1]="It is now your turn again! You get 2 DP on all turns after your first. Go ahead and draw two more Berries, so that you can play your " + misc_card + "!";
 }
 else if argument0=7 { //tutorial: drawn
-	ob_main.textbox_string[0]="Good! Play your Pidgey in front of my Sentret, blocking them. Then, attack with both your Pokemon by clicking on them!";
+	ob_main.textbox_string[0]="Good! Play your " + misc_card + " in front of my Sentret, blocking them. Then, attack with both your Pokemon by clicking on them!";
 }
 else if argument0=8 { //tutorial: attacked
-	ob_main.textbox_string[0]="Good job! Your Pidgey attacked my Sentret, dealing damage equal to your Pidgey's attack minus my Sentret's defense. And your Rattata was unopposed, dealing damage to my Hit Points directly.";
+	ob_main.textbox_string[0]="Good job! Your " + misc_card + " attacked my Sentret, dealing damage equal to your " + misc_card + "'s attack minus my Sentret's defense. And your " + normal_card + " was unopposed, dealing damage to my Hit Points directly.";
 	ob_main.textbox_string[1]="As you can see on the right, the Hit Points bar is now tipped in your favor. Each point of damage dealt directly reduces your opponent's Hit Points while increasing your own.";
 	ob_main.textbox_string[2]="When your opponent's Hit Points reach 0, you win! You already took an early step towards victory!";
 }
@@ -46,13 +67,13 @@ else if argument0=12 { //tutorial: new turn
 	ob_main.textbox_string[0]="Next turn! You have no cards to play right now. Draw another Pokemon, then attack once again with the ones already on the battlefield!";
 }
 else if argument0=15 { //tutorial: new turn
-	ob_main.textbox_string[0]="What a lucky draw, your Spearow has a type advantage over the Bellsprout I played! This is the perfect time to draw some more Berries.";
+	ob_main.textbox_string[0]="What a lucky draw, your " + flying_card + " has a type advantage over the Sunkern I played! This is the perfect time to draw some more Berries.";
 }
 else if argument0=16 { //tutorial: drawn
 	ob_main.textbox_string[0]="Excellent! When a Pokemon has a type advantage over another, their attacks will always deal at least 1 extra point of damage (plus 1 every four levels), even if the receiving Pokemon has a higher defense.";
 	ob_main.textbox_string[1]="Contrary to real Pokemon though, type advantages in cards only deal bonus damage. This means there are no type resistances or immunities, and Pokemon that are weak to a certain type will always receive extra damage from it.";
 	ob_main.textbox_string[2]="This makes it so that, for example, Bulbasaur (a Grass/Poison Pokemon) will always deal bonus damage to other Bulbasaurs, since Poison has an advantage over Grass!";
-	ob_main.textbox_string[3]="But anyway, go ahead and play your Spearow right in front of my Bellsprout. Then attack to take them out in one hit!";
+	ob_main.textbox_string[3]="But anyway, go ahead and play your " + flying_card + " right in front of my Sunkern. Then attack to take them out in one hit!";
 }
 else if argument0=17 { //tutorial: attacked
 	ob_main.textbox_string[0]="Ouch! I wasn't expecting our battle to go this way, but it's definitely a good lesson! For both of us.";
@@ -61,7 +82,7 @@ else if argument0=18 { //tutorial: new turn
 	ob_main.textbox_string[0]="My Magikarp has a Glyph! Glyphs are unique abilities that can be added to cards. This one lowers the attack of any card opposing them.";
 	ob_main.textbox_string[1]="Before teaching a Glyph to one of your cards though, you should know that Pokemon usually increase their Berry cost the first time they learn a Glyph, and they can't be forgotten afterwards, so choose carefully!";
 	ob_main.textbox_string[2]="Each card can have up to 3 different Glyphs. You can see what any of them does by placing your mouse over its icon, so look around!";
-	ob_main.textbox_string[3]="But anyway! Draw your last Pokemon from your deck, and play it in front of my Pidgey to take them out. Then attack with the rest of your Pokemon as well!";
+	ob_main.textbox_string[3]="But anyway! Draw your last Pokemon from your deck, and play it in front of my Bidoof to take them out. Then attack with the rest of your Pokemon as well!";
 }
 else if argument0=21 { //tutorial: new turn
 	ob_main.textbox_string[0]="It seems our battle is almost over! Attack once more with your Pokemon to deal the final blow and take me down.";
@@ -80,29 +101,29 @@ else if argument0=29 {
 }
 //————————————————————————————————————————————————————————————————————————————————————————————————————
 else if argument0=30 { //IAN
-	ob_main.textbox_string[0]="GYM LEADER: Ian.\nGYM LOCATION: Iris Town.\nDECK TYPE: Normal (Flying).";
+	ob_main.textbox_string[0]="GYM LEADER: Ian.\nGYM LOCATION: Iris Town.\nMAIN DECK TYPES: Normal, Flying.";
 	//ob_main.textbox_string[1]="People think normal-type and flying-type Pokemon are weak, but I'm delighted to prove them wrong. Get ready!";
 }
 else if argument0=31 { //CAMMIE
-	ob_main.textbox_string[0]="GYM LEADER: Cammie.\nGYM LOCATION: Camellia City.\nDECK TYPE: Grass (Ground, Rock).";
+	ob_main.textbox_string[0]="GYM LEADER: Cammie.\nGYM LOCATION: Camellia City.\nMAIN DECK TYPES: Grass, Ground, Rock.";
 }
 else if argument0=32 { //WALKER
-	ob_main.textbox_string[0]="GYM LEADER: Walker.\nGYM LOCATION: Bluestar City.\nDECK TYPE: Water (Ice).";
+	ob_main.textbox_string[0]="GYM LEADER: Walker.\nGYM LOCATION: Bluestar City.\nMAIN DECK TYPES: Water, Ice.";
 }
 else if argument0=33 { //MADISON
-	ob_main.textbox_string[0]="GYM LEADER: Madison.\nGYM LOCATION: Marigold City.\nDECK TYPE: Fire (Steel).";
+	ob_main.textbox_string[0]="GYM LEADER: Madison.\nGYM LOCATION: Marigold City.\nMAIN DECK TYPES: Fire, Steel.";
 }
 else if argument0=34 { //ZOE
-	ob_main.textbox_string[0]="GYM LEADER: Zoe.\nGYM LOCATION: Zinnia Town.\nDECK TYPE: Electric.";
+	ob_main.textbox_string[0]="GYM LEADER: Zoe.\nGYM LOCATION: Zinnia Town.\nMAIN DECK TYPE: Electric.";
 }
 else if argument0=35 { //VINCENT
-	ob_main.textbox_string[0]="GYM LEADER: Vincent.\nGYM LOCATION: Verbena City.\nDECK TYPE: Fighting (Dark).";
+	ob_main.textbox_string[0]="GYM LEADER: Vincent.\nGYM LOCATION: Verbena City.\nMAIN DECK TYPES: Fighting, Dark.";
 }
 else if argument0=36 { //PENNY
-	ob_main.textbox_string[0]="GYM LEADER: Penny.\nGYM LOCATION: Candytuft City.\nDECK TYPE: Psychic (Fairy, Ghost).";
+	ob_main.textbox_string[0]="GYM LEADER: Penny.\nGYM LOCATION: Candytuft City.\nMAIN DECK TYPES: Psychic, Ghost, Fairy.";
 }
 else if argument0=37 { //LAKE
-	ob_main.textbox_string[0]="GYM LEADER: Lake.\nGYM LOCATION: Lupine City.\nDECK TYPE: Grass, Fire, Water.";
+	ob_main.textbox_string[0]="GYM LEADER: Lake.\nGYM LOCATION: Lupine City.\nMAIN DECK TYPES: Grass, Fire, Water.";
 }
 //————————————————————————————————————————————————————————————————————————————————————————————————————
 else if argument0=40 { //EMILY
@@ -115,7 +136,7 @@ else if argument0=42 { //DION
 	ob_main.textbox_string[0]="KYOUMU ELITE FOUR, BATTLE THREE: Dion.\nThe Winged Fist.";
 }
 else if argument0=43 { //APRIL
-	ob_main.textbox_string[0]="KYOUMU ELITE FOUR, BATTLE FOUR: April.\nThe Northern Warrior.";
+	ob_main.textbox_string[0]="KYOUMU ELITE FOUR, BATTLE FOUR: April.\nThe Raging Winter.";
 }
 else if argument0=44 { //DUNCAN
 	ob_main.textbox_string[0]="KYOUMU CRYSTAL LEAGUE, FINAL BATTLE: Duncan.\nThe Crystal Champion.";

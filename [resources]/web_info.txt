@@ -7,7 +7,7 @@ PCL is a Poke-card game, although completely different to the Official Trading C
 
 After choosing a starter deck, your goal is to travel through Kyoumu, challenging each of the Gym Leaders from the eight major cities in the region, building up your team to reach the ultimate goal, the Crystal League. Along the way, you'll be presented with numerous choices to expand your deck, strengthen your cards, give them unique special abilities, and battle other trainers.
 
-The current release includes all of gens 1 and 2 (but with corresponding Fairy types). The game may be expanded with more content in the future, but there are currently no plans for any further updates. It is fully playable in its current state.
+The current release includes Generations I-IV (but with corresponding Fairy types). The game may be expanded with more content in the future, but there are currently no plans for any further updates. It is fully playable in its current state.
 Balancing can be a bit tricky at times, but I'm satisfied with the current level of difficulty, overall. The game is not supposed to be too easy, but challenging to a degree. Nevertheless, balance updates may happen if/when needed.
 
 This project was done ultimately just for fun, and I'm not getting any kind of revenue or payment from it— please Nintendo, let it be!
@@ -44,15 +44,15 @@ Keyboard Shortcuts:
 
 Mods & Discord:
 
-​​PCL+ and PCL++ are both standalone mods based on the 1.6 version of the game (instead of the latest release). They have a bunch of different features and additions (glyphs, events, cards, etc.), and they also changed some core stuff altogether as well. Because of these changes though, sadly, they can also be kinda unbalanced (further than the base game), and multiple people have reported bugs that can either cause some major issues, or even break save files. Other than that, they're pretty good, though, and I am honored people were able to build such amazing things from the base game. Consider them as a different, alternate version of the game, with both additions as well as some things missing, and some changes too.
+​​PCL+ and PCL++ are both standalone mods based on the 1.6 version of the game (instead of the latest release). They have a bunch of different features and additions (glyphs, events, cards, etc.), and they also changed some core stuff altogether as well. Because of these changes though, sadly, they can also be somewhat unbalanced (further than the base game), and multiple people have been reporting bugs that can either cause major issues, or even break save files completely. Other than that, though, the mods can be pretty fun, and worth checking out (although I suggest doing so after playing through the base game). Consider them as a different, alternate version of PCL, with both additions as well as some things missing, and a bunch of changes too. I am genuinely honored that people were able to build such cool things from the base game!
 
-Neither the mods nor the base game are gonna receive any further updates. The mod teams have moved on to work on other things, and so have I. Although, I said the same thing over a year ago and then I recently updated the base game again a bunch, so who knows, really.
+Neither the mods nor vanilla are gonna receive any further updates. The mod teams have moved on to work on other things, and so have I. Although, I've said the same thing multiple times and then I go and update the base game again a bunch, so who knows, really.
 
 ​- Pocket Crystal Discord: https://discord.gg/PEUqB45Hmy
 Community-made server for discussion about the game. Non-official, but I'm in there too and I can help with issues, answer questions, or you can just talk to other people, show us your decks and such.
 
 - Pocket Crystal League + (GitHub): https://github.com/Hyperion-21/pokecards_plus
-Community-made PCL expansion that adds a lot of new cards and features. Save files are separate from vanilla, so feel free to check it out!
+Community-made PCL expansion (based on PCL v1.6) that adds a lot of new cards and features. Save files are separate from vanilla.
 
 - Pocket Crystal League ++ (Discord): https://discord.gg/gc2GvSGp5f
-Community-made PCL expansion based on PCL+, with even more new cards and features. Save files are separate both from vanilla and PCL+, so feel free to check it out!
+Community-made PCL expansion (based on PCL+, from PCL v1.6), with even more new cards and features. Save files are separate both from vanilla and PCL+.

@@ -50,6 +50,9 @@ else if argument0!=-1 {
 	if sc_glyph_check(playcard_id,ref_glyph_lucky,true) { //glyph: lucky
 		enemycard_draw_points+=2;
 	}
+	if sc_glyph_check(playcard_id,ref_glyph_mindful,true) { //glyph: mindful
+		enemycard_draw_points+=1;
+	}
 	//
 	if sc_glyph_check(playcard_id,ref_glyph_medic,true) { //glyph: medic
 		for (var i=0; i<=4; i++;) {

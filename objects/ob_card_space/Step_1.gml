@@ -34,7 +34,7 @@ if instance_exists(ob_control) {
 	sc_glyph_check(ob_control.card_space_id[space_slot+5].occupy_id,ref_glyph_debilitate,true)) or
 	(space_slot>=5 and space_slot<=9 and ob_control.card_space_id[space_slot-5].occupy_id!=-1 and
 	sc_glyph_check(ob_control.card_space_id[space_slot-5].occupy_id,ref_glyph_debilitate,true)) {
-		card_penalty_atk+=1;
+		card_penalty_atk+=2;
 	}
 	//
 	//glyph: ruthless

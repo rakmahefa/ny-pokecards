@@ -1,11 +1,27 @@
+[v2.0.0.0] - February 27, 2024
+
+- Added Generations 3 & 4.
+- Modified all starter decks and tutorial.
+- Substantially modified all trainer decks (especially Gym Leaders and Crystal League).
+- Overall difficulty is now slightly higher, and more consistent.
+- Fully rearranged all berry costs, for a more even distribution.
+- Extra berry costs are now consistent: no more mixed berries (except for Legendary/Mythical cards with Glyphs).
+- Added new Glyph: "Motivation" (raises attack and defense by 2 when HP is full).
+- "Debilitate" Glyph now lowers attack by 2 (up from 1).
+- Added 6 new card-specific Glyphs ("Setback", "Might", "Aegis", "Magnetism", "Sunlight", and "Mindful").
+- Further raised drop chance for Legendary/Mythical cards.
+- Selling cards is now slightly faster.
+- Added some new secrets.
+- A ton of other minor improvements (including bug fixes).
+
+——————————
+
 [v1.8.1.0] - November 29, 2023
 
 - Added new Glyph: "Inertia" (grants 1 DP whenever it destroys another card).
 - Shield Glyph now raises defense by 2 (up from 1).
 - Bug fix: fixed engine issue when alt-tabbing or minimizing the game.
 - Some other minor improvements.
-
-——————————
 
 [v1.8.0.0] - November 28, 2023
 

@@ -49,6 +49,7 @@
     {"id":{"name":"sn_card","path":"sounds/sn_card/sn_card.yy",},},
     {"id":{"name":"ob_coin","path":"objects/ob_coin/ob_coin.yy",},},
     {"id":{"name":"sc_drawtext","path":"scripts/sc_drawtext/sc_drawtext.yy",},},
+    {"id":{"name":"sp_poke_b_shiny","path":"sprites/sp_poke_b_shiny/sp_poke_b_shiny.yy",},},
     {"id":{"name":"sc_config_load","path":"scripts/sc_config_load/sc_config_load.yy",},},
     {"id":{"name":"ob_background_tile","path":"objects/ob_background_tile/ob_background_tile.yy",},},
     {"id":{"name":"ms_battle_4","path":"sounds/ms_battle_4/ms_battle_4.yy",},},

@@ -6,7 +6,7 @@ if argument1=false {
 	switch (argument0) {
 		case ref_glyph_lucky: return "// LUCKY //\nGrants 2 DP (Draw Points) when played."; break;
 		case ref_glyph_harvest: return "// HARVEST //\nConsumed Berries return to hand (if not full) when fainting."; break;
-		case ref_glyph_debilitate: return "// DEBILITATE //\nThe opposing card's attack is lowered by 1."; break;
+		case ref_glyph_debilitate: return "// DEBILITATE //\nThe opposing card's attack is lowered by 2."; break;
 		case ref_glyph_ruthless: return "// RUTHLESS //\nThe opposing card's defense is lowered by 2."; break;
 		case ref_glyph_courage: return "// COURAGE //\nRaises attack of nearby friendly Pokemon by 2."; break;
 		case ref_glyph_piercing: return "// PIERCING ATTACK //\nAlways attacks the enemy trainer directly."; break;
@@ -23,10 +23,18 @@ if argument1=false {
 		case ref_glyph_adaptability: return "// ADAPTABILITY //\nType-advantage attacks deal 2 extra points of bonus damage."; break;
 		case ref_glyph_recovery: return "// RECOVERY //\nRecovers 1 HP at the beginning of each active turn."; break;
 		case ref_glyph_inertia: return "// INERTIA //\nGrants 1 DP (Draw Points) whenever it destroys another card."; break;
+		case ref_glyph_motivation: return "// MOTIVATION //\nRaises a Pokemon's attack and defense by 2 when HP is full."; break;
 		//
 		case ref_glyph_mist: return "// MIST //\nWhile this card is active, Glyphs have no effect."; break;
-		case ref_glyph_transform: return "// TRANSFORM //\nTransforms into the opposing enemy Pokemon."; break;
-		case ref_glyph_sketch: return "// SKETCH //\nCopies the opposing enemy Pokemon's types."; break;
+		case ref_glyph_imposter: return "// IMPOSTER //\nTransforms into the opposing enemy Pokemon."; break;
+		case ref_glyph_palette: return "// PALETTE //\nCopies the opposing enemy Pokemon's types."; break;
+		case ref_glyph_setback: return "// SETBACK //\nLowers attack by 1/3 at all times."; break;
+		case ref_glyph_might: return "// MIGHT //\nRaises attack by 1 at all times."; break;
+		case ref_glyph_aegis: return "// AEGIS //\nGrants impenetrable defense."; break;
+		case ref_glyph_magnetism_p: return "// MAGNETISM //\nRaises attack by 2 if Minun is also played."; break;
+		case ref_glyph_magnetism_m: return "// MAGNETISM //\nRaises attack by 2 if Plusle is also played."; break;
+		case ref_glyph_sunlight: return "// SUNLIGHT //\nRaises attack and defense by 1 when HP is full."; break;
+		case ref_glyph_mindful: return "// MINDFUL //\nGrants 1 DP (Draw Points) when played."; break;
 	}
 }
 else {

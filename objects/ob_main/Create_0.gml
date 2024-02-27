@@ -95,12 +95,12 @@ textbox_timer=0;
 textbox_timer_max=1;
 textbox_char_pos=0;
 //————————————————————————————————————————————————————————————————————————————————————————————————————
-#macro normal_poke_id_max 251 //normal (non-secret and non-environment) poke cards
-#macro secret_cards_total 2
-#macro environment_cards_total 3
+#macro normal_poke_id_max 493 //normal (non-secret and non-environment) poke cards
+#macro secret_cards_total 3
+#macro environment_cards_total 4
 //
 #macro deck_setup_max 5 //0: current (always), 1-5: saved setups
-#macro maindeck_total_max 2000
+#macro maindeck_total_max 1000
 #macro berrydeck_total_max 200 //per berry
 //
 #macro money_prize_power_base 24.33 //120 196 284 383 490 606 730 862 1000 (penalty: 40-1000)
@@ -178,7 +178,7 @@ current_glyph_add=-1;
 tooltip_text="";
 tooltip_lines=0;
 //————————————————————————————————————————————————————————————————————————————————————————————————————
-#macro glyph_common_amount 19
+#macro glyph_common_amount 20
 //
 #macro ref_glyph_lucky 00
 #macro ref_glyph_harvest 01
@@ -199,10 +199,18 @@ tooltip_lines=0;
 #macro ref_glyph_adaptability 16
 #macro ref_glyph_recovery 17
 #macro ref_glyph_inertia 18
+#macro ref_glyph_motivation 19
 //
 #macro ref_glyph_mist 100
-#macro ref_glyph_transform 101
-#macro ref_glyph_sketch 102
+#macro ref_glyph_imposter 101
+#macro ref_glyph_palette 102
+#macro ref_glyph_setback 103
+#macro ref_glyph_might 104
+#macro ref_glyph_aegis 105
+#macro ref_glyph_magnetism_p 106
+#macro ref_glyph_magnetism_m 107
+#macro ref_glyph_sunlight 108
+#macro ref_glyph_mindful 109
 //————————————————————————————————————————————————————————————————————————————————————————————————————
 #macro options_total 12
 #macro playericon_max 15

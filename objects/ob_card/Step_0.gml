@@ -102,82 +102,120 @@ if reference_id=ob_control and card_cat=0 {
 		}
 	}
 	//
-	if sc_glyph_check(id,ref_glyph_transform,false) and card_played=true { //glyph: transform (Ditto only)
-		if sc_glyph_check(id,ref_glyph_transform,true) and vs_card!=-1 and vs_card.card_environment=false {
-			//transforms only if there's no mist
-			if card_id!=vs_card.card_id {
-				card_id=vs_card.card_id;
-				card_form_value=vs_card.card_form_value;
+	if any_natural_glyph=true {
+		if sc_glyph_check(id,ref_glyph_imposter,false) and card_played=true { //glyph: imposter (ditto only)
+			if sc_glyph_check(id,ref_glyph_imposter,true) and vs_card!=-1 and vs_card.card_environment=false {
+				//transforms only if there's no mist
+				if card_id!=vs_card.card_id {
+					card_id=vs_card.card_id;
+					card_form_value=vs_card.card_form_value;
+					sc_pokelist();
+					sc_card_level_stats_all(false,false);
+					card_name="Ditto";
+					effect_damaged=1;
+				}
+			}
+			else if card_id!=132 {
+				//transforms back even if there's mist
+				card_id=132;
 				sc_pokelist();
 				sc_card_level_stats_all(false,false);
-				card_name="Ditto";
 				effect_damaged=1;
 			}
 		}
-		else if card_id!=132 {
-			//transforms back even if there's mist
-			card_id=132;
-			sc_pokelist();
-			sc_card_level_stats_all(false,false);
-			effect_damaged=1;
+		else if sc_glyph_check(id,ref_glyph_imposter,false) and card_played=false {
+			if card_id!=132 {
+				card_id=132;
+				sc_pokelist();
+				sc_card_level_stats_all(false,false);
+			}
 		}
-	}
-	else if sc_glyph_check(id,ref_glyph_transform,false) and card_played=false {
-		if card_id!=132 {
-			card_id=132;
-			sc_pokelist();
-			sc_card_level_stats_all(false,false);
-		}
-	}
-	//
-	if sc_glyph_check(id,ref_glyph_sketch,false) and card_played=true { //glyph: sketch (Smeargle only)
-		if sc_glyph_check(id,ref_glyph_sketch,true) and vs_card!=-1 and vs_card.card_environment=false {
-			//copies types only if there's no mist
-			if card_type_a!=vs_card.card_type_a or card_type_b!=vs_card.card_type_b {
-				card_type_a=vs_card.card_type_a;
-				card_type_b=vs_card.card_type_b;
+		//
+		if sc_glyph_check(id,ref_glyph_palette,false) and card_played=true { //glyph: palette (smeargle/kecleon)
+			if sc_glyph_check(id,ref_glyph_palette,true) and vs_card!=-1 and vs_card.card_environment=false {
+				//copies types only if there's no mist
+				if card_type_a!=vs_card.card_type_a or card_type_b!=vs_card.card_type_b {
+					card_type_a=vs_card.card_type_a;
+					card_type_b=vs_card.card_type_b;
+					effect_damaged=1;
+				}
+			}
+			else if card_type_a!=00 or card_type_b!=-1 {
+				//restores types even if there's mist
+				card_type_a=00;
+				card_type_b=-1;
 				effect_damaged=1;
 			}
 		}
-		else if card_type_a!=00 or card_type_b!=-1 {
-			//restores types even if there's mist
-			card_type_a=00;
-			card_type_b=-1;
-			effect_damaged=1;
-		}
-	}
-	else if sc_glyph_check(id,ref_glyph_sketch,false) and card_played=false {
-		if card_type_a!=00 or card_type_b!=-1 {
-			card_type_a=00;
-			card_type_b=-1;
+		else if sc_glyph_check(id,ref_glyph_palette,false) and card_played=false {
+			if card_type_a!=00 or card_type_b!=-1 {
+				card_type_a=00;
+				card_type_b=-1;
+			}
 		}
 	}
 }
 //————————————————————————————————————————————————————————————————————————————————————————————————————
-if reference_id=ob_control and card_cat=0 {
-	if sc_glyph_check(id,ref_glyph_berserk,true) and (card_hp<=(card_full_hp/3) or (card_hp=1 and card_hp!=card_full_hp)) { var base_atk_multiplier=2; } //glyph: berserk
-	else { var base_atk_multiplier=1; }
+if reference_id=ob_control and card_cat=0 and ((card_enemy=false and card_face=true) or card_enemy=true) {
+	var base_atk_multiplier=1, base_atk_divisor=1, base_atk_boost=0, base_def_boost=0, base_atk_divisor_setback=1;
 	//
-	if sc_glyph_check(id,ref_glyph_fork,true) { var base_atk_divisor=1.5; } //glyph: fork attack
-	else { var base_atk_divisor=1; }
+	if any_common_glyph=true {
+		if sc_glyph_check(id,ref_glyph_berserk,true) and (card_hp<=(card_full_hp/3) or (card_hp=1 and card_hp!=card_full_hp)) { base_atk_multiplier=2; } //glyph: berserk
+		if sc_glyph_check(id,ref_glyph_fork,true) { base_atk_divisor=1.5; } //glyph: fork attack
+		if sc_glyph_check(id,ref_glyph_motivation,true) and card_hp=card_full_hp { base_atk_boost+=2; base_def_boost+=2; } //glyph: motivation
+	}
+	//
+	if any_natural_glyph=true {
+		if sc_glyph_check(id,ref_glyph_sunlight,true) and card_hp=card_full_hp { //glyph: sunlight (cherubi/cherrim)
+			base_atk_boost+=1; base_def_boost+=1;
+			if card_id=421 and card_grid_x=12 {
+				card_grid_x=13;
+				if card_face=true { effect_damaged=1; }}}
+		else if card_id=421 and card_grid_x=13 {
+			card_grid_x=12;
+			if card_face=true { effect_damaged=1; }}
+		//
+		if sc_glyph_check(id,ref_glyph_might,true) { base_atk_boost+=1; } //glyph: might (azurill/marill/azumarill/meditite/medicham)
+		if sc_glyph_check(id,ref_glyph_aegis,true) { base_def_boost+=250; } //glyph: aegis (shedinja)
+		if sc_glyph_check(id,ref_glyph_setback,true) { base_atk_divisor_setback=1.5; } //glyph: setback (slakoth/vigoroth/slaking/regigigas)
+	}
 	//
 	if card_played=false and card_trash=false {
-		card_atk=ceil(card_full_atk*base_atk_multiplier/base_atk_divisor);
+		card_atk=ceil(card_full_atk*base_atk_multiplier/base_atk_divisor/base_atk_divisor_setback)+base_atk_boost;
+		card_def=card_full_def+base_def_boost;
+		if card_def>99 { card_def=99; }
 	}
 	else if card_played=true and card_trash=false {
+		if any_paired_glyph=true {
+			if card_enemy=true { var i=0; } else { var i=5; }
+			var active_plusle=false, active_minun=false;
+			repeat (5) {
+				if ob_control.card_space_id[i].occupy_id!=id and ob_control.card_space_id[i].occupy_id!=-1 {
+					if ob_control.card_space_id[i].occupy_id.card_id=311 { active_plusle=true; }
+					else if ob_control.card_space_id[i].occupy_id.card_id=312 { active_minun=true; }
+				}
+				i++;
+			}
+			//
+			if sc_glyph_check(id,ref_glyph_magnetism_p,true) and active_minun=true { base_atk_boost+=2; } //glyph: magnetism (plusle)
+			else if sc_glyph_check(id,ref_glyph_magnetism_m,true) and active_plusle=true { base_atk_boost+=2; } //glyph: magnetism (minun)
+		}
+		//
 		if card_enemy=true { var i=0; } else { var i=5; }
 		repeat (5) {
 			if ob_control.card_space_id[i].occupy_id=id {
 				if card_environment=false {
-					card_atk=ceil(card_full_atk*base_atk_multiplier/base_atk_divisor)+ob_control.card_space_id[i].card_bonus_atk-ob_control.card_space_id[i].card_penalty_atk;
-					card_def=card_full_def+ob_control.card_space_id[i].card_bonus_def-ob_control.card_space_id[i].card_penalty_def;
+					card_atk=ceil(card_full_atk*base_atk_multiplier/base_atk_divisor/base_atk_divisor_setback)+
+					ob_control.card_space_id[i].card_bonus_atk-ob_control.card_space_id[i].card_penalty_atk+base_atk_boost;
+					card_def=card_full_def+ob_control.card_space_id[i].card_bonus_def-ob_control.card_space_id[i].card_penalty_def+base_def_boost;
 				}
 				else {
-					card_atk=ceil(card_full_atk*base_atk_multiplier/base_atk_divisor)-ob_control.card_space_id[i].card_penalty_atk;
+					card_atk=ceil(card_full_atk*base_atk_multiplier/base_atk_divisor/base_atk_divisor_setback)-ob_control.card_space_id[i].card_penalty_atk;
 					card_def=card_full_def-ob_control.card_space_id[i].card_penalty_def;
 				}
 				if card_atk<0 { card_atk=0; }
 				if card_def<0 { card_def=0; }
+				if card_def>99 { card_def=99; }
 			}
 			i++;
 		}
@@ -245,14 +283,14 @@ else if ((mouse_x>=x and mouse_y>=y and mouse_x<x+sprite_width and mouse_y<y+spr
 		//
 		if ob_event.show_deck=false {
 			if card_face=false {
-				if (card_cat=1 and card_id=3003) or
+				if card_cat=0 and (card_enigma=true or card_secret=true or card_shiny=true) {
+					sc_playsound(sn_rare_2,50,false,false);
+					sc_card_effect(x,y,0,false,true);
+				}
+				else if (card_cat=1 and card_id=3003) or
 				(card_cat=0 and ((card_glyph_a!=-1 and card_glyph_a<glyph_common_amount) or
 				(card_glyph_b!=-1 and card_glyph_b<glyph_common_amount) or (card_glyph_c!=-1 and card_glyph_c<glyph_common_amount))) {
 					sc_playsound(sn_rare,50,false,false);
-					sc_card_effect(x,y,0,false,true);
-				}
-				else if card_cat=0 and (card_enigma=true or card_secret=true or card_shiny=true) {
-					sc_playsound(sn_rare_2,50,false,false);
 					sc_card_effect(x,y,0,false,true);
 				}
 				else {

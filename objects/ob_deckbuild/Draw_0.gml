@@ -36,7 +36,7 @@ if deck_build_used_total>0 {
 if deck_build_all_total<=ob_main.maindeck_size_min_full and deck_build_all_total>0 {
 	sc_drawtext(screen_deck_x+6,screen_main_y+stored_y+86,"min. number of cards",global.color_white,global.color_black,0.5,0.5,0,-1);
 }
-else if deck_build_all_total=maindeck_total_max {
+else if deck_build_all_total>=maindeck_total_max {
 	sc_drawtext(screen_deck_x+6,screen_main_y+stored_y+86,"max. number of cards",global.color_white,global.color_black,0.5,0.5,0,-1);
 }
 //————————————————————————————————————————————————————————————————————————————————————————————————————

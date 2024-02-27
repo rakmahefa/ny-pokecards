@@ -31,21 +31,25 @@ if argument1=true {
 	card_cost_total_type[3]=0; //enigma
 	//
 	var i=0;
-	repeat (3) { //cost types are also considered for tutorial enemy deck, and shown in ob_card_space when adding a glyph to an empty card
-		//normal, grass, fire, water, flying
-		if card_cost[i]=00 or card_cost[i]=01 or card_cost[i]=02 or card_cost[i]=03 or card_cost[i]=05 {
+	repeat (3) { //cost types are also shown in ob_card_space when adding a glyph to an empty card
+		//normal (I), water, (flying), fighting, ice, dragon, steel
+		//+ igglybuff, porygon2, blissey, azurill, happiny, munchlax, lickilicky, porygon-z
+		if (card_cost[i]=00 and (card_id<=151 or card_id=174 or card_id=233 or card_id=242 or card_id=298 or card_id=440 or card_id=446 or card_id=463 or card_id=474)) or
+		card_cost[i]=03 or card_cost[i]=05 or card_cost[i]=06 or card_cost[i]=13 or card_cost[i]=14 or card_cost[i]=15 {
 			card_cost[i]=0; //oran
 			card_cost_total_type[0]++;
 			if enemy_costcount=true { ob_control.enemy_deck_fullcost[0]++; }
 		}
-		//psychic, fairy, bug, poison, ghost, dark
-		else if card_cost[i]=07 or card_cost[i]=08 or card_cost[i]=11 or card_cost[i]=12 or card_cost[i]=16 or card_cost[i]=17 {
+		//normal (II), fire, psychic, fairy, ground, rock, ghost, dark
+		//+ ambipom
+		else if (card_cost[i]=00 and (card_id<=251 or card_id=424)) or
+		card_cost[i]=02 or card_cost[i]=07 or card_cost[i]=08 or card_cost[i]=09 or card_cost[i]=10 or card_cost[i]=16 or card_cost[i]=17 {
 			card_cost[i]=1; //leppa
 			card_cost_total_type[1]++;
 			if enemy_costcount=true { ob_control.enemy_deck_fullcost[1]++; }
 		}
-		//electric, fighting, ground, rock, ice, dragon, steel
-		else if card_cost[i]=04 or card_cost[i]=06 or card_cost[i]=09 or card_cost[i]=10 or card_cost[i]=13 or card_cost[i]=14 or card_cost[i]=15 {
+		//normal (III/IV), grass, electric, bug, poison
+		else if (card_cost[i]=00 and card_id<=493) or card_cost[i]=01 or card_cost[i]=04 or card_cost[i]=11 or card_cost[i]=12 {
 			card_cost[i]=2; //lum
 			card_cost_total_type[2]++;
 			if enemy_costcount=true { ob_control.enemy_deck_fullcost[2]++; }

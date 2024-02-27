@@ -2,6 +2,19 @@ function sc_tutorial_conditions(argument0,argument1) {
 /// @param condition_check //0: next turn, 1: draw main, 2: draw berry, 3: play main, 4: play berry, 5: attack
 /// @param play_slot
 //————————————————————————————————————————————————————————————————————————————————————————————————————
+if ob_main.berry_num_used[0][0]>0 {
+	var normal_card_id=019; //rattata
+	var misc_card_id=016; //pidgey
+}
+else if ob_main.berry_num_used[1][0]>0 {
+	var normal_card_id=161; //sentret
+	var misc_card_id=074; //geodude
+}
+else if ob_main.berry_num_used[2][0]>0 {
+	var normal_card_id=263; //zigzagoon
+	var misc_card_id=276; //taillow
+}
+//————————————————————————————————————————————————————————————————————————————————————————————————————
 if argument0=0 { //next turn
 	var card_id_played;
 	for (var i=0; i<=4; i++;) {
@@ -24,7 +37,7 @@ if argument0=0 { //next turn
 	}
 	//
 	if ob_control.turn_num=1 and
-	(card_id_played[0]=019 or card_id_played[1]=019 or card_id_played[2]=019 or card_id_played[3]=019 or card_id_played[4]=019) { return true; } //rattata
+	(card_id_played[0]=normal_card_id or card_id_played[1]=normal_card_id or card_id_played[2]=normal_card_id or card_id_played[3]=normal_card_id or card_id_played[4]=normal_card_id) { return true; }
 	else if ob_control.turn_num=3 and all_cards_attacked=true and empty_spaces=3 { return true; }
 	else if ob_control.turn_num=5 and all_cards_attacked=true and empty_spaces=2 { return true; }
 	else if ob_control.turn_num=7 and all_cards_attacked=true and ob_control.card_draw_points=0 { return true; }
@@ -51,8 +64,8 @@ else if argument0=2 { //draw berry
 }
 //————————————————————————————————————————————————————————————————————————————————————————————————————
 else if argument0=3 { //play main
-	if ob_control.turn_num=1 and ob_control.card_hold.card_id=019 { return true; } //rattata
-	else if ob_control.turn_num=3 and ob_control.card_hold.card_id=016 { return true; } //pidgey
+	if ob_control.turn_num=1 and ob_control.card_hold.card_id=normal_card_id { return true; }
+	else if ob_control.turn_num=3 and ob_control.card_hold.card_id=misc_card_id { return true; }
 	else if ob_control.turn_num=5 { return true; }
 	else if ob_control.turn_num=7 {} //can't play
 	else if ob_control.turn_num=9 { return true; }
@@ -76,9 +89,9 @@ else if argument0=4 { //play berry
 	else if ob_control.turn_num=5 { return true; }
 	else if ob_control.turn_num=7 {} //can't play
 	else if ob_control.turn_num=9 and berries_held=2 and
-	ob_control.card_space_id[space_slot-5].occupy_id!=-1 and ob_control.card_space_id[space_slot-5].occupy_id.card_id=069 { return true; } //bellsprout
+	ob_control.card_space_id[space_slot-5].occupy_id!=-1 and ob_control.card_space_id[space_slot-5].occupy_id.card_id=191 { return true; } //sunkern
 	else if ob_control.turn_num=11 and
-	ob_control.card_space_id[space_slot-5].occupy_id!=-1 and ob_control.card_space_id[space_slot-5].occupy_id.card_id=016 { return true; } //pidgey
+	ob_control.card_space_id[space_slot-5].occupy_id!=-1 and ob_control.card_space_id[space_slot-5].occupy_id.card_id=399 { return true; } //bidoof
 }
 //————————————————————————————————————————————————————————————————————————————————————————————————————
 else if argument0=5 { //attack

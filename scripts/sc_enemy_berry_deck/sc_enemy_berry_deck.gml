@@ -12,10 +12,14 @@ else if ob_main.playing_tutorial=false and argument0!=100 { enemycard_berrydeck_
 //
 var i=0;
 repeat (enemycard_berrydeck_total) {
-	if i<enemy_deck_fullcost[0]*2 { enemy_berry_id[i]=3000; } //oran
-	else if i<enemy_deck_fullcost[0]*2+enemy_deck_fullcost[1]*2 { enemy_berry_id[i]=3001; } //leppa
-	else if i<enemy_deck_fullcost[0]*2+enemy_deck_fullcost[1]*2+enemy_deck_fullcost[2]*2 { enemy_berry_id[i]=3002; } //lum
-	else { enemy_berry_id[i]=3003; } //enigma
+	if ob_main.playing_tutorial=true { enemy_berry_id[i]=3003; } //enigma
+	//
+	else {
+		if i<enemy_deck_fullcost[0]*2 { enemy_berry_id[i]=3000; } //oran
+		else if i<enemy_deck_fullcost[0]*2+enemy_deck_fullcost[1]*2 { enemy_berry_id[i]=3001; } //leppa
+		else if i<enemy_deck_fullcost[0]*2+enemy_deck_fullcost[1]*2+enemy_deck_fullcost[2]*2 { enemy_berry_id[i]=3002; } //lum
+		else { enemy_berry_id[i]=3003; } //enigma
+	}
 	i++;
 }
 //————————————————————————————————————————————————————————————————————————————————————————————————————

@@ -52,6 +52,11 @@ draw_set_halign(fa_right);
 var var_text=string(card_maindeck_total) + "x Main Deck";
 sc_drawrectangle(cam_x+cam_w-15-string_width(var_text),cam_y+cam_h-20,cam_x+cam_w-11,cam_y+cam_h-9,global.color_black,global.color_black,1,0.5,1,0);
 sc_drawtext(cam_x+cam_w-12,cam_y+cam_h-21,var_text,global.color_white,c_black,0.1,0,0,-1);
+//
+draw_set_halign(fa_left);
+var var_text=string(enemycard_maindeck_total) + "x Main Deck";
+sc_drawrectangle(cam_x+10,cam_y+9,cam_x+14+string_width(var_text),cam_y+20,global.color_black,global.color_black,1,0.5,1,0);
+sc_drawtext(cam_x+13,cam_y+8,var_text,global.color_white,c_black,0.1,0,0,-1);
 //————————————————————————————————————————————————————————————————————————————————————————————————————
 draw_set_halign(fa_center);
 var var_message="", var_message_color=c_white;
@@ -103,15 +108,15 @@ if card_focus!=-1 and card_focus.card_cat=0 and card_focus_hand!=-1 and card_hol
 	for (var i=0; i<=4; i++;) {
 		//IMAGINARY DAMAGE CALCULATION (similar code in AI_play_plan)
 		if card_space_id[i].occupy_id!=-1 {
-			//intentionally omitting glyph: transform (Ditto only)
+			//intentionally omitting glyph: imposter (ditto only)
 			var bonus_dmg=false, vs_bonus_dmg=false;
-			if sc_glyph_check(card_focus,ref_glyph_sketch,true) and card_space_id[i].occupy_id.card_environment=false { //glyph: sketch (Smeargle only)
+			if sc_glyph_check(card_focus,ref_glyph_palette,true) and card_space_id[i].occupy_id.card_environment=false { //glyph: palette (smeargle/kecleon)
 				bonus_dmg=sc_type_bonus(card_space_id[i].occupy_id.card_type_a,card_space_id[i].occupy_id.card_type_b,
 				card_space_id[i].occupy_id.card_type_a,card_space_id[i].occupy_id.card_type_b);
 				vs_bonus_dmg=sc_type_bonus(card_space_id[i].occupy_id.card_type_a,card_space_id[i].occupy_id.card_type_b,
 				card_space_id[i].occupy_id.card_type_a,card_space_id[i].occupy_id.card_type_b);
 			}
-			else if sc_glyph_check(card_space_id[i].occupy_id,ref_glyph_sketch,true) and card_focus.card_environment=false { //glyph: sketch (Smeargle only)
+			else if sc_glyph_check(card_space_id[i].occupy_id,ref_glyph_palette,true) and card_focus.card_environment=false { //glyph: palette (smeargle/kecleon)
 				bonus_dmg=sc_type_bonus(card_focus.card_type_a,card_focus.card_type_b,card_focus.card_type_a,card_focus.card_type_b);
 				vs_bonus_dmg=sc_type_bonus(card_focus.card_type_a,card_focus.card_type_b,card_focus.card_type_a,card_focus.card_type_b);
 			}
@@ -128,7 +133,7 @@ if card_focus!=-1 and card_focus.card_cat=0 and card_focus_hand!=-1 and card_hol
 			if own_def<0 { own_def=0; }
 			//
 			var imaginary_penalty_atk=0, imaginary_penalty_def=0;
-			if sc_glyph_check(card_focus,ref_glyph_debilitate,true) { imaginary_penalty_atk=1; } //glyph: debilitate
+			if sc_glyph_check(card_focus,ref_glyph_debilitate,true) { imaginary_penalty_atk=2; } //glyph: debilitate
 			if sc_glyph_check(card_focus,ref_glyph_ruthless,true) { imaginary_penalty_def=2; } //glyph: ruthless
 			//
 			var vs_atk=card_space_id[i].occupy_id.card_atk-imaginary_penalty_atk;
@@ -146,7 +151,7 @@ if card_focus!=-1 and card_focus.card_cat=0 and card_focus_hand!=-1 and card_hol
 			}
 			//
 			var damage_preview_text="";
-			if sc_glyph_check(card_focus,ref_glyph_transform,true) or sc_glyph_check(card_space_id[i].occupy_id,ref_glyph_transform,true) { //glyph: transform (Ditto only)
+			if sc_glyph_check(card_focus,ref_glyph_imposter,true) or sc_glyph_check(card_space_id[i].occupy_id,ref_glyph_imposter,true) { //glyph: imposter (ditto only)
 				damage_preview_text="?";
 			}
 			else if sc_glyph_check(card_focus,ref_glyph_fork,true) { //glyph: fork attack
@@ -172,7 +177,7 @@ if card_focus!=-1 and card_focus.card_cat=0 and card_focus_hand!=-1 and card_hol
 			}
 			//
 			var damage_preview_text="";
-			if sc_glyph_check(card_focus,ref_glyph_transform,true) or sc_glyph_check(card_space_id[i].occupy_id,ref_glyph_transform,true) { //glyph: transform (Ditto only)
+			if sc_glyph_check(card_focus,ref_glyph_imposter,true) or sc_glyph_check(card_space_id[i].occupy_id,ref_glyph_imposter,true) { //glyph: imposter (ditto only)
 				damage_preview_text="?";
 			}
 			else {

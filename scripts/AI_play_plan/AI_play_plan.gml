@@ -80,13 +80,13 @@ do {
 				if card_space_id[ii+5].occupy_id!=-1 {
 					var opposing_card_id=card_space_id[ii+5].occupy_id;
 					//
-					//glyph: transform (Ditto only) & sketch (Smeargle only)
-					if (sc_glyph_check(opposing_card_id,ref_glyph_transform,true) or sc_glyph_check(opposing_card_id,ref_glyph_sketch,true)) and
+					//glyph: imposter (ditto only) & palette (smeargle/kecleon)
+					if (sc_glyph_check(opposing_card_id,ref_glyph_imposter,true) or sc_glyph_check(opposing_card_id,ref_glyph_palette,true)) and
 					enemycard_hand[i].card_environment=false and opposing_card_id.card_environment=false {
 						bonus_dmg=sc_type_bonus(enemycard_hand[i].card_type_a,enemycard_hand[i].card_type_b,enemycard_hand[i].card_type_a,enemycard_hand[i].card_type_b);
 						vs_bonus_dmg=sc_type_bonus(enemycard_hand[i].card_type_a,enemycard_hand[i].card_type_b,enemycard_hand[i].card_type_a,enemycard_hand[i].card_type_b);
 					}
-					else if (sc_glyph_check(enemycard_hand[i],ref_glyph_transform,true) or sc_glyph_check(enemycard_hand[i],ref_glyph_sketch,true)) and
+					else if (sc_glyph_check(enemycard_hand[i],ref_glyph_imposter,true) or sc_glyph_check(enemycard_hand[i],ref_glyph_palette,true)) and
 					enemycard_hand[i].card_environment=false and opposing_card_id.card_environment=false {
 						bonus_dmg=sc_type_bonus(opposing_card_id.card_type_a,opposing_card_id.card_type_b,opposing_card_id.card_type_a,opposing_card_id.card_type_b);
 						vs_bonus_dmg=sc_type_bonus(opposing_card_id.card_type_a,opposing_card_id.card_type_b,opposing_card_id.card_type_a,opposing_card_id.card_type_b);
@@ -103,7 +103,7 @@ do {
 					}
 					//
 					var imaginary_penalty_atk=0, imaginary_penalty_def=0;
-					if sc_glyph_check(enemycard_hand[i],ref_glyph_debilitate,true) { imaginary_penalty_atk=1; } //glyph: debilitate
+					if sc_glyph_check(enemycard_hand[i],ref_glyph_debilitate,true) { imaginary_penalty_atk=2; } //glyph: debilitate
 					if sc_glyph_check(enemycard_hand[i],ref_glyph_ruthless,true) { imaginary_penalty_def=2; } //glyph: ruthless
 					//
 					var vs_atk=opposing_card_id.card_atk-imaginary_penalty_atk;

@@ -188,6 +188,10 @@ if card_hold!=-1 and (!mouse_check_button(mb_left) or ob_main.cursor_hide=true) 
 					card_draw_points+=2;
 					tooltip_timer=tooltip_timer_max;
 				}
+				if sc_glyph_check(card_hold,ref_glyph_mindful,true) { //glyph: mindful
+					card_draw_points+=1;
+					tooltip_timer=tooltip_timer_max;
+				}
 				//
 				if sc_glyph_check(card_hold,ref_glyph_medic,true) { //glyph: medic
 					for (var i=5; i<=9; i++;) {

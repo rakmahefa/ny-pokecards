@@ -27,12 +27,13 @@ else if instance_exists(ob_event) and occupy_id=-1 and ob_main.cursor_hide=false
 		if ob_event.event_kind=ref_event_levelup {
 			if ob_main.card_level_player_limit<10 {
 				ob_event.tooltip_text="// LEVEL UP //\nThe card's level is raised, for a maximum of " + string(ob_main.card_level_player_limit) +
-				".\nDefeat gym leaders to raise this limit.";
-				ob_event.tooltip_lines=3;
+				".\nDefeat gym leaders to raise this limit.\nThis event can be performed multiple times.";
+				ob_event.tooltip_lines=4;
 			}
 			else {
-				ob_event.tooltip_text="// LEVEL UP //\nThe card's level is raised, for a maximum of " + string(ob_main.card_level_player_limit) + ".";
-				ob_event.tooltip_lines=2;
+				ob_event.tooltip_text="// LEVEL UP //\nThe card's level is raised, for a maximum of " + string(ob_main.card_level_player_limit) +
+				".\nThis event can be performed multiple times.";
+				ob_event.tooltip_lines=3;
 			}
 		}
 		else if ob_event.event_kind=ref_event_evolution {

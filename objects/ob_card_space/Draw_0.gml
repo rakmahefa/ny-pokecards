@@ -48,25 +48,26 @@ else if trash=false {
 				for (var i=0; i<=2; i++;) {
 					imaginary_card_cost[i]=sc_card_cost_map(occupy_id.card_cost_total+1,occupy_id.card_enigma,occupy_id.card_type_a,occupy_id.card_type_b,i);
 				}
-				//normal, grass, fire, water, flying
-				if imaginary_card_cost[occupy_id.card_cost_total]=00 or imaginary_card_cost[occupy_id.card_cost_total]=01 or
-				imaginary_card_cost[occupy_id.card_cost_total]=02 or imaginary_card_cost[occupy_id.card_cost_total]=03 or imaginary_card_cost[occupy_id.card_cost_total]=05 {
+				var new_card_cost=imaginary_card_cost[occupy_id.card_cost_total], var_card_id=occupy_id.card_id;
+				//normal (I), water, (flying), fighting, ice, dragon, steel
+				//+ igglybuff, porygon2, blissey, azurill, happiny, munchlax, lickilicky, porygon-z
+				if (new_card_cost=00 and
+				(var_card_id<=151 or var_card_id=174 or var_card_id=233 or var_card_id=242 or var_card_id=298 or var_card_id=440 or var_card_id=446 or var_card_id=463 or var_card_id=474)) or
+				new_card_cost=03 or new_card_cost=05 or new_card_cost=06 or new_card_cost=13 or new_card_cost=14 or new_card_cost=15 {
 					var new_cost_text="Oran Berry";
 				}
-				//psychic, fairy, bug, poison, ghost, dark
-				else if imaginary_card_cost[occupy_id.card_cost_total]=07 or imaginary_card_cost[occupy_id.card_cost_total]=08 or
-				imaginary_card_cost[occupy_id.card_cost_total]=11 or imaginary_card_cost[occupy_id.card_cost_total]=12 or
-				imaginary_card_cost[occupy_id.card_cost_total]=16 or imaginary_card_cost[occupy_id.card_cost_total]=17 {
+				//normal (II), fire, psychic, fairy, ground, rock, ghost, dark
+				//+ ambipom
+				else if (new_card_cost=00 and (var_card_id<=251 or var_card_id=424)) or
+				new_card_cost=02 or new_card_cost=07 or new_card_cost=08 or new_card_cost=09 or new_card_cost=10 or new_card_cost=16 or new_card_cost=17 {
 					var new_cost_text="Leppa Berry";
 				}
-				//electric, fighting, ground, rock, ice, dragon, steel
-				else if imaginary_card_cost[occupy_id.card_cost_total]=04 or imaginary_card_cost[occupy_id.card_cost_total]=06 or
-				imaginary_card_cost[occupy_id.card_cost_total]=09 or imaginary_card_cost[occupy_id.card_cost_total]=10 or imaginary_card_cost[occupy_id.card_cost_total]=13 or
-				imaginary_card_cost[occupy_id.card_cost_total]=14 or imaginary_card_cost[occupy_id.card_cost_total]=15 {
+				//normal (III/IV), grass, electric, bug, poison
+				else if (new_card_cost=00 and var_card_id<=493) or new_card_cost=01 or new_card_cost=04 or new_card_cost=11 or new_card_cost=12 {
 					var new_cost_text="Lum Berry";
 				}
 				//enigma
-				else if imaginary_card_cost[occupy_id.card_cost_total]=20 {
+				else if new_card_cost=20 {
 					var new_cost_text="Enigma Berry";
 				}
 				//
