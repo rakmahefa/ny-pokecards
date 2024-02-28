@@ -684,6 +684,7 @@ else if event_transition>-1 and fade_black>=1 {
 		money_prize=0;
 		fade_black_exit=0;
 		type_chart=false;
+		mist_exists=false;
 		//
 		if playing_tutorial=true {
 			sc_textbox(22);

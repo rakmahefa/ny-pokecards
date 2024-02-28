@@ -164,11 +164,12 @@ if card_cat=0 {
 		//————————————————————————————————————————————————————————————————————————————————————————————————————
 		sc_pokelist();
 		//————————————————————————————————————————————————————————————————————————————————————————————————————
-		// SAVE COMPATIBILITY (v1.3.0.1) + (v1.5.0.0)
+		// SAVE COMPATIBILITY (v1.3.0.1) + (v1.5.0.0) + (v2.0.0.0)
 		if random_card=false {
 			if (card_id=109 or card_id=110) and card_glyph_a>=glyph_common_amount { card_glyph_a=ref_glyph_mist; } //koffing, weezing
 			else if card_id=132 and card_glyph_a!=ref_glyph_imposter { card_glyph_a=ref_glyph_imposter; } //ditto
-			else if (card_id=235 or card_id=352) and card_glyph_a!=ref_glyph_palette { card_glyph_a=ref_glyph_palette; } //smeargle, kecleon
+			else if card_id=231 and card_glyph_a!=ref_glyph_mindful { card_glyph_a=ref_glyph_mindful; } //phanpy
+			else if card_id=235 and card_glyph_a!=ref_glyph_palette { card_glyph_a=ref_glyph_palette; } //smeargle
 		}
 		//————————————————————————————————————————————————————————————————————————————————————————————————————
 		if random_card=true or card_glyph_a=-2 or card_glyph_b=-2 or card_glyph_c=-2 {
@@ -176,18 +177,25 @@ if card_cat=0 {
 			if card_glyph_b=-2 { card_glyph_b=-1; }
 			if card_glyph_c=-2 { card_glyph_c=-1; }
 			//
-			if card_id=109 or card_id=110 { card_glyph_a=choose(-1,ref_glyph_mist); } //koffing, weezing
+			if card_id=109 or card_id=110 { card_glyph_a=choose(-1,ref_glyph_mist); } //koffing, weezing (currently, sc_glyph_check and ob_main.mist_exists only check for slot A, for optimization)
 			else if card_id=132 { card_glyph_a=ref_glyph_imposter; } //ditto
 			else if card_id=235 or card_id=352 { card_glyph_a=ref_glyph_palette; } //smeargle, kecleon
 			else if card_id=287 or card_id=288 or card_id=289 or card_id=486 { card_glyph_a=ref_glyph_setback; } //slakoth, vigoroth, slaking, regigigas
-			else if card_id=298 or card_id=183 or card_id=184 { card_glyph_a=choose(-1,ref_glyph_might); } //azurill, marill, azumarill
+			else if card_id=298 or card_id=183 or card_id=184 or card_id=175 or card_id=176 or card_id=468 or card_id=222 or card_id=223 or card_id=225 or card_id=137 or card_id=233 or card_id=474 {
+				card_glyph_a=choose(-1,ref_glyph_might); } //azurill, marill, azumarill, togepi, togetic, togekiss, corsola, remoraid (not octillery), delibird, porygon, porygon2, porygon-z
 			else if card_id=307 or card_id=308 { card_glyph_a=ref_glyph_might; } //meditite, medicham
 			else if card_id=292 { card_glyph_a=ref_glyph_aegis; } //shedinja
 			else if card_id=311 { card_glyph_a=ref_glyph_magnetism_p; } //plusle
 			else if card_id=312 { card_glyph_a=ref_glyph_magnetism_m; } //minun
 			else if card_id=420 or card_id=421 { card_glyph_a=ref_glyph_sunlight; } //cherubi, cherrim
-			else if card_id=052 or card_id=190 or card_id=216 or card_id=231 or card_id=263 or card_id=264 or card_id=417 or card_id=424 or card_id=446 {
-				card_glyph_a=choose(-1,ref_glyph_mindful); } //meowth, aipom, teddiursa, phanpy, zigzagoon, linoone, pachirisu, ambipom, munchlax
+			else if card_id=052 or card_id=190 or card_id=216 or card_id=263 or card_id=264 or card_id=417 or card_id=424 or card_id=446 {
+				card_glyph_a=choose(-1,ref_glyph_mindful); } //meowth, aipom, teddiursa, zigzagoon, linoone, pachirisu, ambipom, munchlax
+			else if card_id=231 { card_glyph_a=ref_glyph_mindful; } //phanpy (not donphan)
+			else if card_id=023 or card_id=024 or card_id=058 or card_id=059 or card_id=128 or card_id=130 or card_id=209 or card_id=210 or card_id=234 or card_id=237 or
+			card_id=262 or card_id=284 or card_id=303 or card_id=373 or card_id=397 or card_id=398 or card_id=403 or card_id=404 or card_id=405 {
+				card_glyph_a=choose(-1,ref_glyph_intimidate); }
+				//ekans, arbok, growlithe, arcanine, tauros, gyarados (not magikarp), snubbull, granbull, stantler, hitmontop (not tyrogue), mightyena (not poochyena),
+				//masquerain (not surskit), mawile, salamence (not bagon/shelgon), staravia (not starly), staraptor, shinx, luxio, luxray
 			//
 			if enemy_randomizer=false {
 				var card_glyph_chance=irandom(999), card_glyph_total=0;
@@ -339,6 +347,8 @@ if card_cat=0 {
 	if card_glyph_a>=glyph_common_amount or card_glyph_b>=glyph_common_amount or card_glyph_c>=glyph_common_amount { any_natural_glyph=true; }
 	if card_glyph_a=ref_glyph_magnetism_p or card_glyph_b=ref_glyph_magnetism_p or card_glyph_c=ref_glyph_magnetism_p or
 	card_glyph_a=ref_glyph_magnetism_m or card_glyph_b=ref_glyph_magnetism_m or card_glyph_c=ref_glyph_magnetism_m { any_paired_glyph=true; }
+	//
+	if reference_id=ob_control and (card_glyph_a=ref_glyph_mist /*or card_glyph_b=ref_glyph_mist or card_glyph_c=ref_glyph_mist*/) { ob_main.mist_exists=true; }
 }
 //————————————————————————————————————————————————————————————————————————————————————————————————————
 else if card_cat=1 {

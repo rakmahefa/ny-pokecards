@@ -35,6 +35,7 @@ if argument1=false {
 		case ref_glyph_magnetism_m: return "// MAGNETISM //\nRaises attack by 2 if Plusle is also played."; break;
 		case ref_glyph_sunlight: return "// SUNLIGHT //\nRaises attack and defense by 1 when HP is full."; break;
 		case ref_glyph_mindful: return "// MINDFUL //\nGrants 1 DP (Draw Points) when played."; break;
+		case ref_glyph_intimidate: return "// INTIMIDATE //\nThe opposing card's attack is lowered by 1."; break;
 	}
 }
 else {

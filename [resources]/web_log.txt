@@ -8,7 +8,8 @@
 - Extra berry costs are now consistent: no more mixed berries (except for Legendary/Mythical cards with Glyphs).
 - Added new Glyph: "Motivation" (raises attack and defense by 2 when HP is full).
 - "Debilitate" Glyph now lowers attack by 2 (up from 1).
-- Added 6 new card-specific Glyphs ("Setback", "Might", "Aegis", "Magnetism", "Sunlight", and "Mindful").
+- Added 7 new card-specific Glyphs ("Setback", "Might", "Aegis", "Magnetism", "Sunlight", "Mindful", and "Intimidate").
+- Card-specific Glyphs now have individual icons.
 - Further raised drop chance for Legendary/Mythical cards.
 - Selling cards is now slightly faster.
 - Added some new secrets.

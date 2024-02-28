@@ -84,6 +84,8 @@ playing_gym=false;
 playing_elite=false;
 playing_champion=false;
 playing_tutorial=false;
+//
+mist_exists=false; //only set when entering battles
 //————————————————————————————————————————————————————————————————————————————————————————————————————
 #macro textbox_total 10
 for (var i=0; i<=textbox_total; i++;) { //<= so that an extra empty one is created
@@ -211,6 +213,7 @@ tooltip_lines=0;
 #macro ref_glyph_magnetism_m 107
 #macro ref_glyph_sunlight 108
 #macro ref_glyph_mindful 109
+#macro ref_glyph_intimidate 110
 //————————————————————————————————————————————————————————————————————————————————————————————————————
 #macro options_total 12
 #macro playericon_max 15

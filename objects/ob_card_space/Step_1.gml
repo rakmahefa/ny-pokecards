@@ -37,6 +37,14 @@ if instance_exists(ob_control) {
 		card_penalty_atk+=2;
 	}
 	//
+	//glyph: intimidate
+	if (space_slot>=0 and space_slot<=4 and ob_control.card_space_id[space_slot+5].occupy_id!=-1 and
+	sc_glyph_check(ob_control.card_space_id[space_slot+5].occupy_id,ref_glyph_intimidate,true)) or
+	(space_slot>=5 and space_slot<=9 and ob_control.card_space_id[space_slot-5].occupy_id!=-1 and
+	sc_glyph_check(ob_control.card_space_id[space_slot-5].occupy_id,ref_glyph_intimidate,true)) {
+		card_penalty_atk+=1;
+	}
+	//
 	//glyph: ruthless
 	if (space_slot>=0 and space_slot<=4 and ob_control.card_space_id[space_slot+5].occupy_id!=-1 and
 	sc_glyph_check(ob_control.card_space_id[space_slot+5].occupy_id,ref_glyph_ruthless,true)) or

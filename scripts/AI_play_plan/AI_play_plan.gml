@@ -103,8 +103,9 @@ do {
 					}
 					//
 					var imaginary_penalty_atk=0, imaginary_penalty_def=0;
-					if sc_glyph_check(enemycard_hand[i],ref_glyph_debilitate,true) { imaginary_penalty_atk=2; } //glyph: debilitate
-					if sc_glyph_check(enemycard_hand[i],ref_glyph_ruthless,true) { imaginary_penalty_def=2; } //glyph: ruthless
+					if sc_glyph_check(enemycard_hand[i],ref_glyph_debilitate,true) { imaginary_penalty_atk+=2; } //glyph: debilitate
+					if sc_glyph_check(enemycard_hand[i],ref_glyph_intimidate,true) { imaginary_penalty_atk+=1; } //glyph: intimidate
+					if sc_glyph_check(enemycard_hand[i],ref_glyph_ruthless,true) { imaginary_penalty_def+=2; } //glyph: ruthless
 					//
 					var vs_atk=opposing_card_id.card_atk-imaginary_penalty_atk;
 					var vs_def=opposing_card_id.card_def-imaginary_penalty_def;

@@ -2155,7 +2155,7 @@ switch (card_id) {
 		card_grid_x=9; card_grid_y=33; break;
 	case 351:
 		card_name="Castform";
-		card_stage=1;
+		card_stage=1; //card_form_value values referenced manually in ob_event when changing form
 		card_type_b=-1;
 		card_base_hp=70; card_base_atk=70+70; card_base_def=70+70;
 		if card_form_value<250 { card_type_a=00; card_grid_x=10; card_grid_y=33; } //castform
@@ -2369,7 +2369,7 @@ switch (card_id) {
 		card_grid_x=1; card_grid_y=37; break;
 	case 386:
 		card_name="Deoxys";
-		card_stage=1; card_enigma=true;
+		card_stage=1; card_enigma=true; //card_form_value values referenced manually in ob_event when changing form
 		card_type_a=07; card_type_b=-1;
 		if card_form_value<250 { //normal forme
 			card_base_hp=50; card_base_atk=150+150; card_base_def=50+50;
@@ -2964,7 +2964,7 @@ switch (card_id) {
 		card_grid_x=4; card_grid_y=8; break;
 	case 479:
 		card_name="Rotom";
-		card_stage=1;
+		card_stage=1; //card_form_value values referenced manually in ob_event when changing form
 		card_type_a=04;
 		if card_form_value<175 { //rotom
 			card_type_b=16;
@@ -3032,7 +3032,7 @@ switch (card_id) {
 		card_grid_x=3; card_grid_y=9; break;
 	case 487:
 		card_name="Giratina";
-		card_stage=1; card_enigma=true;
+		card_stage=1; card_enigma=true; //card_form_value values referenced manually in ob_event when changing form
 		card_type_a=16; card_type_b=14;
 		if card_form_value<500 { //altered forme
 			card_base_hp=150; card_base_atk=100+100; card_base_def=120+120;
@@ -3067,7 +3067,7 @@ switch (card_id) {
 		card_grid_x=9; card_grid_y=9; break;
 	case 492:
 		card_name="Shaymin";
-		card_stage=1; card_enigma=true;
+		card_stage=1; card_enigma=true; //card_form_value values referenced manually in ob_event when changing form
 		card_type_a=01;
 		if card_form_value<500 { //land forme
 			card_type_b=-1;
