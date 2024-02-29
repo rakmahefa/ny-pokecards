@@ -189,8 +189,9 @@ if roadmap_generated=false {
 		trainer_skin[i]=floor(irandom(8)/8);
 		trainer_hair_color[i]=make_colour_rgb(irandom_range(140,240),irandom_range(140,240),irandom_range(140,240));
 		//
-		var ace_trainer_chance=irandom(9);
+		var ace_trainer_chance=irandom(9), whisperer_chance=irandom(49);
 		if ace_trainer_chance=0 { trainer_kind[i]=100; } //ACE TRAINER (10%)
+		else if whisperer_chance=0 { trainer_kind[i]=150; } //WHISPERER (2%)
 		else {
 			switch (location_type[i]) {
 				//forest: CAMPER/PICNICKER, FISHER, BUG CATCHER, BIRD KEEPER, YOUNGSTER, LAD/LASS, AROMA MAN/AROMA LADY, RANGER
@@ -405,6 +406,7 @@ if roadmap_get_details=true {
 				else if (trainer_sprite[i] mod 2)=1 { trainer_name[i]="Aroma Lady"; } break;
 			case 25: trainer_name[i]="Ranger"; break;
 			case 100: trainer_name[i]="Ace Trainer"; break;
+			case 150: trainer_name[i]="Whisperer"; break;
 			//
 			case 101: trainer_name[i]="Prof. Aspen"; break;
 			case 200: trainer_name[i]="Ian"; break;

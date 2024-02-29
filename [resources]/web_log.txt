@@ -1,3 +1,7 @@
+[v2.0.1.0] - February 28, 2024
+
+- Added a new kind of rare trainer battle, "Whisperer". These trainers use your own deck against you.
+
 [v2.0.0.0] - February 27, 2024
 
 - Added Generations 3 & 4.

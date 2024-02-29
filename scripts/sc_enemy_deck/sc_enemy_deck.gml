@@ -226,6 +226,19 @@ else if argument0=101 { //TUTORIAL (PROF. ASPEN)
 	}
 }
 //————————————————————————————————————————————————————————————————————————————————————————————————————
+else if argument0=150 { //WHISPERER (number also referenced in sc_enemy_berry_deck)
+	enemycard_maindeck_total=card_maindeck_total;
+	//
+	for (var i=0; i<=17; i++;) {
+		enemy_type_chance[i]=100;
+	}
+	//
+	for (var i=0; i<enemycard_maindeck_total; i++;) {
+		var copy_card=card_maindeck[i];
+		sc_enemy_deck_addcard(i,copy_card.card_id,copy_card.card_level,copy_card.card_glyph_a,copy_card.card_glyph_b,copy_card.card_glyph_c,copy_card.card_innate,copy_card.card_form_value);
+	}
+}
+//————————————————————————————————————————————————————————————————————————————————————————————————————
 //GYM & LEAGUE TYPE CHANCE
 //main type: 100% (if very few pokemon, make all others even lower)
 //secondary types: 50% (75% if very few pokemon)
