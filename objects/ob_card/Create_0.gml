@@ -71,15 +71,15 @@ if card_cat=0 {
 				card_id=irandom_range(1,normal_poke_id_max);
 				card_innate=1;
 				//
-				if random_group_chance<231 { choose_id_enigma=true; } //0.3% enigma
-				else if random_group_chance<481 { choose_id_stage_2=true; } //2.5% stage 2
-				else if random_group_chance<531 { choose_id_stage_3=true; } //0.5% stage 3
-				else { choose_id_normal=true; } //94.69% stage 1 or baby
+				if random_group_chance<226 { choose_id_enigma=true; } //0.25% enigma
+				else if random_group_chance<476 { choose_id_stage_2=true; } //2.5% stage 2
+				else if random_group_chance<526 { choose_id_stage_3=true; } //0.5% stage 3
+				else { choose_id_normal=true; } //94.74% stage 1 or baby
 				//
 				var random_id_chance=irandom(99); if random_id_chance<50 { allow_id_pseudo=true; } //50% pseudo allowed
 				var random_id_chance=irandom(99); if random_id_chance<75 { allow_id_fossil=true; } //75% fossil allowed
 				var random_id_chance=irandom(99); if random_id_chance<25 { allow_id_starter=true; } //25% starter allowed
-				var random_id_chance=irandom(99); if random_id_chance<25 { allow_id_baby=true; } //25% baby allowed
+				var random_id_chance=irandom(99); if random_id_chance<30 { allow_id_baby=true; } //30% baby allowed
 			}
 			//
 			card_level=irandom_range(ob_main.card_level_spawn_min,ob_main.card_level_spawn_limit);
@@ -127,7 +127,7 @@ if card_cat=0 {
 				var random_id_chance=irandom(99); if random_id_chance<90 { allow_id_pseudo=true; } //90% pseudo allowed
 				var random_id_chance=irandom(99); if random_id_chance<90 { allow_id_fossil=true; } //90% fossil allowed
 				var random_id_chance=irandom(99); if random_id_chance<75 { allow_id_starter=true; } //75% starter allowed
-				var random_id_chance=irandom(99); if random_id_chance<25 { allow_id_baby=true; } //25% baby allowed
+				var random_id_chance=irandom(99); if random_id_chance<20 { allow_id_baby=true; } //20% baby allowed
 			}
 			//
 			if reference_id.create_card_level=-1 {
@@ -214,13 +214,17 @@ if card_cat=0 {
 			else {
 				var card_glyph_chance=irandom(9999), card_glyph_total=0;
 				if card_environment=true {
-					if ob_main.playing_gym=true or ob_main.playing_elite=true or ob_main.playing_champion=true {
-						var card_glyph_chance_limit=2800+900*ob_main.area_zone; } //28%, 37%, 46%, 55%, 64%, 73%, 82%, 91%, (100%)
+					if ob_main.stats_league_won=0 and (ob_main.playing_gym=true or ob_main.playing_elite=true or ob_main.playing_champion=true) {
+						var card_glyph_chance_limit=3000+875*ob_main.area_zone; } //30%, 38.75%, 47.5%, 56.25%, 65%, 73.75%, 82.5%, 91.25%, (100%)
+					else if ob_main.stats_league_won>0 and (ob_main.playing_gym=true or ob_main.playing_elite=true or ob_main.playing_champion=true) {
+						var card_glyph_chance_limit=10000; } //100%
 					else {
 						var card_glyph_chance_limit=2500+625*ob_main.area_zone; } //25%, 31.25%, 37.5%, 43.75%, 50%, 56.25%, 62.5%, 68.75%, (75%)
 				}
-				else if ob_main.playing_gym=true or ob_main.playing_elite=true or ob_main.playing_champion=true {
+				else if ob_main.stats_league_won=0 and (ob_main.playing_gym=true or ob_main.playing_elite=true or ob_main.playing_champion=true) {
 					var card_glyph_chance_limit=1500+225*ob_main.area_zone; } //15%, 17.25%, 19.5%, 21.75%, 24%, 26.25%, 28.5%, 30.75%, (33%)
+				else if ob_main.stats_league_won>0 and (ob_main.playing_gym=true or ob_main.playing_elite=true or ob_main.playing_champion=true) {
+					var card_glyph_chance_limit=3300; } //33%
 				else { var card_glyph_chance_limit=980+190*ob_main.area_zone; } //9.8%, 11.7%, 13.6%, 15.5%, 17.4%, 19.3%, 21.2%, 23.1%, (25%)
 				//
 				if card_glyph_chance<card_glyph_chance_limit {
@@ -280,7 +284,7 @@ if card_cat=0 {
 				else if ob_main.playing_gym=true or ob_main.playing_elite=true {
 					var card_rarity_chance_max=225; //about +50% to increase chance for stronger pokemon
 					card_rarity_soft_min=42+ob_main.area_zone*4; //42-74, about 200-300 base stat total (201.64-302.76)
-					if ob_main.area_zone=0 { card_rarity_soft_max=81; } //about 330 base stat total (327.61)
+					if ob_main.area_zone=0 and ob_main.stats_league_won=0 { card_rarity_soft_max=81; } //about 330 base stat total (327.61)
 					card_rarity_chance=irandom(card_rarity_chance_max-1)+1;
 				}
 				else {
@@ -358,7 +362,7 @@ else if card_cat=1 {
 	if random_card=true {
 		var card_berry_chance=irandom(99);
 		if card_berry_chance<85 { card_id=choose(3000,3001,3002); }
-		else { card_id=3003; } //15% (keep in mind number of extra enigma berries in enemy decks in sc_enemy_berry_deck)
+		else { card_id=3003; } //15%
 	}
 	//
 	switch (card_id) {

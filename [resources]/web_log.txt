@@ -1,3 +1,11 @@
+[v2.1.0.0] - March 3, 2024
+
+- Added Gym and League rematches.
+- Further modified all trainer decks slightly.
+- Some other minor improvements.
+
+——————————
+
 [v2.0.1.0] - February 28, 2024
 
 - Added a new kind of rare trainer battle, "Whisperer". These trainers use your own deck against you.

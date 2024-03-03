@@ -468,13 +468,19 @@ if roadmap_get_details=true {
 				if latest_zone=area_zone { var reward_text="$" + string(money_prize_badge); }
 				else { var reward_text="$" + string(money_prize_min) + "-$" + string(money_prize_max); }
 				//
-				event_description[ii][i]="// " + string_upper(trainer_name[i]) + " //\nMinimum deck size: " + string(maindeck_size_min) + " cards" +
-				"\nBattle HP: " + string(battle_hp[area_zone+1]*2) + " (" + string(battle_hp[area_zone+1]) + "/" + string(battle_hp[area_zone+1]) + ")" +
+				if ob_main.stats_league_won=0 { var var_hp_area=area_zone+1, rematch_text=""; }
+				else { var var_hp_area=9, rematch_text=" (REMATCH)"; }
+				//
+				event_description[ii][i]="// " + string_upper(trainer_name[i]) + rematch_text + " //\nMinimum deck size: " + string(maindeck_size_min) + " cards" +
+				"\nBattle HP: " + string(battle_hp[var_hp_area]*2) + " (" + string(battle_hp[var_hp_area]) + "/" + string(battle_hp[var_hp_area]) + ")" +
 				"\nReward: " + reward_text;
 				event_description_lines[ii][i]=4;
 			}
 			else if event_kind[ii][i]=ref_event_championbattle {
-				event_description[ii][i]="// " + string_upper(trainer_name[i]) + " //\nMinimum deck size: " + string(maindeck_size_min) + " cards" +
+				if ob_main.stats_league_won=0 { var rematch_text=""; }
+				else { var rematch_text=" (REMATCH)"; }
+				//
+				event_description[ii][i]="// " + string_upper(trainer_name[i]) + rematch_text + " //\nMinimum deck size: " + string(maindeck_size_min) + " cards" +
 				"\nBattle HP: " + string(battle_hp[area_zone+1]*2) + " (" + string(battle_hp[area_zone+1]) + "/" + string(battle_hp[area_zone+1]) + ")";
 				event_description_lines[ii][i]=3;
 			}
@@ -1034,7 +1040,7 @@ repeat (options_total) {
 				else { option_state[i]=false; }
 			}
 			else if i=opt_challenge {
-				if area_zone=0 and zone_first_lap=true and roadmap_area=0 {
+				if area_zone=0 and zone_first_lap=true and roadmap_area=0 { //same conditions for drawing initial challenge message
 					if mouse_check_button_pressed(mb_left) {
 						option_state[i]++;
 						if option_state[i]>3 { option_state[i]=0; }

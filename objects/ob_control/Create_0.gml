@@ -256,7 +256,8 @@ tutorial_textbox_line_attacked_seen=false;
 //
 if ob_main.playing_tutorial=true { hp_max=ob_main.battle_hp[0]; }
 else if ob_main.playing_gym=false and ob_main.playing_elite=false and ob_main.playing_champion=false { hp_max=ob_main.battle_hp[ob_main.area_zone]; }
-else { hp_max=ob_main.battle_hp[ob_main.area_zone+1]; }
+else if ob_main.stats_league_won=0 { hp_max=ob_main.battle_hp[ob_main.area_zone+1]; }
+else { hp_max=ob_main.battle_hp[9]; }
 //
 player_hp=hp_max;
 enemy_hp=hp_max;

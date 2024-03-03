@@ -189,6 +189,16 @@ if !instance_exists(ob_control) and !instance_exists(ob_event) and !instance_exi
 	// TOOLTIP
 	//————————————————————————————————————————————————————————————————————————————————————————————————————
 	sc_draw_tooltip_text(camera_get_view_x(view_camera[0])+cam_w);
+	//————————————————————————————————————————————————————————————————————————————————————————————————————
+	// CHALLENGE MESSAGE
+	//————————————————————————————————————————————————————————————————————————————————————————————————————
+	if area_zone=0 and zone_first_lap=true and roadmap_area=0 { //same conditions for setting challenge mode
+		draw_set_font(fn_matchup);
+		draw_set_halign(fa_center);
+		//
+		sc_drawtext(screen_main_x+256,screen_main_y+9,"Challenges can only be set before picking a Starter Deck.\nIf you want to set a challenge, go to the Options menu.",
+		global.color_white,global.color_black,0.6,0.5,0,-1);
+	}
 }
 //————————————————————————————————————————————————————————————————————————————————————————————————————
 if type_chart=true {

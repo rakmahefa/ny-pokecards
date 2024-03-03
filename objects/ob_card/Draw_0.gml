@@ -67,17 +67,33 @@ if card_cat=0 and card_face=true and in_view=true {
 	if card_shiny=true { draw_sprite_general(sp_sheet,0,16*3,16*1,7,6,draw_x+25,draw_y+33,1,1,0,c_white,c_white,c_white,c_white,1); }
 	//
 	//SPRITE
-	var secret_sprite=0;
+	var secret_sprite_x=0, secret_sprite_y=0;
 	if card_nickname!="" {
-		if string_lower(card_nickname)="moody" and card_id=447 { secret_sprite=1; } //riolu
-		else if string_lower(card_nickname)="moody" and card_id=448 { secret_sprite=2; } //lucario
-		else if card_nickname="176861" and card_id=035 { secret_sprite=3; } //clefairy
-		else if card_nickname="977194" and card_id=158 { secret_sprite=4; } //totodile
-		else if string_lower(card_nickname)="sapporo" and card_id=250 { secret_sprite=5; } //ho-oh
+		if string_lower(card_nickname)="moody" and card_id=447 { secret_sprite_x=1; secret_sprite_y=13; } //riolu
+		else if string_lower(card_nickname)="moody" and card_id=448 { secret_sprite_x=2; secret_sprite_y=13; } //lucario
+		else if card_nickname="176861" and card_id=035 { secret_sprite_x=3; secret_sprite_y=13;  } //clefairy
+		else if card_nickname="977194" and card_id=158 { secret_sprite_x=4; secret_sprite_y=13;  } //totodile
+		else if string_lower(card_nickname)="sapporo" and card_id=250 { secret_sprite_x=5; secret_sprite_y=13;  } //ho-oh
+		else if string_lower(card_nickname)="daffy" and card_id=197 { secret_sprite_x=1; secret_sprite_y=12; } //umbreon
+		else if (string_lower(card_nickname)="side b" or string_lower(card_nickname)="sideb") and card_id=403 { secret_sprite_x=2; secret_sprite_y=12; } //shinx
+		else if string_lower(card_nickname)="yuki" and card_id=151 { secret_sprite_x=3; secret_sprite_y=12; } //mew
+		else if string_lower(card_nickname)="sunset" and card_id=448 { secret_sprite_x=4; secret_sprite_y=12; } //lucario
+		else if string_lower(card_nickname)="harley" and card_id=133 { secret_sprite_x=5; secret_sprite_y=12; } //eevee
+		else if string_lower(card_nickname)="north" and card_id=445 { secret_sprite_x=6; secret_sprite_y=12; } //garchomp
+		else if string_lower(card_nickname)="cupid" and card_id=135 { secret_sprite_x=7; secret_sprite_y=12; } //jolteon
+		else if (string_lower(card_nickname)="night" or string_lower(card_nickname)="nightcore") and card_id=059 { secret_sprite_x=8; secret_sprite_y=12; } //arcanine
+		else if string_lower(card_nickname)="ace" and card_id=448 { secret_sprite_x=9; secret_sprite_y=12; } //lucario
+		else if (string_lower(card_nickname)="mr wolf" or string_lower(card_nickname)="mrwolf") and card_id=448 { secret_sprite_x=10; secret_sprite_y=12; } //lucario
+		else if string_lower(card_nickname)="jessico" and card_id=162 { secret_sprite_x=11; secret_sprite_y=12; } //furret
+		else if (string_lower(card_nickname)="kotaro" or string_lower(card_nickname)="kota") and card_id=150 { secret_sprite_x=12; secret_sprite_y=12; } //mewtwo
+		else if string_lower(card_nickname)="seagull" and card_id=282 { secret_sprite_x=1; secret_sprite_y=11; } //gardevoir
+		else if string_lower(card_nickname)="knight" and card_id=134 { secret_sprite_x=2; secret_sprite_y=11; } //vaporeon
+		else if string_lower(card_nickname)="milachu" and card_id=025 { secret_sprite_x=3; secret_sprite_y=11; } //pikachu
+		else if string_lower(card_nickname)="solar" and card_id=157 { secret_sprite_x=4; secret_sprite_y=11; } //typhlosion
 	}
 	//
-	if secret_sprite=0 { draw_sprite_general(card_sheet,0,65*(card_grid_x-1)+1,33*(card_grid_y-1)+1,64,32,draw_x-4,draw_y+3,1,1,0,c_white,c_white,c_white,c_white,1); }
-	else if secret_sprite>0 { draw_sprite_general(sp_poke_c,0,65*(secret_sprite-1)+1,33*(13-1)+1,64,32,draw_x-4,draw_y+3,1,1,0,c_white,c_white,c_white,c_white,1); }
+	if secret_sprite_x=0 { draw_sprite_general(card_sheet,0,65*(card_grid_x-1)+1,33*(card_grid_y-1)+1,64,32,draw_x-4,draw_y+3,1,1,0,c_white,c_white,c_white,c_white,1); }
+	else if secret_sprite_x>0 { draw_sprite_general(sp_poke_c,0,65*(secret_sprite_x-1)+1,33*(secret_sprite_y-1)+1,64,32,draw_x-4,draw_y+3,1,1,0,c_white,c_white,c_white,c_white,1); }
 	//
 	//TYPES
 	draw_sprite_general(sp_sheet,0,16*(card_type_a+1),16*5,12,11,draw_x+2,draw_y+2,1,1,0,c_white,c_white,c_white,c_white,1);

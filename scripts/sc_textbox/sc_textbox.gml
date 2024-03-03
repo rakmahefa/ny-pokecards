@@ -21,6 +21,9 @@ if argument0<=21 { //tutorial
 		var flying_card="Starly";
 	}
 }
+//
+if ob_main.stats_league_won=0 { var rematch_text=""; }
+else { var rematch_text=" (Rematch)"; }
 //————————————————————————————————————————————————————————————————————————————————————————————————————
 if argument0=0 {
 	ob_main.textbox_string[0]="Welcome to the world of Pokemon cards!";
@@ -101,45 +104,45 @@ else if argument0=29 {
 }
 //————————————————————————————————————————————————————————————————————————————————————————————————————
 else if argument0=30 { //IAN
-	ob_main.textbox_string[0]="GYM LEADER: Ian.\nGYM LOCATION: Iris Town.\nMAIN DECK TYPES: Normal, Flying.";
+	ob_main.textbox_string[0]="GYM LEADER: Ian" + rematch_text + ".\nGYM LOCATION: Iris Town.\nMAIN DECK TYPES: Normal, Flying.";
 	//ob_main.textbox_string[1]="People think normal-type and flying-type Pokemon are weak, but I'm delighted to prove them wrong. Get ready!";
 }
 else if argument0=31 { //CAMMIE
-	ob_main.textbox_string[0]="GYM LEADER: Cammie.\nGYM LOCATION: Camellia City.\nMAIN DECK TYPES: Grass, Ground, Rock.";
+	ob_main.textbox_string[0]="GYM LEADER: Cammie" + rematch_text + ".\nGYM LOCATION: Camellia City.\nMAIN DECK TYPES: Grass, Ground, Rock.";
 }
 else if argument0=32 { //WALKER
-	ob_main.textbox_string[0]="GYM LEADER: Walker.\nGYM LOCATION: Bluestar City.\nMAIN DECK TYPES: Water, Ice.";
+	ob_main.textbox_string[0]="GYM LEADER: Walker" + rematch_text + ".\nGYM LOCATION: Bluestar City.\nMAIN DECK TYPES: Water, Ice.";
 }
 else if argument0=33 { //MADISON
-	ob_main.textbox_string[0]="GYM LEADER: Madison.\nGYM LOCATION: Marigold City.\nMAIN DECK TYPES: Fire, Steel.";
+	ob_main.textbox_string[0]="GYM LEADER: Madison" + rematch_text + ".\nGYM LOCATION: Marigold City.\nMAIN DECK TYPES: Fire, Steel.";
 }
 else if argument0=34 { //ZOE
-	ob_main.textbox_string[0]="GYM LEADER: Zoe.\nGYM LOCATION: Zinnia Town.\nMAIN DECK TYPE: Electric.";
+	ob_main.textbox_string[0]="GYM LEADER: Zoe" + rematch_text + ".\nGYM LOCATION: Zinnia Town.\nMAIN DECK TYPE: Electric.";
 }
 else if argument0=35 { //VINCENT
-	ob_main.textbox_string[0]="GYM LEADER: Vincent.\nGYM LOCATION: Verbena City.\nMAIN DECK TYPES: Fighting, Dark.";
+	ob_main.textbox_string[0]="GYM LEADER: Vincent" + rematch_text + ".\nGYM LOCATION: Verbena City.\nMAIN DECK TYPES: Fighting, Dark.";
 }
 else if argument0=36 { //PENNY
-	ob_main.textbox_string[0]="GYM LEADER: Penny.\nGYM LOCATION: Candytuft City.\nMAIN DECK TYPES: Psychic, Ghost, Fairy.";
+	ob_main.textbox_string[0]="GYM LEADER: Penny" + rematch_text + ".\nGYM LOCATION: Candytuft City.\nMAIN DECK TYPES: Psychic, Ghost, Fairy.";
 }
 else if argument0=37 { //LAKE
-	ob_main.textbox_string[0]="GYM LEADER: Lake.\nGYM LOCATION: Lupine City.\nMAIN DECK TYPES: Grass, Fire, Water.";
+	ob_main.textbox_string[0]="GYM LEADER: Lake" + rematch_text + ".\nGYM LOCATION: Lupine City.\nMAIN DECK TYPES: Grass, Fire, Water.";
 }
 //————————————————————————————————————————————————————————————————————————————————————————————————————
 else if argument0=40 { //EMILY
-	ob_main.textbox_string[0]="KYOUMU ELITE FOUR, BATTLE ONE: Emily.\nThe Blazing Darkness.";
+	ob_main.textbox_string[0]="KYOUMU ELITE FOUR, BATTLE ONE: Emily" + rematch_text + ".\nThe Blazing Darkness.";
 }
 else if argument0=41 { //FINN
-	ob_main.textbox_string[0]="KYOUMU ELITE FOUR, BATTLE TWO: Finn.\nThe Venomous Slayer.";
+	ob_main.textbox_string[0]="KYOUMU ELITE FOUR, BATTLE TWO: Finn" + rematch_text + ".\nThe Venomous Slayer.";
 }
 else if argument0=42 { //DION
-	ob_main.textbox_string[0]="KYOUMU ELITE FOUR, BATTLE THREE: Dion.\nThe Winged Fist.";
+	ob_main.textbox_string[0]="KYOUMU ELITE FOUR, BATTLE THREE: Dion" + rematch_text + ".\nThe Winged Fist.";
 }
 else if argument0=43 { //APRIL
-	ob_main.textbox_string[0]="KYOUMU ELITE FOUR, BATTLE FOUR: April.\nThe Raging Winter.";
+	ob_main.textbox_string[0]="KYOUMU ELITE FOUR, BATTLE FOUR: April" + rematch_text + ".\nThe Raging Winter.";
 }
 else if argument0=44 { //DUNCAN
-	ob_main.textbox_string[0]="KYOUMU CRYSTAL LEAGUE, FINAL BATTLE: Duncan.\nThe Crystal Champion.";
+	ob_main.textbox_string[0]="KYOUMU CRYSTAL LEAGUE, FINAL BATTLE: Duncan" + rematch_text + ".\nThe Crystal Champion.";
 }
 //————————————————————————————————————————————————————————————————————————————————————————————————————
 else if argument0=50 {
