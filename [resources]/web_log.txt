@@ -1,3 +1,8 @@
+[v2.1.1.0] - March 25, 2024
+
+- Added in-battle "always auto-attack" toggle.
+- Fixed minor bug/exploit when holding the "attack with all cards" button.
+
 [v2.1.0.0] - March 3, 2024
 
 - Added Gym and League rematches.

@@ -9,6 +9,7 @@ ds_map_add(savemap,"zone_first_lap",zone_first_lap);
 ds_map_add(savemap,"roadmap_area",roadmap_area);
 ds_map_add(savemap,"roadmap_generated",roadmap_generated);
 ds_map_add(savemap,"money",money);
+ds_map_add(savemap,"autoattack",autoattack_toggle);
 //
 ds_map_add(savemap,"challenge_mode",option_state[opt_challenge]);
 //

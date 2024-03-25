@@ -88,6 +88,10 @@ else { //all other buttons
 				else if button_id=3 {
 					ob_main.type_chart_toggle=true;
 				}
+				else if button_id=5 {
+					if ob_main.autoattack_toggle=false { ob_main.autoattack_toggle=true; }
+					else { ob_main.autoattack_toggle=false; }
+				}
 			}
 			else if instance_exists(ob_event) {
 				if button_id=0 and ob_event.event_cancelled=false and
@@ -181,6 +185,7 @@ else { //all other buttons
 			switch (button_id) {
 				case 01: ob_control.tooltip_text="Sort cards in hand."; break;
 				case 03: ob_control.tooltip_text="Type-advantage chart."; break;
+				case 05: ob_control.tooltip_text="Always auto-attack."; break;
 			}
 			ob_control.tooltip_lines=1;
 		}
