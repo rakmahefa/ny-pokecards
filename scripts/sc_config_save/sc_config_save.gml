@@ -27,7 +27,7 @@ ds_map_add(savemap,"color_char_r",colorsetup_r[opt_c_char]);
 ds_map_add(savemap,"color_char_g",colorsetup_g[opt_c_char]);
 ds_map_add(savemap,"color_char_b",colorsetup_b[opt_c_char]);
 //
-ds_map_secure_save(savemap,config_file);
+ds_map_secure_save(savemap,config_file + file_format);
 ds_map_destroy(savemap);
 //————————————————————————————————————————————————————————————————————————————————————————————————————
 }

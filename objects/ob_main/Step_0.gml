@@ -863,15 +863,23 @@ if !instance_exists(ob_control) and !instance_exists(ob_event) {
 			button_exit_game.button_id=100;
 			button_reset_config=instance_create_layer(screen_options_x+cam_w-40,screen_main_y+4,"instances",ob_button_16x16);
 			button_reset_config.button_id=101;
-			button_delete_data=instance_create_layer(screen_options_x+cam_w-60,screen_main_y+4,"instances",ob_button_16x16);
+			button_delete_data=instance_create_layer(screen_options_x+cam_w-20,screen_main_y+24,"instances",ob_button_16x16);
 			button_delete_data.button_id=102;
 			var button_create;
-			button_create=instance_create_layer(screen_options_x+cam_w-20,screen_main_y+24,"instances",ob_button_16x16);
+			button_create=instance_create_layer(screen_options_x+cam_w-60,screen_main_y+4,"instances",ob_button_16x16);
 			button_create.button_id=103;
-			button_create=instance_create_layer(screen_options_x+cam_w-60,screen_main_y+24,"instances",ob_button_16x16);
+			button_create=instance_create_layer(screen_options_x+cam_w-100,screen_main_y+4,"instances",ob_button_16x16);
 			button_create.button_id=104;
-			button_create=instance_create_layer(screen_options_x+cam_w-40,screen_main_y+24,"instances",ob_button_16x16);
+			button_create=instance_create_layer(screen_options_x+cam_w-80,screen_main_y+4,"instances",ob_button_16x16);
 			button_create.button_id=105;
+			button_switch_data_01=instance_create_layer(screen_options_x+cam_w-100,screen_main_y+24,"instances",ob_button_16x16);
+			button_switch_data_01.button_id=106;
+			button_switch_data_02=instance_create_layer(screen_options_x+cam_w-80,screen_main_y+24,"instances",ob_button_16x16);
+			button_switch_data_02.button_id=107;
+			button_switch_data_03=instance_create_layer(screen_options_x+cam_w-60,screen_main_y+24,"instances",ob_button_16x16);
+			button_switch_data_03.button_id=108;
+			button_switch_data_04=instance_create_layer(screen_options_x+cam_w-40,screen_main_y+24,"instances",ob_button_16x16);
+			button_switch_data_04.button_id=109;
 			screen_transition=0;
 		}
 	}
@@ -910,8 +918,16 @@ if !instance_exists(ob_control) and !instance_exists(ob_event) {
 			button_exit_game=-1;
 			button_reset_config=-1;
 			button_delete_data=-1;
+			button_switch_data_01=-1;
+			button_switch_data_02=-1;
+			button_switch_data_03=-1;
+			button_switch_data_04=-1;
 			fade_black_exit=0;
 			fade_red_delete=0;
+			fade_white_load_01=0;
+			fade_white_load_02=0;
+			fade_white_load_03=0;
+			fade_white_load_04=0;
 			screen_transition=2;
 			//
 			sc_config_save();
@@ -978,7 +994,7 @@ if button_exit_game!=-1 {
 }
 if button_reset_config!=-1 {
 	if button_reset_config.button_state>=1 {
-		if file_exists(config_file) { file_delete(config_file); }
+		if file_exists(config_file + file_format) { file_delete(config_file + file_format); }
 		sc_config_load();
 		sc_config_save();
 		window_center();
@@ -990,7 +1006,39 @@ if button_reset_config!=-1 {
 if button_delete_data!=-1 {
 	if button_delete_data.button_state>=1 {
 		sc_config_save();
-		if file_exists(data_file) { file_delete(data_file); }
+		if file_exists(data_file_prefix + string(savefile_slot) + file_format) { file_delete(data_file_prefix + string(savefile_slot) + file_format); }
+		game_restart();
+	}
+}
+if button_switch_data_01!=-1 {
+	if button_switch_data_01.button_state>=1 {
+		savefile_slot=1;
+		sc_slotnum_save();
+		sc_config_save();
+		game_restart();
+	}
+}
+if button_switch_data_02!=-1 {
+	if button_switch_data_02.button_state>=1 {
+		savefile_slot=2;
+		sc_slotnum_save();
+		sc_config_save();
+		game_restart();
+	}
+}
+if button_switch_data_03!=-1 {
+	if button_switch_data_03.button_state>=1 {
+		savefile_slot=3;
+		sc_slotnum_save();
+		sc_config_save();
+		game_restart();
+	}
+}
+if button_switch_data_04!=-1 {
+	if button_switch_data_04.button_state>=1 {
+		savefile_slot=4;
+		sc_slotnum_save();
+		sc_config_save();
 		game_restart();
 	}
 }

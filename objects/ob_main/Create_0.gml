@@ -63,6 +63,10 @@ event_transition_standby=-1;
 fade_black=0;
 fade_black_exit=0;
 fade_red_delete=0;
+fade_white_load_01=0;
+fade_white_load_02=0;
+fade_white_load_03=0;
+fade_white_load_04=0;
 //
 menu_options_hover=false;
 menu_deck_hover=false;
@@ -298,8 +302,13 @@ repeat (8) {
 	i++;
 }
 //————————————————————————————————————————————————————————————————————————————————————————————————————
-#macro config_file "config.sav"
-#macro data_file "data.sav"
+#macro file_format ".sav"
+#macro config_file "config"
+#macro data_file_prefix "data_0"
+#macro data_file_old "data.sav" // SAVE COMPATIBILITY (v2.2.0.0)
+#macro slot_file "data_slot"
+sc_slotnum_load();
+sc_slotnum_save();
 sc_config_load();
 sc_config_save();
 sc_data_load();
@@ -311,10 +320,15 @@ music_beat_margin=0;
 button_exit_game=-1;
 button_reset_config=-1;
 button_delete_data=-1;
+button_switch_data_01=-1;
+button_switch_data_02=-1;
+button_switch_data_03=-1;
+button_switch_data_04=-1;
 //————————————————————————————————————————————————————————————————————————————————————————————————————
 global.color_white=make_colour_rgb(230,230,230); //same as in ob_load (draw)
 global.color_black=make_colour_rgb(40,40,40); //same as in ob_load (draw)
 global.color_gray=make_colour_rgb(190,190,190);
+global.color_delete_save=make_colour_rgb(50,40,40);
 global.color_card_light=make_colour_rgb(233,230,222);
 global.color_card_mid=make_colour_rgb(205,198,181);
 //global.color_card_gold=make_colour_rgb(226,204,161);

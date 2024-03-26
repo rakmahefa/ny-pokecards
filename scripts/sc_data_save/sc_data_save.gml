@@ -1,5 +1,9 @@
 function sc_data_save() {
 //————————————————————————————————————————————————————————————————————————————————————————————————————
+if compatibility_save_slot=true { // SAVE COMPATIBILITY (v2.2.0.0)
+	if file_exists(data_file_old) { file_delete(data_file_old); }
+}
+//————————————————————————————————————————————————————————————————————————————————————————————————————
 var savemap=ds_map_create();
 //
 ds_map_add(savemap,"area_zone",area_zone);
@@ -119,7 +123,7 @@ ds_map_add(savemap,"stats_evolutions",stats_evolutions);
 ds_map_add(savemap,"stats_tributes",stats_tributes);
 ds_map_add(savemap,"stats_notready",stats_notready);
 //
-ds_map_secure_save(savemap,data_file);
+ds_map_secure_save(savemap,data_file_prefix + string(savefile_slot) + file_format);
 ds_map_destroy(savemap);
 //————————————————————————————————————————————————————————————————————————————————————————————————————
 }

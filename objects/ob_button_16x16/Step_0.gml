@@ -44,7 +44,7 @@ else if instance_exists(ob_control) and button_id=4 { //auto-attack
 	}
 }
 //————————————————————————————————————————————————————————————————————————————————————————————————————
-else if button_id=100 or button_id=102 { //exit game & delete save data
+else if button_id=100 or button_id=102 or button_id=106 or button_id=107 or button_id=108 or button_id=109 { //exit game, delete save data, switch save data
 	if mouse_x>=x and mouse_y>=y+2 and mouse_x<x+sprite_width and mouse_y<y+sprite_height-2 and ob_main.mouse_cursor=0 {
 		ob_main.mouse_cursor=1;
 		//
@@ -53,6 +53,7 @@ else if button_id=100 or button_id=102 { //exit game & delete save data
 			//
 			if button_id=100 { button_state+=0.01; }
 			else if button_id=102 { button_state+=0.008; }
+			else if button_id=106 or button_id=107 or button_id=108 or button_id=109 { button_state+=0.02; }
 		}
 		else { button_state-=0.05; }
 	}
@@ -61,13 +62,22 @@ else if button_id=100 or button_id=102 { //exit game & delete save data
 	if button_state<0 { button_state=0; }
 	if button_id=100 { ob_main.fade_black_exit=button_state; }
 	else if button_id=102 { ob_main.fade_red_delete=button_state; }
+	else if button_id=106 { ob_main.fade_white_load_01=button_state; }
+	else if button_id=107 { ob_main.fade_white_load_02=button_state; }
+	else if button_id=108 { ob_main.fade_white_load_03=button_state; }
+	else if button_id=109 { ob_main.fade_white_load_04=button_state; }
 	//
 	if ob_main.cursor_hide=false and mouse_x>=x and mouse_y>=y+2 and mouse_x<x+sprite_width and mouse_y<y+sprite_height-2 {
 		switch (button_id) {
 			case 100: ob_main.tooltip_text="Exit game (hold)."; break;
-			case 102: ob_main.tooltip_text="Delete all save data (hold)."; break;
+			case 102: ob_main.tooltip_text="Delete current save data (hold).\nCurrent slot: " + string(ob_main.savefile_slot) + "."; break;
+			case 106: ob_main.tooltip_text="Load save data slot 1 (hold).\nCurrent slot: " + string(ob_main.savefile_slot) + "."; break;
+			case 107: ob_main.tooltip_text="Load save data slot 2 (hold).\nCurrent slot: " + string(ob_main.savefile_slot) + "."; break;
+			case 108: ob_main.tooltip_text="Load save data slot 3 (hold).\nCurrent slot: " + string(ob_main.savefile_slot) + "."; break;
+			case 109: ob_main.tooltip_text="Load save data slot 4 (hold).\nCurrent slot: " + string(ob_main.savefile_slot) + "."; break;
 		}
-		ob_main.tooltip_lines=1;
+		if button_id=100 { ob_main.tooltip_lines=1; }
+		else { ob_main.tooltip_lines=2; }
 	}
 }
 //————————————————————————————————————————————————————————————————————————————————————————————————————

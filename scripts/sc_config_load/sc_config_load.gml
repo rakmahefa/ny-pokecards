@@ -41,8 +41,8 @@ colorsetup_r[opt_c_char]=118;
 colorsetup_g[opt_c_char]=145;
 colorsetup_b[opt_c_char]=172;
 //————————————————————————————————————————————————————————————————————————————————————————————————————
-if file_exists(config_file) {
-	var savemap=ds_map_secure_load(config_file);
+if file_exists(config_file + file_format) {
+	var savemap=ds_map_secure_load(config_file + file_format);
 	//
 	if !is_undefined(ds_map_find_value(savemap,"fullscreen")) {
 		option_state[opt_fullscreen]=ds_map_find_value(savemap,"fullscreen");

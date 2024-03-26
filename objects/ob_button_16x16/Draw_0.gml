@@ -49,4 +49,8 @@ else {
 	else if button_id=103 { draw_sprite_general(sp_sheet,0,16*26,16*(7+ceil(button_state)),16,16,x,y,1,1,0,c_white,c_white,c_white,c_white,1); }
 	else if button_id=104 { draw_sprite_general(sp_sheet,0,16*2,16*(8+(ceil(button_state)*2)),16,16,x,y,1,1,0,c_white,c_white,c_white,c_white,1); }
 	else if button_id=105 { draw_sprite_general(sp_sheet,0,16*31,16*(7+ceil(button_state)),16,16,x,y,1,1,0,c_white,c_white,c_white,c_white,1); }
+	else if button_id=106 { draw_sprite_general(sp_sheet,0,16*18,16*(7+ceil(button_state)),16,16,x,y,1,1,0,c_white,c_white,c_white,c_white,1); }
+	else if button_id=107 { draw_sprite_general(sp_sheet,0,16*19,16*(7+ceil(button_state)),16,16,x,y,1,1,0,c_white,c_white,c_white,c_white,1); }
+	else if button_id=108 { draw_sprite_general(sp_sheet,0,16*20,16*(7+ceil(button_state)),16,16,x,y,1,1,0,c_white,c_white,c_white,c_white,1); }
+	else if button_id=109 { draw_sprite_general(sp_sheet,0,16*21,16*(7+ceil(button_state)),16,16,x,y,1,1,0,c_white,c_white,c_white,c_white,1); }
 }

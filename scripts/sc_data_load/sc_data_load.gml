@@ -1,5 +1,13 @@
 function sc_data_load() {
 //————————————————————————————————————————————————————————————————————————————————————————————————————
+var data_file=data_file_prefix + string(savefile_slot) + file_format;
+//
+compatibility_save_slot=false; // SAVE COMPATIBILITY (v2.2.0.0)
+if file_exists(data_file_old) and !file_exists(data_file) {
+	data_file=data_file_old;
+	compatibility_save_slot=true;
+}
+//————————————————————————————————————————————————————————————————————————————————————————————————————
 area_zone=0;
 latest_zone=0;
 latest_city=-1;

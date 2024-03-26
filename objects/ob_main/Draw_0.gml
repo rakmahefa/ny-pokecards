@@ -316,7 +316,19 @@ if fade_black_exit>0 {
 	sc_drawrectangle(-2,-2,room_width+2,room_height+2,global.color_black,c_white,0,fade_black_exit,1,0);
 }
 if fade_red_delete>0 {
-	sc_drawrectangle(-2,-2,room_width+2,room_height+2,global.color_damage,c_white,0,fade_red_delete,1,0);
+	sc_drawrectangle(-2,-2,room_width+2,room_height+2,global.color_delete_save,c_white,0,fade_red_delete,1,0);
+}
+if fade_white_load_01>0 {
+	sc_drawrectangle(-2,-2,room_width+2,room_height+2,global.color_white,c_white,0,fade_white_load_01,1,0);
+}
+if fade_white_load_02>0 {
+	sc_drawrectangle(-2,-2,room_width+2,room_height+2,global.color_white,c_white,0,fade_white_load_02,1,0);
+}
+if fade_white_load_03>0 {
+	sc_drawrectangle(-2,-2,room_width+2,room_height+2,global.color_white,c_white,0,fade_white_load_03,1,0);
+}
+if fade_white_load_04>0 {
+	sc_drawrectangle(-2,-2,room_width+2,room_height+2,global.color_white,c_white,0,fade_white_load_04,1,0);
 }
 //————————————————————————————————————————————————————————————————————————————————————————————————————
 if event_transition=ref_event_victory or event_transition=ref_event_defeat {
