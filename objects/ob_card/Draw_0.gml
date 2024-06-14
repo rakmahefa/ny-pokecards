@@ -86,6 +86,7 @@ if card_cat=0 and card_face=true and in_view=true {
 		else if (string_lower(card_nickname)="mr wolf" or string_lower(card_nickname)="mrwolf") and card_id=448 { secret_sprite_x=10; secret_sprite_y=12; } //lucario
 		else if string_lower(card_nickname)="jessico" and card_id=162 { secret_sprite_x=11; secret_sprite_y=12; } //furret
 		else if (string_lower(card_nickname)="kotaro" or string_lower(card_nickname)="kota") and card_id=150 { secret_sprite_x=12; secret_sprite_y=12; } //mewtwo
+		else if (string_lower(card_nickname)="koby" or string_lower(card_nickname)="kobault" or string_lower(card_nickname)="kris") and card_id=417 { secret_sprite_x=13; secret_sprite_y=12; } //pachirisu
 		else if string_lower(card_nickname)="seagull" and card_id=282 { secret_sprite_x=1; secret_sprite_y=11; } //gardevoir
 		else if string_lower(card_nickname)="knight" and card_id=134 { secret_sprite_x=2; secret_sprite_y=11; } //vaporeon
 		else if string_lower(card_nickname)="milachu" and card_id=025 { secret_sprite_x=3; secret_sprite_y=11; } //pikachu

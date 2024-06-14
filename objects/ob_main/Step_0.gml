@@ -1209,7 +1209,7 @@ repeat (options_total) {
 		}
 		else if option_state[opt_challenge]=ch_resolution_hard {
 			tooltip_text="// ROGUELIKE RESOLUTION //\n" +
-			"Same as Resolution, but your playthrough ends if you lose or stalemate a battle.";
+			"Same as Resolution, but playthrough ends if you lose or stalemate a battle.";
 			tooltip_lines=3;
 		}
 		//

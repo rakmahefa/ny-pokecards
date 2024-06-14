@@ -3103,6 +3103,12 @@ switch (card_id) {
 		card_type_a=01; card_type_b=-1;
 		card_base_hp=75; card_base_atk=43+53; card_base_def=67+67;
 		card_grid_x=3; card_grid_y=1; break;
+	case 2004:
+		card_name="Faunazon";
+		card_stage=1; card_secret=true;
+		card_type_a=01; card_type_b=08;
+		card_base_hp=65; card_base_atk=70+65; card_base_def=70+65;
+		card_grid_x=4; card_grid_y=1; break;
 	//
 	case 2501:
 		card_name="Elm Tree";

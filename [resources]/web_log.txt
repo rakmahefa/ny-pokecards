@@ -1,3 +1,8 @@
+[v2.2.2.0] - June 14, 2024
+
+- Added some new secrets.
+- Some other minor improvements (including bug fixes).
+
 [v2.2.1.0] - June 14, 2024
 
 - Added new Challenge Mode: Roguelike Resolution.

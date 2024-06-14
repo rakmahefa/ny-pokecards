@@ -102,7 +102,7 @@ textbox_timer_max=1;
 textbox_char_pos=0;
 //————————————————————————————————————————————————————————————————————————————————————————————————————
 #macro normal_poke_id_max 493 //normal (non-secret and non-environment) poke cards
-#macro secret_cards_total 3
+#macro secret_cards_total 4
 #macro environment_cards_total 4
 //
 #macro deck_setup_max 5 //0: current (always), 1-5: saved setups
