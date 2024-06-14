@@ -143,6 +143,7 @@ money_payout=0;
 effect_money_error=0;
 event_cost_standby=0;
 event_cost_standby_levelup=0;
+fly_hue=0;
 //
 #macro ref_event_battle 0
 #macro ref_event_payout 1
@@ -238,6 +239,7 @@ tooltip_lines=0;
 #macro ch_resolution 1
 #macro ch_dominance 2
 #macro ch_barrenness 3
+#macro ch_resolution_hard 4
 //
 for (var i=0; i<options_total; i++;) {
 	if i=opt_fullscreen { option_name[i]="Fullscreen: "; }

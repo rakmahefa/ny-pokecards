@@ -35,6 +35,8 @@ else if ending_screen=true and ending_static_timer<=0 and ending_static_timer!=-
 	//ending_screen=false;
 }
 //————————————————————————————————————————————————————————————————————————————————————————————————————
+fly_hue++;
+if fly_hue>255 { fly_hue=0; }
 if effect_money_error>0 { effect_money_error-=0.1; }
 if fade_black<0 { fade_black=0; }
 //
@@ -59,7 +61,7 @@ if !instance_exists(ob_control) and !instance_exists(ob_splash) {
 	}
 }
 //————————————————————————————————————————————————————————————————————————————————————————————————————
-if option_state[opt_challenge]=ch_resolution { roadmap_road_max=roadmap_road_max_resolution; }
+if option_state[opt_challenge]=ch_resolution or option_state[opt_challenge]=ch_resolution_hard { roadmap_road_max=roadmap_road_max_resolution; }
 else { roadmap_road_max=roadmap_road_max_normal; }
 //
 if area_zone=area_zone_max-1 and zone_first_lap=true { roadmap_current_max=roadmap_road_max+roadmap_league_max-1; }
@@ -106,7 +108,7 @@ money_prize_badge=money_badge_base+money_badge_area_bonus*area_zone;
 money_prize_min=round(0.9*(round(power(money_prize_power_base+money_prize_power_area_bonus*area_zone,money_prize_power_n))-money_prize_penalty_multiplier*(latest_zone-area_zone)));
 money_prize_max=round(1.1*(round(power(money_prize_power_base+money_prize_power_area_bonus*area_zone,money_prize_power_n))-money_prize_penalty_multiplier*(latest_zone-area_zone)));
 //
-if option_state[opt_challenge]=ch_resolution {
+if option_state[opt_challenge]=ch_resolution or option_state[opt_challenge]=ch_resolution_hard {
 	money_payout=round(money_payout*2);
 	money_prize_badge=round(money_prize_badge*2);
 	money_prize_min=round(money_prize_min*2);
@@ -716,6 +718,11 @@ else if event_transition>-1 and fade_black>=1 {
 		//
 		if roadmap_area<roadmap_current_max {
 			if area_zone<area_zone_max-1 or roadmap_area<=roadmap_current_max-roadmap_league_max { sc_data_save(); }}
+		//
+		if option_state[opt_challenge]=ch_resolution_hard and event_transition!=ref_event_victory {
+			if file_exists(data_file_prefix + string(savefile_slot) + file_format) { file_delete(data_file_prefix + string(savefile_slot) + file_format); }
+			game_restart();
+		}
 	}
 	else {
 		if !instance_exists(ob_event) {
@@ -762,7 +769,9 @@ else if event_transition=-1 and event_transition_standby=-1 and fade_black<=0 {
 					if maindeck_used_total<maindeck_size_min { event_conditions=false; }
 				}
 				//
-				if event_kind[mouse_in_event][roadmap_area]=ref_event_loop and option_state[opt_challenge]=ch_resolution { event_conditions=false; }
+				if event_kind[mouse_in_event][roadmap_area]=ref_event_loop and (option_state[opt_challenge]=ch_resolution or option_state[opt_challenge]=ch_resolution_hard) {
+					event_conditions=false;
+				}
 				//
 				if event_conditions=true {
 					event_transition_standby=event_kind[mouse_in_event][roadmap_area];
@@ -811,7 +820,7 @@ else if event_transition=-1 and event_transition_standby=-1 and fade_black<=0 {
 		}
 		//
 		else if mouse_in_fly>-1 {
-			if option_state[opt_challenge]!=ch_resolution {
+			if option_state[opt_challenge]!=ch_resolution and option_state[opt_challenge]!=ch_resolution_hard {
 				sc_playsound(sn_event,50,false,false);
 				//
 				event_cost_standby=0;
@@ -1091,11 +1100,11 @@ repeat (options_total) {
 				if area_zone=0 and zone_first_lap=true and roadmap_area=0 { //same conditions for drawing initial challenge message
 					if mouse_check_button_pressed(mb_left) {
 						option_state[i]++;
-						if option_state[i]>3 { option_state[i]=0; }
+						if option_state[i]>4 { option_state[i]=0; }
 					}
 					else if mouse_check_button_pressed(mb_right) {
 						option_state[i]--;
-						if option_state[i]<0 { option_state[i]=3; }
+						if option_state[i]<0 { option_state[i]=4; }
 					}
 					//
 					roadmap_generated=false;
@@ -1166,6 +1175,7 @@ repeat (options_total) {
 		else if option_state[i]=ch_resolution { option_state_text[i]="RESOLUTION"; }
 		else if option_state[i]=ch_dominance { option_state_text[i]="DOMINANCE"; }
 		else if option_state[i]=ch_barrenness { option_state_text[i]="BARRENNESS"; }
+		else if option_state[i]=ch_resolution_hard { option_state_text[i]="ROGUELIKE RESOLUTION"; }
 	}
 	else if i=opt_playericon {
 		option_state_text[i]="   ";
@@ -1195,6 +1205,11 @@ repeat (options_total) {
 		else if option_state[opt_challenge]=ch_barrenness {
 			tooltip_text="// BARRENNESS //\n" +
 			"Can only acquire a total of 30 Berries.";
+			tooltip_lines=3;
+		}
+		else if option_state[opt_challenge]=ch_resolution_hard {
+			tooltip_text="// ROGUELIKE RESOLUTION //\n" +
+			"Same as Resolution, but your playthrough ends if you lose or stalemate a battle.";
 			tooltip_lines=3;
 		}
 		//

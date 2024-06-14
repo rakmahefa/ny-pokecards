@@ -37,8 +37,8 @@ dark	-	5	4	3	> 12	LEPPA
 
 I-II-III-IV
 ORAN	170	normal-I water fighting ice dragon steel
-LEPPA	156	normal-II fire psychic fairy ground rock ghost dark
-LUM	167	normal-III/IV grass electric bug poison
+LEPPA	157	normal-II fire psychic fairy ground rock ghost dark
+LUM	166	normal-III/IV grass electric bug poison
 
 I-II
 ORAN	124	normal grass fire water

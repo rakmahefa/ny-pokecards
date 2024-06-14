@@ -72,10 +72,10 @@ if !instance_exists(ob_control) and !instance_exists(ob_event) and !instance_exi
 	sc_drawtext(road_win_x+120,road_win_y+120,zone_name_text,global.color_card_light,global.color_black,0.6,0.5,0,-1);
 	//
 	if (area_zone<area_zone_max-1 and roadmap_area=roadmap_current_max-1) or (area_zone=area_zone_max-1 and roadmap_area>=roadmap_current_max-roadmap_league_max) {
-		if area_zone>0 { var fly_alpha=0.5; } else { var fly_alpha=0.1; }
-		draw_sprite_general(sp_sheet,0,16*29,16*7,16,16,fly_prev_x,fly_prev_y,1,1,0,c_white,c_white,c_white,c_white,fly_alpha);
-		if area_zone<area_zone_max-1 and latest_zone>area_zone { var fly_alpha=0.5; } else { var fly_alpha=0.1; }
-		draw_sprite_general(sp_sheet,0,16*29,16*8,16,16,fly_next_x,fly_next_y,1,1,0,c_white,c_white,c_white,c_white,fly_alpha);
+		if area_zone>0 { var fly_alpha=0.5, fly_color=make_color_hsv(fly_hue,100,255); } else { var fly_alpha=0.1, fly_color=c_white; }
+		draw_sprite_general(sp_sheet,0,16*29,16*7,16,16,fly_prev_x,fly_prev_y,1,1,0,fly_color,fly_color,fly_color,fly_color,fly_alpha);
+		if area_zone<area_zone_max-1 and latest_zone>area_zone { var fly_alpha=0.5, fly_color=make_color_hsv(fly_hue,100,255); } else { var fly_alpha=0.1, fly_color=c_white; }
+		draw_sprite_general(sp_sheet,0,16*29,16*8,16,16,fly_next_x,fly_next_y,1,1,0,fly_color,fly_color,fly_color,fly_color,fly_alpha);
 	}
 	//————————————————————————————————————————————————————————————————————————————————————————————————————
 	draw_set_alpha(1);
@@ -84,12 +84,18 @@ if !instance_exists(ob_control) and !instance_exists(ob_event) and !instance_exi
 	draw_healthbar(road_win_x+2,road_win_y-17-rel_hud,road_win_x+237,road_win_y-14-rel_hud,bar_amount,
 	global.color_roadmap_bar_back,global.color_character_light,global.color_character_light,0,true,false);
 	//
+	for (var i=0; i<roadmap_current_max; i++;) {
+		var dot_pos_percentage=(i*100)/(roadmap_current_max-1);
+		draw_sprite_general(sp_sheet,0,16*6,16*15,16,16,road_win_x-2+(dot_pos_percentage*228)/100,road_win_y-23-rel_hud,1,1,0,c_white,c_white,c_white,c_white,0.2);
+	}
+	//
 	if area_zone=area_zone_max-1 {
 		for (var i=4; i>=1; i--;) {
 			var elite_pos_percentage=((roadmap_current_max-i-1)*100)/(roadmap_current_max-1);
 			draw_sprite_general(sp_sheet,0,16*4,16*15,16,16,road_win_x-2+(elite_pos_percentage*228)/100,road_win_y-24-rel_hud,1,1,0,c_white,c_white,c_white,c_white,1);
 		}
 	}
+	//
 	draw_sprite_general(sp_sheet,0,16*4,16*15,16,16,road_win_x-2+(100*228)/100,road_win_y-24-rel_hud,1,1,0,c_white,c_white,c_white,c_white,1);
 	//
 	draw_sprite_general(sp_sheet,0,16*((option_state[opt_playericon] mod 2)+1),16*11,16,16,road_win_x-2+(bar_amount*228)/100,road_win_y-23-rel_hud,1,1,0,

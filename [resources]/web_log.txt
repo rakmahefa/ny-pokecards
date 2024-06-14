@@ -1,3 +1,9 @@
+[v2.2.1.0] - June 14, 2024
+
+- Added new Challenge Mode: Roguelike Resolution.
+- Modified berry costs for Steelix and Swablu, to consistently fit their evolution counterparts.
+- Some other minor improvements.
+
 [v2.2.0.0] - March 26, 2024
 
 - Added save slot system (for separate playthroughs).
