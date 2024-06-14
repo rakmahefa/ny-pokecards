@@ -1,9 +1,4 @@
-The entire code is now public!
-https://gitlab.com/moodytail/pokecards
-
-——————————
-
-PCL is a Poke-card game, although completely different to the Official Trading Card Game. The gameplay mechanics were partially inspired by Inscryption, being pretty straightforward and easy to learn.
+Pocket Crystal League (PCL) is a Poke-card game, although completely different to the Official Trading Card Game. The gameplay mechanics were partially inspired by Inscryption, being pretty straightforward and easy to learn.
 
 After choosing a starter deck, your goal is to travel through Kyoumu, challenging each of the Gym Leaders from the eight major cities in the region, building up your team to reach the ultimate goal, the Crystal League. Along the way, you'll be presented with numerous choices to expand your deck, strengthen your cards, give them unique special abilities, and battle other trainers.
 
@@ -60,3 +55,8 @@ Community-made PCL expansion (based on PCL v1.6) that adds new cards and feature
 
 - Pocket Crystal League ++ (2023): https://discord.gg/gc2GvSGp5f
 Community-made PCL expansion (based on PCL+, from PCL v1.6), with even more new cards and features. Now outdated, no longer being worked on, and with some game-breaking bugs, so please be careful! Save files are separate both from vanilla and PCL+.
+
+——————————
+
+The entire code is now public!
+https://gitlab.com/moodytail/pokecards
