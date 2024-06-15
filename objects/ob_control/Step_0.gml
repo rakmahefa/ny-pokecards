@@ -224,7 +224,7 @@ if card_hold!=-1 and (!mouse_check_button(mb_left) or ob_main.cursor_hide=true) 
 							create_card_id=2503; //rock
 							create_card_nickname="";
 							create_card_level=card_hold.card_level;
-							create_card_glyph_a=-1;
+							create_card_glyph_a=ref_glyph_recovery;
 							create_card_glyph_b=-1;
 							create_card_glyph_c=-1;
 							create_card_innate=1;

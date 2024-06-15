@@ -1,3 +1,12 @@
+[v2.3.0.0] - June 15, 2024
+
+- Added new rare natural Glyph: "Guru" (any additional Glyphs don't increase berry cost).
+- "Shield" Glyph now also affects trees and rocks.
+- "Bulwark" Glyph now summons self-healing rocks instead of just regular ones.
+- Some other minor improvements (including bug fixes).
+
+——————————
+
 [v2.2.2.0] - June 14, 2024
 
 - Added some new secrets.

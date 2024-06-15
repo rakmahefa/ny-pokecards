@@ -16,7 +16,8 @@ if argument1=true {
 	if card_value<=3 { card_cost_total=0; } //and also used in tutorial for card with glyph
 	else { card_cost_total=1; }
 	//
-	if (card_glyph_a>=0 and card_glyph_a<glyph_common_amount) or (card_glyph_b>=0 and card_glyph_b<glyph_common_amount) or (card_glyph_c>=0 and card_glyph_c<glyph_common_amount) {
+	if ((card_glyph_a>=0 and card_glyph_a<glyph_common_amount) or (card_glyph_b>=0 and card_glyph_b<glyph_common_amount) or (card_glyph_c>=0 and card_glyph_c<glyph_common_amount)) and
+	(card_glyph_a!=ref_glyph_guru and card_glyph_b!=ref_glyph_guru and card_glyph_c!=ref_glyph_guru) {
 		card_cost_total++; } //similar conditions in ob_card_space for showing new cost when adding a glyph to an empty card
 	//
 	if card_environment=true { card_cost_total=0; }

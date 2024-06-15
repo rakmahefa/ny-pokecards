@@ -491,7 +491,7 @@ else if argument0=208 { //ELITE 1: EMILY (FIRE/dark, psychic/ghost)
 			else if i<2 { sc_enemy_deck_addcard(i,059,10,ref_glyph_intimidate,-1,-1,innate_max,0); } //ARCANINE, LV 10 (IN MAX)
 			else if i<3 { sc_enemy_deck_addcard(i,229,10,-1,-1,-1,innate_max,0); } //HOUNDOOM, LV 10 (IN MAX)
 			else if i<4 { sc_enemy_deck_addcard(i,302,10,ref_glyph_inertia,ref_glyph_curse,-1,innate_max,0); } //SABLEYE, LV 10 (IN MAX)
-			else if i<5 { sc_enemy_deck_addcard(i,475,10,ref_glyph_motivation,-1,-1,innate_max,0); } //GALLADE, LV 10 (IN MAX)
+			else if i<5 { sc_enemy_deck_addcard(i,475,10,ref_glyph_guru,ref_glyph_motivation,-1,innate_max,0); } //GALLADE, LV 10 (IN MAX)
 			else if i<24 { sc_enemy_deck_addcard(i,-1,10,-2,-2,-2,-1,-1); } //(19) LV 10
 			else if i<36 { sc_enemy_deck_addcard(i,-1,9,-2,-2,-2,-1,-1); } //(12) LV 9
 			else if i<40 { sc_enemy_deck_addcard(i,-1,8,-2,-2,-2,-1,-1); } //(4) LV 8
@@ -503,7 +503,7 @@ else if argument0=208 { //ELITE 1: EMILY (FIRE/dark, psychic/ghost)
 			else if i<2 { sc_enemy_deck_addcard(i,059,10,ref_glyph_intimidate,-1,-1,innate_max,0); } //ARCANINE, LV 10 (IN MAX)
 			else if i<3 { sc_enemy_deck_addcard(i,229,10,-1,-1,-1,innate_max,0); } //HOUNDOOM, LV 10 (IN MAX)
 			else if i<4 { sc_enemy_deck_addcard(i,302,10,ref_glyph_inertia,ref_glyph_curse,-1,innate_max,0); } //SABLEYE, LV 10 (IN MAX)
-			else if i<5 { sc_enemy_deck_addcard(i,475,10,ref_glyph_motivation,-1,-1,innate_max,0); } //GALLADE, LV 10 (IN MAX)
+			else if i<5 { sc_enemy_deck_addcard(i,475,10,ref_glyph_guru,ref_glyph_motivation,-1,innate_max,0); } //GALLADE, LV 10 (IN MAX)
 			else if i<15 { sc_enemy_deck_addcard(i,-1,10,-2,-2,-2,innate_max,-1); } //(10) LV 10 (IN MAX)
 			else if i<40 { sc_enemy_deck_addcard(i,-1,10,-2,-2,-2,-1,-1); } //(25) LV 10
 		}
@@ -519,7 +519,7 @@ else if argument0=209 { //ELITE 2: FINN (POISON/bug, ground/rock)
 	if ob_main.stats_league_won=0 {
 		for (var i=0; i<enemycard_maindeck_total; i++;) {
 			if i<1 { sc_enemy_deck_addcard(i,336,10,ref_glyph_counter,ref_glyph_ruthless,ref_glyph_harvest,innate_max,0); } //SEVIPER, LV 10 (IN MAX)
-			else if i<2 { sc_enemy_deck_addcard(i,454,10,ref_glyph_vampire,ref_glyph_memento,-1,innate_max,0); } //TOXICROAK, LV 10 (IN MAX)
+			else if i<2 { sc_enemy_deck_addcard(i,454,10,ref_glyph_guru,ref_glyph_vampire,ref_glyph_memento,innate_max,0); } //TOXICROAK, LV 10 (IN MAX)
 			else if i<3 { sc_enemy_deck_addcard(i,031,10,-1,-1,-1,innate_max,0); } //NIDOQUEEN, LV 10 (IN MAX)
 			else if i<4 { sc_enemy_deck_addcard(i,034,10,-1,-1,-1,innate_max,0); } //NIDOKING, LV 10 (IN MAX)
 			else if i<5 { sc_enemy_deck_addcard(i,292,10,ref_glyph_aegis,ref_glyph_shield,-1,innate_max,0); } //SHEDINJA, LV 10 (IN MAX)
@@ -531,7 +531,7 @@ else if argument0=209 { //ELITE 2: FINN (POISON/bug, ground/rock)
 	else {
 		for (var i=0; i<enemycard_maindeck_total; i++;) {
 			if i<1 { sc_enemy_deck_addcard(i,336,10,ref_glyph_counter,ref_glyph_ruthless,ref_glyph_harvest,innate_max,0); } //SEVIPER, LV 10 (IN MAX)
-			else if i<2 { sc_enemy_deck_addcard(i,454,10,ref_glyph_vampire,ref_glyph_memento,-1,innate_max,0); } //TOXICROAK, LV 10 (IN MAX)
+			else if i<2 { sc_enemy_deck_addcard(i,454,10,ref_glyph_guru,ref_glyph_vampire,ref_glyph_memento,innate_max,0); } //TOXICROAK, LV 10 (IN MAX)
 			else if i<3 { sc_enemy_deck_addcard(i,031,10,-1,-1,-1,innate_max,0); } //NIDOQUEEN, LV 10 (IN MAX)
 			else if i<4 { sc_enemy_deck_addcard(i,034,10,-1,-1,-1,innate_max,0); } //NIDOKING, LV 10 (IN MAX)
 			else if i<5 { sc_enemy_deck_addcard(i,292,10,ref_glyph_aegis,ref_glyph_shield,-1,innate_max,0); } //SHEDINJA, LV 10 (IN MAX)
@@ -550,7 +550,7 @@ else if argument0=210 { //ELITE 3: DION (FLYING/fighting, grass)
 		for (var i=0; i<enemycard_maindeck_total; i++;) {
 			if i<1 { sc_enemy_deck_addcard(i,227,10,ref_glyph_piercing,ref_glyph_fork,ref_glyph_shield,innate_max,0); } //SKARMORY, LV 10 (IN MAX)
 			else if i<2 { sc_enemy_deck_addcard(i,398,10,ref_glyph_intimidate,ref_glyph_piercing,ref_glyph_counter,innate_max,0); } //STARAPTOR, LV 10 (IN MAX)
-			else if i<3 { sc_enemy_deck_addcard(i,472,10,ref_glyph_adaptability,-1,-1,innate_max,0); } //GLISCOR, LV 10 (IN MAX)
+			else if i<3 { sc_enemy_deck_addcard(i,472,10,ref_glyph_guru,ref_glyph_adaptability,-1,innate_max,0); } //GLISCOR, LV 10 (IN MAX)
 			else if i<4 { sc_enemy_deck_addcard(i,430,10,-1,-1,-1,innate_max,0); } //HONCHKROW, LV 10 (IN MAX)
 			else if i<5 { sc_enemy_deck_addcard(i,286,10,-1,-1,-1,innate_max,0); } //BRELOOM, LV 10 (IN MAX)
 			else if i<24 { sc_enemy_deck_addcard(i,-1,10,-2,-2,-2,-1,-1); } //(19) LV 10
@@ -562,7 +562,7 @@ else if argument0=210 { //ELITE 3: DION (FLYING/fighting, grass)
 		for (var i=0; i<enemycard_maindeck_total; i++;) {
 			if i<1 { sc_enemy_deck_addcard(i,227,10,ref_glyph_piercing,ref_glyph_fork,ref_glyph_shield,innate_max,0); } //SKARMORY, LV 10 (IN MAX)
 			else if i<2 { sc_enemy_deck_addcard(i,398,10,ref_glyph_intimidate,ref_glyph_piercing,ref_glyph_counter,innate_max,0); } //STARAPTOR, LV 10 (IN MAX)
-			else if i<3 { sc_enemy_deck_addcard(i,472,10,ref_glyph_adaptability,-1,-1,innate_max,0); } //GLISCOR, LV 10 (IN MAX)
+			else if i<3 { sc_enemy_deck_addcard(i,472,10,ref_glyph_guru,ref_glyph_adaptability,-1,innate_max,0); } //GLISCOR, LV 10 (IN MAX)
 			else if i<4 { sc_enemy_deck_addcard(i,430,10,-1,-1,-1,innate_max,0); } //HONCHKROW, LV 10 (IN MAX)
 			else if i<5 { sc_enemy_deck_addcard(i,286,10,-1,-1,-1,innate_max,0); } //BRELOOM, LV 10 (IN MAX)
 			else if i<15 { sc_enemy_deck_addcard(i,-1,10,-2,-2,-2,innate_max,-1); } //(10) LV 10 (IN MAX)
@@ -580,7 +580,7 @@ else if argument0=211 { //ELITE 4: APRIL (DRAGON/ice, steel, water)
 	if ob_main.stats_league_won=0 {
 		for (var i=0; i<enemycard_maindeck_total; i++;) {
 			if i<1 { sc_enemy_deck_addcard(i,149,10,ref_glyph_berserk,ref_glyph_inertia,ref_glyph_recovery,innate_max,0); } //DRAGONITE, LV 10 (IN MAX)
-			else if i<2 { sc_enemy_deck_addcard(i,445,10,ref_glyph_motivation,ref_glyph_vampire,-1,innate_max,0); } //GARCHOMP, LV 10 (IN MAX)
+			else if i<2 { sc_enemy_deck_addcard(i,445,10,ref_glyph_guru,ref_glyph_motivation,ref_glyph_vampire,innate_max,0); } //GARCHOMP, LV 10 (IN MAX)
 			else if i<3 { sc_enemy_deck_addcard(i,373,10,ref_glyph_intimidate,-1,-1,innate_max,0); } //SALAMENCE, LV 10 (IN MAX)
 			else if i<4 { sc_enemy_deck_addcard(i,334,10,ref_glyph_courage,-1,-1,innate_max,0); } //ALTARIA, LV 10 (IN MAX)
 			else if i<5 { sc_enemy_deck_addcard(i,376,10,-1,-1,-1,innate_max,0); } //METAGROSS, LV 10 (IN MAX)
@@ -592,7 +592,7 @@ else if argument0=211 { //ELITE 4: APRIL (DRAGON/ice, steel, water)
 	else {
 		for (var i=0; i<enemycard_maindeck_total; i++;) {
 			if i<1 { sc_enemy_deck_addcard(i,149,10,ref_glyph_berserk,ref_glyph_inertia,ref_glyph_recovery,innate_max,0); } //DRAGONITE, LV 10 (IN MAX)
-			else if i<2 { sc_enemy_deck_addcard(i,445,10,ref_glyph_motivation,ref_glyph_vampire,-1,innate_max,0); } //GARCHOMP, LV 10 (IN MAX)
+			else if i<2 { sc_enemy_deck_addcard(i,445,10,ref_glyph_guru,ref_glyph_motivation,ref_glyph_vampire,innate_max,0); } //GARCHOMP, LV 10 (IN MAX)
 			else if i<3 { sc_enemy_deck_addcard(i,373,10,ref_glyph_intimidate,-1,-1,innate_max,0); } //SALAMENCE, LV 10 (IN MAX)
 			else if i<4 { sc_enemy_deck_addcard(i,334,10,ref_glyph_courage,-1,-1,innate_max,0); } //ALTARIA, LV 10 (IN MAX)
 			else if i<5 { sc_enemy_deck_addcard(i,376,10,-1,-1,-1,innate_max,0); } //METAGROSS, LV 10 (IN MAX)
@@ -627,8 +627,8 @@ else if argument0=212 { //CHAMPION: DUNCAN (ALL)
 			if i<1 { sc_enemy_deck_addcard(i,448,10,ref_glyph_counter,ref_glyph_motivation,ref_glyph_inertia,innate_max,0); } //LUCARIO, LV 10 (IN MAX)
 			else if i<2 { sc_enemy_deck_addcard(i,248,10,ref_glyph_tenacity,ref_glyph_curse,ref_glyph_memento,innate_max,0); } //TYRANITAR, LV 10 (IN MAX)
 			else if i<3 { sc_enemy_deck_addcard(i,242,10,ref_glyph_medic,ref_glyph_shield,ref_glyph_lucky,innate_max,0); } //BLISSEY, LV 10 (IN MAX)
-			else if i<4 { sc_enemy_deck_addcard(i,131,10,-1,-1,-1,innate_max,0); } //LAPRAS, LV 10 (IN MAX)
-			else if i<5 { sc_enemy_deck_addcard(i,306,10,ref_glyph_berserk,ref_glyph_lucky,-1,innate_max,0); } //AGGRON, LV 10 (IN MAX)
+			else if i<4 { sc_enemy_deck_addcard(i,131,10,ref_glyph_guru,ref_glyph_courage,ref_glyph_lucky,innate_max,0); } //LAPRAS, LV 10 (IN MAX)
+			else if i<5 { sc_enemy_deck_addcard(i,306,10,ref_glyph_guru,ref_glyph_berserk,-1,innate_max,0); } //AGGRON, LV 10 (IN MAX)
 			else if i<7 { sc_enemy_deck_addcard(i,-1,10,-2,-2,-2,innate_max,-1); } //(2) LV 10 (IN MAX)
 			else if i<28 { sc_enemy_deck_addcard(i,-1,10,-2,-2,-2,-1,-1); } //(21) LV 10
 			else if i<40 { sc_enemy_deck_addcard(i,-1,9,-2,-2,-2,-1,-1); } //(12) LV 9
@@ -639,8 +639,8 @@ else if argument0=212 { //CHAMPION: DUNCAN (ALL)
 			if i<1 { sc_enemy_deck_addcard(i,448,10,ref_glyph_counter,ref_glyph_motivation,ref_glyph_inertia,innate_max,0); } //LUCARIO, LV 10 (IN MAX)
 			else if i<2 { sc_enemy_deck_addcard(i,248,10,ref_glyph_tenacity,ref_glyph_curse,ref_glyph_memento,innate_max,0); } //TYRANITAR, LV 10 (IN MAX)
 			else if i<3 { sc_enemy_deck_addcard(i,242,10,ref_glyph_medic,ref_glyph_shield,ref_glyph_lucky,innate_max,0); } //BLISSEY, LV 10 (IN MAX)
-			else if i<4 { sc_enemy_deck_addcard(i,131,10,-1,-1,-1,innate_max,0); } //LAPRAS, LV 10 (IN MAX)
-			else if i<5 { sc_enemy_deck_addcard(i,306,10,ref_glyph_berserk,ref_glyph_lucky,-1,innate_max,0); } //AGGRON, LV 10 (IN MAX)
+			else if i<4 { sc_enemy_deck_addcard(i,131,10,ref_glyph_guru,ref_glyph_courage,ref_glyph_lucky,innate_max,0); } //LAPRAS, LV 10 (IN MAX)
+			else if i<5 { sc_enemy_deck_addcard(i,306,10,ref_glyph_guru,ref_glyph_berserk,-1,innate_max,0); } //AGGRON, LV 10 (IN MAX)
 			else if i<20 { sc_enemy_deck_addcard(i,-1,10,-2,-2,-2,innate_max,-1); } //(15) LV 10 (IN MAX)
 			else if i<40 { sc_enemy_deck_addcard(i,-1,10,-2,-2,-2,-1,-1); } //(20) LV 10
 		}

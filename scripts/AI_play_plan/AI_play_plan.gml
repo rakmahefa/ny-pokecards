@@ -66,15 +66,9 @@ do {
 				//IMAGINARY DAMAGE CALCULATION (similar code in ob_control draw event)
 				var opposing_card_id=-1, bonus_dmg=false, vs_bonus_dmg=false, turns_to_defeat=-1, turns_to_faint=-1, any_card_hurt=false;
 				//
-				if enemycard_hand[i].card_environment=false {
-					var own_atk=enemycard_hand[i].card_atk+card_space_id[ii].card_bonus_atk-card_space_id[ii].card_penalty_atk;
-					var own_def=enemycard_hand[i].card_def+card_space_id[ii].card_bonus_def-card_space_id[ii].card_penalty_def;
-				}
-				else {
-					var own_atk=enemycard_hand[i].card_atk-card_space_id[ii].card_penalty_atk;
-					var own_def=enemycard_hand[i].card_def-card_space_id[ii].card_penalty_def;
-				}
-				if own_atk<0 { own_atk=0; }
+				var own_atk=enemycard_hand[i].card_atk+card_space_id[ii].card_bonus_atk-card_space_id[ii].card_penalty_atk;
+				var own_def=enemycard_hand[i].card_def+card_space_id[ii].card_bonus_def-card_space_id[ii].card_penalty_def;
+				if own_atk<0 or enemycard_hand[i].card_environment=true { own_atk=0; }
 				if own_def<0 { own_def=0; }
 				//
 				if card_space_id[ii+5].occupy_id!=-1 {

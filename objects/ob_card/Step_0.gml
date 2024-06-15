@@ -204,16 +204,10 @@ if reference_id=ob_control and card_cat=0 and ((card_enemy=false and card_face=t
 		if card_enemy=true { var i=0; } else { var i=5; }
 		repeat (5) {
 			if ob_control.card_space_id[i].occupy_id=id {
-				if card_environment=false {
-					card_atk=ceil(card_full_atk*base_atk_multiplier/base_atk_divisor/base_atk_divisor_setback)+
-					ob_control.card_space_id[i].card_bonus_atk-ob_control.card_space_id[i].card_penalty_atk+base_atk_boost;
-					card_def=card_full_def+ob_control.card_space_id[i].card_bonus_def-ob_control.card_space_id[i].card_penalty_def+base_def_boost;
-				}
-				else {
-					card_atk=ceil(card_full_atk*base_atk_multiplier/base_atk_divisor/base_atk_divisor_setback)-ob_control.card_space_id[i].card_penalty_atk;
-					card_def=card_full_def-ob_control.card_space_id[i].card_penalty_def;
-				}
-				if card_atk<0 { card_atk=0; }
+				card_atk=ceil(card_full_atk*base_atk_multiplier/base_atk_divisor/base_atk_divisor_setback)+
+				ob_control.card_space_id[i].card_bonus_atk-ob_control.card_space_id[i].card_penalty_atk+base_atk_boost;
+				card_def=card_full_def+ob_control.card_space_id[i].card_bonus_def-ob_control.card_space_id[i].card_penalty_def+base_def_boost;
+				if card_atk<0 or card_environment=true { card_atk=0; }
 				if card_def<0 { card_def=0; }
 				if card_def>99 { card_def=99; }
 			}

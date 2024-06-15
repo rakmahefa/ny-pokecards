@@ -197,6 +197,14 @@ if card_cat=0 {
 				//ekans, arbok, growlithe, arcanine, tauros, gyarados (not magikarp), snubbull, granbull, stantler, hitmontop (not tyrogue), mightyena (not poochyena),
 				//masquerain (not surskit), mawile, salamence (not bagon/shelgon), staravia (not starly), staraptor, shinx, luxio, luxray
 			//
+			if card_environment=false and (card_glyph_a=-1 or card_glyph_b=-1) {
+				var guru_chance=irandom(99); //1%
+				if guru_chance=0 {
+					if card_glyph_a=-1 { card_glyph_a=ref_glyph_guru; }
+					else if card_glyph_b=-1 { card_glyph_b=ref_glyph_guru; }
+				}
+			}
+			//
 			if enemy_randomizer=false {
 				var card_glyph_chance=irandom(999), card_glyph_total=0;
 				if card_glyph_chance<5 { card_glyph_total=2; } //0.5%

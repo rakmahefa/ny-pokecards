@@ -42,6 +42,7 @@ else if trash=false {
 			draw_set_halign(fa_center);
 			if occupy_id!=-1 and occupy_id.card_innate>0 and ob_event.event_applied=false {
 				if occupy_id.card_environment=false and
+				(occupy_id.card_glyph_a!=ref_glyph_guru and occupy_id.card_glyph_b!=ref_glyph_guru and occupy_id.card_glyph_c!=ref_glyph_guru) and
 				((occupy_id.card_glyph_a=-1) or (occupy_id.card_glyph_a>=glyph_common_amount and occupy_id.card_glyph_b=-1) or
 				(occupy_id.card_glyph_a>=glyph_common_amount and occupy_id.card_glyph_b>=glyph_common_amount and occupy_id.card_glyph_c=-1)) {
 					//berry costs from sc_card_level_stats_all

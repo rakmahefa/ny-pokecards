@@ -129,7 +129,7 @@ if card_focus!=-1 and card_focus.card_cat=0 and card_focus_hand!=-1 and card_hol
 			//
 			var own_atk=card_focus.card_atk+card_space_id[i+5].card_bonus_atk-card_space_id[i+5].card_penalty_atk;
 			var own_def=card_focus.card_def+card_space_id[i+5].card_bonus_def-card_space_id[i+5].card_penalty_def;
-			if own_atk<0 { own_atk=0; }
+			if own_atk<0 or card_focus.card_environment=true { own_atk=0; }
 			if own_def<0 { own_def=0; }
 			//
 			var imaginary_penalty_atk=0, imaginary_penalty_def=0;
