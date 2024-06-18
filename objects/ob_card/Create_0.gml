@@ -196,9 +196,13 @@ if card_cat=0 {
 				card_glyph_a=choose(-1,ref_glyph_intimidate); }
 				//ekans, arbok, growlithe, arcanine, tauros, gyarados (not magikarp), snubbull, granbull, stantler, hitmontop (not tyrogue), mightyena (not poochyena),
 				//masquerain (not surskit), mawile, salamence (not bagon/shelgon), staravia (not starly), staraptor, shinx, luxio, luxray
+			if card_glyph_a=-1 and
+			(card_id=056 or card_id=057 or card_id=116 or card_id=117 or card_id=230 or card_id=198 or card_id=430 or card_id=223 or card_id=224 or card_id=359 or card_id=451 or card_id=452) {
+				card_glyph_a=choose(-1,ref_glyph_confidence); } //mankey, primeape, horsea, seadra, kingdra, murkrow, honchkrow, remoraid, octillery, absol, skorupi, drapion
 			//
 			if card_environment=false and (card_glyph_a=-1 or card_glyph_b=-1) {
-				var guru_chance=irandom(99); //1%
+				if enemy_randomizer=false { var guru_chance=irandom(99); } //1%
+				else { var guru_chance=irandom(74); } //1.33%
 				if guru_chance=0 {
 					if card_glyph_a=-1 { card_glyph_a=ref_glyph_guru; }
 					else if card_glyph_b=-1 { card_glyph_b=ref_glyph_guru; }
@@ -229,6 +233,8 @@ if card_cat=0 {
 					else {
 						var card_glyph_chance_limit=2500+625*ob_main.area_zone; } //25%, 31.25%, 37.5%, 43.75%, 50%, 56.25%, 62.5%, 68.75%, (75%)
 				}
+				else if card_glyph_a=ref_glyph_guru or card_glyph_b=ref_glyph_guru {
+					var card_glyph_chance_limit=10000; } //100%
 				else if ob_main.stats_league_won=0 and (ob_main.playing_gym=true or ob_main.playing_elite=true or ob_main.playing_champion=true) {
 					var card_glyph_chance_limit=1500+225*ob_main.area_zone; } //15%, 17.25%, 19.5%, 21.75%, 24%, 26.25%, 28.5%, 30.75%, (33%)
 				else if ob_main.stats_league_won>0 and (ob_main.playing_gym=true or ob_main.playing_elite=true or ob_main.playing_champion=true) {
@@ -237,20 +243,25 @@ if card_cat=0 {
 				//
 				if card_glyph_chance<card_glyph_chance_limit {
 					card_glyph_chance=irandom(99);
-					if ob_main.playing_champion=true {
+					if card_glyph_b=ref_glyph_guru {
+						card_glyph_total=3; }
+					else if ob_main.playing_champion=true {
 						if card_glyph_chance<40 { card_glyph_total=3; } //40%
 						else if card_glyph_chance<75 { card_glyph_total=2; } //35%
-						else if card_glyph_chance<100 { card_glyph_total=1; } //25%
+						else if card_glyph_chance<100 and card_glyph_a=ref_glyph_guru { card_glyph_total=2; } //25%
+						else if card_glyph_chance<100 and card_glyph_a!=ref_glyph_guru { card_glyph_total=1; } //25%
 					}
 					else if ob_main.playing_gym=true or ob_main.playing_elite=true {
 						if card_glyph_chance<25 { card_glyph_total=3; } //25%
 						else if card_glyph_chance<60 { card_glyph_total=2; } //35%
-						else if card_glyph_chance<100 { card_glyph_total=1; } //40%
+						else if card_glyph_chance<100 and card_glyph_a=ref_glyph_guru { card_glyph_total=2; } //40%
+						else if card_glyph_chance<100 and card_glyph_a!=ref_glyph_guru { card_glyph_total=1; } //40%
 					}
 					else {
 						if card_glyph_chance<20 { card_glyph_total=3; } //20%
 						else if card_glyph_chance<50 { card_glyph_total=2; } //30%
-						else if card_glyph_chance<100 { card_glyph_total=1; } //50%
+						else if card_glyph_chance<100 and card_glyph_a=ref_glyph_guru { card_glyph_total=2; } //50%
+						else if card_glyph_chance<100 and card_glyph_a!=ref_glyph_guru { card_glyph_total=1; } //50%
 					}
 					//
 					if card_glyph_total>=1 and card_glyph_a=-1 {

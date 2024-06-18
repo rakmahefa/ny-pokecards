@@ -1,3 +1,10 @@
+[v2.3.1.0] - June 18, 2024
+
+- "Adaptability" Glyph now deals 3 extra points of bonus damage (up from 2).
+- Added new natural Glyph: "Confidence" (a less powerful version of Adaptability).
+- Fixed issue related to the "Guru" Glyph.
+- Some other minor improvements.
+
 [v2.3.0.0] - June 15, 2024
 
 - Added new rare natural Glyph: "Guru" (any additional Glyphs don't increase berry cost).

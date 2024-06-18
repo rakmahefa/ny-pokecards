@@ -220,6 +220,7 @@ tooltip_lines=0;
 #macro ref_glyph_mindful 109
 #macro ref_glyph_intimidate 110
 #macro ref_glyph_guru 111
+#macro ref_glyph_confidence 112
 //————————————————————————————————————————————————————————————————————————————————————————————————————
 #macro options_total 12
 #macro playericon_max 15

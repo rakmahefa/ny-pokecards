@@ -110,7 +110,8 @@ do {
 					if var_imaginary_damage<0 { var_imaginary_damage=0; }
 					if bonus_dmg=true {
 						var_imaginary_damage+=ceil(enemycard_hand[i].card_level/advantage_level_interval);
-						if sc_glyph_check(enemycard_hand[i],ref_glyph_adaptability,true) { var_imaginary_damage+=2; } //glyph: adaptability
+						if sc_glyph_check(enemycard_hand[i],ref_glyph_adaptability,true) { var_imaginary_damage+=3; } //glyph: adaptability
+						if sc_glyph_check(enemycard_hand[i],ref_glyph_confidence,true) { var_imaginary_damage+=1; } //glyph: confidence
 					}
 					if var_imaginary_damage>0 { turns_to_defeat=ceil(opposing_card_id.card_hp/var_imaginary_damage); }
 					//
@@ -118,7 +119,8 @@ do {
 					if var_imaginary_damage<0 { var_imaginary_damage=0; }
 					if vs_bonus_dmg=true {
 						var_imaginary_damage+=ceil(opposing_card_id.card_level/advantage_level_interval);
-						if sc_glyph_check(opposing_card_id,ref_glyph_adaptability,true) { var_imaginary_damage+=2; } //glyph: adaptability
+						if sc_glyph_check(opposing_card_id,ref_glyph_adaptability,true) { var_imaginary_damage+=3; } //glyph: adaptability
+						if sc_glyph_check(opposing_card_id,ref_glyph_confidence,true) { var_imaginary_damage+=1; } //glyph: confidence
 					}
 					if var_imaginary_damage>0 { turns_to_faint=ceil(enemycard_hand[i].card_hp/var_imaginary_damage); }
 					//

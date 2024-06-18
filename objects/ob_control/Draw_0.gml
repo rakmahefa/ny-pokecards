@@ -148,7 +148,8 @@ if card_focus!=-1 and card_focus.card_cat=0 and card_focus_hand!=-1 and card_hol
 			var bonus_damage_preview=0;
 			if bonus_dmg=true {
 				bonus_damage_preview=ceil(card_focus.card_level/advantage_level_interval);
-				if sc_glyph_check(card_focus,ref_glyph_adaptability,true) { bonus_damage_preview+=2; } //glyph: adaptability
+				if sc_glyph_check(card_focus,ref_glyph_adaptability,true) { bonus_damage_preview+=3; } //glyph: adaptability
+				if sc_glyph_check(card_focus,ref_glyph_confidence,true) { bonus_damage_preview+=1; } //glyph: confidence
 			}
 			//
 			var damage_preview_text="";
@@ -174,7 +175,8 @@ if card_focus!=-1 and card_focus.card_cat=0 and card_focus_hand!=-1 and card_hol
 			var bonus_damage_preview=0;
 			if vs_bonus_dmg=true {
 				bonus_damage_preview=ceil(card_space_id[i].occupy_id.card_level/advantage_level_interval);
-				if sc_glyph_check(card_space_id[i].occupy_id,ref_glyph_adaptability,true) { bonus_damage_preview+=2; } //glyph: adaptability
+				if sc_glyph_check(card_space_id[i].occupy_id,ref_glyph_adaptability,true) { bonus_damage_preview+=3; } //glyph: adaptability
+				if sc_glyph_check(card_space_id[i].occupy_id,ref_glyph_confidence,true) { bonus_damage_preview+=1; } //glyph: confidence
 			}
 			//
 			var damage_preview_text="";

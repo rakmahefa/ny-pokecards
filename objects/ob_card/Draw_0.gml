@@ -105,19 +105,19 @@ if card_cat=0 and card_face=true and in_view=true {
 		draw_sprite_general(sp_sheet,0,16*(card_glyph_a+1),16*6,12,11,draw_x+43,draw_y+2,1,1,0,c_white,c_white,c_white,c_white,1);
 	}
 	else if card_glyph_a>=glyph_common_amount {
-		draw_sprite_general(sp_sheet,0,16*(card_glyph_a+glyph_common_amount+1-100),16*6,12,11,draw_x+43,draw_y+2,1,1,0,c_white,c_white,c_white,c_white,1);
+		draw_sprite_general(sp_sheet,0,16*(card_glyph_a-100+11),16*18,12,11,draw_x+43,draw_y+2,1,1,0,c_white,c_white,c_white,c_white,1);
 	}
 	if card_glyph_b>=0 and card_glyph_b<glyph_common_amount {
 		draw_sprite_general(sp_sheet,0,16*(card_glyph_b+1),16*6,12,11,draw_x+43,draw_y+12,1,1,0,c_white,c_white,c_white,c_white,1);
 	}
 	else if card_glyph_b>=glyph_common_amount {
-		draw_sprite_general(sp_sheet,0,16*(card_glyph_b+glyph_common_amount+1-100),16*6,12,11,draw_x+43,draw_y+12,1,1,0,c_white,c_white,c_white,c_white,1);
+		draw_sprite_general(sp_sheet,0,16*(card_glyph_b-100+11),16*18,12,11,draw_x+43,draw_y+12,1,1,0,c_white,c_white,c_white,c_white,1);
 	}
 	if card_glyph_c>=0 and card_glyph_c<glyph_common_amount {
 		draw_sprite_general(sp_sheet,0,16*(card_glyph_c+1),16*6,12,11,draw_x+43,draw_y+22,1,1,0,c_white,c_white,c_white,c_white,1);
 	}
 	else if card_glyph_c>=glyph_common_amount {
-		draw_sprite_general(sp_sheet,0,16*(card_glyph_c+glyph_common_amount+1-100),16*6,12,11,draw_x+43,draw_y+22,1,1,0,c_white,c_white,c_white,c_white,1);
+		draw_sprite_general(sp_sheet,0,16*(card_glyph_c-100+11),16*18,12,11,draw_x+43,draw_y+22,1,1,0,c_white,c_white,c_white,c_white,1);
 	}
 	//
 	//COST

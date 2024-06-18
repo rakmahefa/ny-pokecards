@@ -57,7 +57,8 @@ with (argument1) {
 				if damage_dealt<0 { damage_dealt=0; }
 				if sc_type_bonus(card_type_a,card_type_b,card_target.card_type_a,card_target.card_type_b)=true {
 					damage_extra_dealt=ceil(card_level/advantage_level_interval);
-					if sc_glyph_check(id,ref_glyph_adaptability,true) { damage_extra_dealt+=2; } //glyph: adaptability
+					if sc_glyph_check(id,ref_glyph_adaptability,true) { damage_extra_dealt+=3; } //glyph: adaptability
+					if sc_glyph_check(id,ref_glyph_confidence,true) { damage_extra_dealt+=1; } //glyph: confidence
 					//
 					if card_enemy=true and ob_main.option_state[opt_challenge]=ch_dominance and ob_main.playing_tutorial=false { damage_extra_dealt=card_target.card_full_hp; }
 				}
