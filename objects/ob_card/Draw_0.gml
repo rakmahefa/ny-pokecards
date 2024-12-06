@@ -91,6 +91,7 @@ if card_cat=0 and card_face=true and in_view=true {
 		else if string_lower(card_nickname)="knight" and card_id=134 { secret_sprite_x=2; secret_sprite_y=11; } //vaporeon
 		else if string_lower(card_nickname)="milachu" and card_id=025 { secret_sprite_x=3; secret_sprite_y=11; } //pikachu
 		else if string_lower(card_nickname)="solar" and card_id=157 { secret_sprite_x=4; secret_sprite_y=11; } //typhlosion
+		else if (string_lower(card_nickname)="pon pon" or string_lower(card_nickname)="ponpon" or string_lower(card_nickname)="evelyn") and card_id=040 { secret_sprite_x=5; secret_sprite_y=11; } //wigglytuff
 	}
 	//
 	if secret_sprite_x=0 { draw_sprite_general(card_sheet,0,65*(card_grid_x-1)+1,33*(card_grid_y-1)+1,64,32,draw_x-4,draw_y+3,1,1,0,c_white,c_white,c_white,c_white,1); }

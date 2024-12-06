@@ -109,15 +109,15 @@ textbox_char_pos=0;
 #macro maindeck_total_max 1000
 #macro berrydeck_total_max 200 //per berry
 //
-#macro money_prize_power_base 24.33 //120 196 284 383 490 606 730 862 1000 (penalty: 40-1000)
-#macro money_prize_power_area_bonus 9.46
+#macro money_prize_power_base 25 //125 216 322 441 573 715 867 1029 1200 (with penalty: 45-1200)
+#macro money_prize_power_area_bonus 10.99
 #macro money_prize_power_n 1.5
 #macro money_prize_penalty_multiplier 10
-#macro money_payout_base 100 //100 150 200 250 300 350 400 450 500 (penalty: 20-500)
+#macro money_payout_base 100 //100 150 200 250 300 350 400 450 500 (with penalty: 20-500)
 #macro money_payout_area_bonus 50
 #macro money_payout_penalty_multiplier 10
-#macro money_badge_base 200 //200 325 450 575 700 825 950 1075 1200 (minimum should be enough for a card pack)
-#macro money_badge_area_bonus 125
+#macro money_badge_base 200 //200 350 500 650 800 950 1100 1250 1400 (minimum should be enough for a card pack)
+#macro money_badge_area_bonus 150
 #macro sell_value_multiplier 2.5
 #macro sell_glyphed_multiplier 1.25
 #macro sell_enigma_multiplier 1.5

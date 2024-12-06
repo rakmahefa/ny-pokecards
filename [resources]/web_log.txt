@@ -1,3 +1,10 @@
+[v2.4.0.0] - December 6, 2024
+
+- Raised all money rewards from battles.
+- Some other minor improvements and secrets.
+
+——————————
+
 [v2.3.1.0] - June 18, 2024
 
 - "Adaptability" Glyph now deals 3 extra points of bonus damage (up from 2).

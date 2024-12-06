@@ -20,7 +20,7 @@ if argument1=false {
 		case ref_glyph_curse: return "// CURSE //\nWhen fainting, the enemy card is left with 1 HP."; break;
 		case ref_glyph_memento: return "// MEMENTO //\nGrants 2 DP (Draw Points) when fainting."; break;
 		case ref_glyph_berserk: return "// BERSERK //\nWhen HP is 1/3 or less (or just 1, if hurt),\nbase attack is doubled."; break;
-		case ref_glyph_adaptability: return "// ADAPTABILITY //\nType-advantage attacks deal 3 extra points of bonus damage."; break;
+		case ref_glyph_adaptability: return "// ADAPTABILITY //\nType-advantage attacks deal an extra +3 points of bonus damage."; break;
 		case ref_glyph_recovery: return "// RECOVERY //\nRecovers 1 HP at the beginning of each active turn."; break;
 		case ref_glyph_inertia: return "// INERTIA //\nGrants 1 DP (Draw Points) whenever it destroys another card."; break;
 		case ref_glyph_motivation: return "// MOTIVATION //\nRaises a Pokemon's attack and defense by 2 when HP is full."; break;
@@ -37,7 +37,7 @@ if argument1=false {
 		case ref_glyph_mindful: return "// MINDFUL //\nGrants 1 DP (Draw Points) when played."; break;
 		case ref_glyph_intimidate: return "// INTIMIDATE //\nThe opposing card's attack is lowered by 1."; break;
 		case ref_glyph_guru: return "// GURU //\nAdditional Glyphs don't increase this card's Berry cost."; break;
-		case ref_glyph_confidence: return "// CONFIDENCE //\nType-advantage attacks deal 1 extra point of bonus damage."; break;
+		case ref_glyph_confidence: return "// CONFIDENCE //\nType-advantage attacks deal an extra +1 point of bonus damage."; break;
 	}
 }
 else {
