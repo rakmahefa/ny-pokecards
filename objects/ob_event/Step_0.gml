@@ -101,7 +101,8 @@ if apply_event=true {
 		else if (card_id_in_space[0].card_id=351 or card_id_in_space[0].card_id=386 or card_id_in_space[0].card_id=479 or card_id_in_space[0].card_id=487 or card_id_in_space[0].card_id=492) and
 		card_id_in_space[0].card_innate>0 {
 			if card_id_in_space[0].card_id=351 or card_id_in_space[0].card_id=386 { card_id_in_space[0].card_form_value+=250; } //castform, deoxys (0-250-500-750)
-			else if card_id_in_space[0].card_id=487 or card_id_in_space[0].card_id=492 { card_id_in_space[0].card_form_value+=500; } //giratina, shaymin (0-500)
+			else if card_id_in_space[0].card_id=487 or card_id_in_space[0].card_id=492 or card_id_in_space[0].card_id=521 or card_id_in_space[0].card_id=550 { //giratina, shaymin, unfezant, basculin (0-500)
+				card_id_in_space[0].card_form_value+=500; }
 			else if card_id_in_space[0].card_id=479 { //rotom (0-175-340-505-670-835)
 				if card_id_in_space[0].card_form_value<10 { card_id_in_space[0].card_form_value=10; }
 				card_id_in_space[0].card_form_value+=165;
