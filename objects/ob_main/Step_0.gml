@@ -192,8 +192,12 @@ if roadmap_generated=false {
 		trainer_hair_color[i]=make_colour_rgb(irandom_range(140,240),irandom_range(140,240),irandom_range(140,240));
 		//
 		var ace_trainer_chance=irandom(9), whisperer_chance=irandom(49);
-		if ace_trainer_chance=0 { trainer_kind[i]=100; } //ACE TRAINER (10%)
-		else if whisperer_chance=0 { trainer_kind[i]=150; } //WHISPERER (2%)
+		if ace_trainer_chance=0 { //ACE TRAINER (10%)
+			trainer_kind[i]=100; }
+		else if whisperer_chance=0 { //WHISPERER (2%)
+			trainer_kind[i]=150;
+			trainer_sprite[i]=playericon_max+10+5;
+			}
 		else {
 			switch (location_type[i]) {
 				//forest: CAMPER/PICNICKER, FISHER, BUG CATCHER, BIRD KEEPER, YOUNGSTER, LAD/LASS, AROMA MAN/AROMA LADY, RANGER
