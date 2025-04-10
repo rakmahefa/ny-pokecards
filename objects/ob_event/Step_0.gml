@@ -98,13 +98,15 @@ if apply_event=true {
 			sc_playsound(sn_upgrade,50,false,false);
 			ob_main.main_card_id[card_id_in_space[0].num_in_all]=card_id_in_space[0].card_id;
 		}
-		else if (card_id_in_space[0].card_id=351 or card_id_in_space[0].card_id=386 or card_id_in_space[0].card_id=479 or card_id_in_space[0].card_id=487 or card_id_in_space[0].card_id=492) and
+		else if (card_id_in_space[0].card_id=351 or card_id_in_space[0].card_id=386 or card_id_in_space[0].card_id=479 or card_id_in_space[0].card_id=487 or card_id_in_space[0].card_id=492 or
+		card_id_in_space[0].card_id=641 or card_id_in_space[0].card_id=642 or card_id_in_space[0].card_id=645 or card_id_in_space[0].card_id=647 or card_id_in_space[0].card_id=648) and
 		card_id_in_space[0].card_innate>0 {
 			if card_id_in_space[0].card_id=351 or card_id_in_space[0].card_id=386 {
 				//castform, deoxys (0-250-500-750)
 				card_id_in_space[0].card_form_value+=250; }
-			else if card_id_in_space[0].card_id=487 or card_id_in_space[0].card_id=492 {
-				//giratina, shaymin (0-500)
+			else if card_id_in_space[0].card_id=487 or card_id_in_space[0].card_id=492 or
+			card_id_in_space[0].card_id=641 or card_id_in_space[0].card_id=642 or card_id_in_space[0].card_id=645 or card_id_in_space[0].card_id=647 or card_id_in_space[0].card_id=648 {
+				//giratina, shaymin, tornadus, thundurus, landorus, keldeo, meloetta (0-500)
 				card_id_in_space[0].card_form_value+=500; }
 			else if card_id_in_space[0].card_id=479 {
 				//rotom (0-175-340-505-670-835)
