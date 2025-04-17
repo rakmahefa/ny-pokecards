@@ -33,17 +33,17 @@ if argument1=true {
 	//
 	var i=0;
 	repeat (3) { //cost types are also shown in ob_card_space when adding a glyph to an empty card
-		//normal (I), water, (flying), fighting, ice, dragon, steel
+		//normal (I/V2), water, (flying), fighting, ice, dragon, steel
 		//+igglybuff +porygon2 +blissey +azurill +swablu +happiny +munchlax +lickilicky +porygon-z, -steelix
-		if ((card_cost[i]=00 and (card_id<=151 or card_id=174 or card_id=233 or card_id=242 or card_id=298 or card_id=333 or card_id=440 or card_id=446 or card_id=463 or card_id=474)) or
+		if ((card_cost[i]=00 and (card_id<=151 or card_id>=531 or card_id=174 or card_id=233 or card_id=242 or card_id=298 or card_id=333 or card_id=440 or card_id=446 or card_id=463 or card_id=474)) or
 		card_cost[i]=03 or card_cost[i]=05 or card_cost[i]=06 or card_cost[i]=13 or card_cost[i]=14 or card_cost[i]=15) and (card_id!=208) {
 			card_cost[i]=0; //oran
 			card_cost_total_type[0]++;
 			if enemy_costcount=true { ob_control.enemy_deck_fullcost[0]++; }
 		}
-		//normal (II), fire, psychic, fairy, ground, rock, ghost, dark
+		//normal (II/V1), fire, psychic, fairy, ground, rock, ghost, dark
 		//+ambipom +steelix
-		else if (card_cost[i]=00 and (card_id<=251 or card_id=424)) or (card_cost[i]>=00 and (card_id=208)) or
+		else if (card_cost[i]=00 and (card_id<=251 or (card_id>=494 and card_id<=530) or card_id=424)) or (card_cost[i]>=00 and (card_id=208)) or
 		card_cost[i]=02 or card_cost[i]=07 or card_cost[i]=08 or card_cost[i]=09 or card_cost[i]=10 or card_cost[i]=16 or card_cost[i]=17 {
 			card_cost[i]=1; //leppa
 			card_cost_total_type[1]++;

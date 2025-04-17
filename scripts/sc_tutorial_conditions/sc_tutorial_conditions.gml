@@ -8,7 +8,7 @@ if ob_main.berry_num_used[0][0]>0 {
 }
 else if ob_main.berry_num_used[1][0]>0 {
 	var normal_card_id=161; //sentret
-	var misc_card_id=074; //geodude
+	var misc_card_id=519; //pidove
 }
 else if ob_main.berry_num_used[2][0]>0 {
 	var normal_card_id=263; //zigzagoon

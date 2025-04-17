@@ -16,6 +16,12 @@ ELITE 3	DION
 ELITE 4	APRIL
 CHAMP	DUNCAN
 
+I-II-III-IV-V
+ORAN	222 (202)	normal-I/V2 water flying fighting ice dragon steel
+LEPPA	220 (200)	normal-II/V1 fire psychic fairy ground rock ghost dark
+LUM	208 (200)	normal-III/IV grass electric bug poison
+
+I-II-III-IV
 normal	22	15	18	17	> 72	22+8 ORAN / 12+1 LEPPA / 17 LUM / 12 LUM
 grass	12	9	12	13	> 46	LUM
 fire	12	8	6	5	> 31	LEPPA
@@ -35,7 +41,6 @@ steel	-	2	9	3	> 14	ORAN
 ghost	3	1	4	6	> 14	LEPPA
 dark	-	5	4	3	> 12	LEPPA
 
-I-II-III-IV
 ORAN	170	normal-I water fighting ice dragon steel
 LEPPA	157	normal-II fire psychic fairy ground rock ghost dark
 LUM	166	normal-III/IV grass electric bug poison

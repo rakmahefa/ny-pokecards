@@ -11,7 +11,7 @@ if argument0<=21 { //tutorial
 	else if ob_main.berry_num_used[1][0]>0 {
 		var berry_name="Leppa";
 		var normal_card="Sentret";
-		var misc_card="Geodude";
+		var misc_card="Pidove";
 		var flying_card="Hoothoot";
 	}
 	else if ob_main.berry_num_used[2][0]>0 {

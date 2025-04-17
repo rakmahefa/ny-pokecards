@@ -90,17 +90,17 @@ else if event_kind=ref_event_grass or event_kind=ref_event_fire or event_kind=re
 	//exact amount of cards and berries is also checked manually when entering tutorial
 	//
 	do {
-		if event_kind=ref_event_grass { //bulbasaur, chikorita, treecko, turtwig
-			var first_starter=choose(001,152,252,387);
-			var second_starter=choose(001,152,252,387);
+		if event_kind=ref_event_grass { //bulbasaur, chikorita, treecko, turtwig, snivy
+			var first_starter=choose(001,152,252,387,495);
+			var second_starter=choose(001,152,252,387,495);
 		}
-		else if event_kind=ref_event_fire { //charmander, cyndaquil, torchic, chimchar
-			var first_starter=choose(004,155,255,390);
-			var second_starter=choose(004,155,255,390);
+		else if event_kind=ref_event_fire { //charmander, cyndaquil, torchic, chimchar, tepig
+			var first_starter=choose(004,155,255,390,498);
+			var second_starter=choose(004,155,255,390,498);
 		}
-		else if event_kind=ref_event_water { //squirtle, totodile, mudkip, piplup
-			var first_starter=choose(007,158,258,393);
-			var second_starter=choose(007,158,258,393);
+		else if event_kind=ref_event_water { //squirtle, totodile, mudkip, piplup, oshawott
+			var first_starter=choose(007,158,258,393,501);
+			var second_starter=choose(007,158,258,393,501);
 		}
 	} until (first_starter!=second_starter);
 	//
@@ -115,7 +115,7 @@ else if event_kind=ref_event_grass or event_kind=ref_event_fire or event_kind=re
 			else if i=3 and event_kind=ref_event_grass { create_card_id=396; } //starly
 			else if i=4 and event_kind=ref_event_grass { create_card_id=263; } //zigzagoon
 			else if i=2 and event_kind=ref_event_fire { create_card_id=163; } //hoothoot
-			else if i=3 and event_kind=ref_event_fire { create_card_id=074; } //geodude
+			else if i=3 and event_kind=ref_event_fire { create_card_id=519; } //pidove
 			else if i=4 and event_kind=ref_event_fire { create_card_id=161; } //sentret
 			else if i=2 and event_kind=ref_event_water { create_card_id=016; } //pidgey
 			else if i=3 and event_kind=ref_event_water { create_card_id=021; } //spearow

@@ -65,13 +65,13 @@ repeat (ob_main.maindeck_total) {
 var i=0, shuffled_starters=0, card_shuffle;
 repeat (card_maindeck_total) {
 	if ob_main.playing_tutorial=true {
-		if ob_main.main_card_id[i]=001 or ob_main.main_card_id[i]=152 or ob_main.main_card_id[i]=252 or ob_main.main_card_id[i]=387 or
-		ob_main.main_card_id[i]=004 or ob_main.main_card_id[i]=155 or ob_main.main_card_id[i]=255 or ob_main.main_card_id[i]=390 or
-		ob_main.main_card_id[i]=007 or ob_main.main_card_id[i]=158 or ob_main.main_card_id[i]=258 or ob_main.main_card_id[i]=393 {
+		if ob_main.main_card_id[i]=001 or ob_main.main_card_id[i]=152 or ob_main.main_card_id[i]=252 or ob_main.main_card_id[i]=387 or ob_main.main_card_id[i]=495 or
+		ob_main.main_card_id[i]=004 or ob_main.main_card_id[i]=155 or ob_main.main_card_id[i]=255 or ob_main.main_card_id[i]=390 or ob_main.main_card_id[i]=498 or
+		ob_main.main_card_id[i]=007 or ob_main.main_card_id[i]=158 or ob_main.main_card_id[i]=258 or ob_main.main_card_id[i]=393 or ob_main.main_card_id[i]=501 {
 			if shuffled_starters=0 { card_shuffle[i]=0; }
 			else { card_shuffle[i]=2; }
 			shuffled_starters++; }
-		else if ob_main.main_card_id[i]=016 or ob_main.main_card_id[i]=074 or ob_main.main_card_id[i]=276 { card_shuffle[i]=4; } //pidgey, geodude, taillow
+		else if ob_main.main_card_id[i]=016 or ob_main.main_card_id[i]=519 or ob_main.main_card_id[i]=276 { card_shuffle[i]=4; } //pidgey, pidove, taillow
 		else if ob_main.main_card_id[i]=021 or ob_main.main_card_id[i]=163 or ob_main.main_card_id[i]=396 { card_shuffle[i]=1; } //spearow, hoothoot, starly
 		else if ob_main.main_card_id[i]=019 or ob_main.main_card_id[i]=161 or ob_main.main_card_id[i]=263 { card_shuffle[i]=3; } //rattata, sentret, zigzagoon
 	}
