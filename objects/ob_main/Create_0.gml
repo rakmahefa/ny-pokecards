@@ -102,7 +102,7 @@ textbox_timer=0;
 textbox_timer_max=1;
 textbox_char_pos=0;
 //————————————————————————————————————————————————————————————————————————————————————————————————————
-#macro normal_poke_id_max 493 //normal (non-secret and non-environment) poke cards
+#macro normal_poke_id_max 649 //normal (non-secret and non-environment) poke cards
 #macro secret_cards_total 4
 #macro environment_cards_total 4
 //
@@ -222,6 +222,26 @@ tooltip_lines=0;
 #macro ref_glyph_intimidate 110
 #macro ref_glyph_guru 111
 #macro ref_glyph_confidence 112
+//
+#macro tNONE -1
+#macro tNOR 00
+#macro tGRA 01
+#macro tFIR 02
+#macro tWAT 03
+#macro tELE 04
+#macro tFLY 05
+#macro tFIG 06
+#macro tPSY 07
+#macro tFAI 08
+#macro tGRO 09
+#macro tROC 10
+#macro tBUG 11
+#macro tPOI 12
+#macro tICE 13
+#macro tDRA 14
+#macro tSTE 15
+#macro tGHO 16
+#macro tDAR 17
 //————————————————————————————————————————————————————————————————————————————————————————————————————
 #macro options_total 12
 #macro playericon_max 15

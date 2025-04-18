@@ -19,24 +19,24 @@ if reference_id=ob_control or
 if card_cat=0 and card_face=true and in_view=true {
 	var card_color=c_white, namebar_color=c_white;
 	//
-	if card_type_a=00 { namebar_color=make_colour_rgb(169,182,214); }
-	else if card_type_a=01 { namebar_color=make_colour_rgb(174,214,170); }
-	else if card_type_a=02 { namebar_color=make_colour_rgb(219,181,174); }
-	else if card_type_a=03 { namebar_color=make_colour_rgb(170,191,214); }
-	else if card_type_a=04 { namebar_color=make_colour_rgb(214,207,170); }
-	else if card_type_a=05 { namebar_color=make_colour_rgb(170,177,214); }
-	else if card_type_a=06 { namebar_color=make_colour_rgb(214,170,183); }
-	else if card_type_a=07 { namebar_color=make_colour_rgb(214,170,171); }
-	else if card_type_a=08 { namebar_color=make_colour_rgb(214,170,210); }
-	else if card_type_a=09 { namebar_color=make_colour_rgb(214,186,170); }
-	else if card_type_a=10 { namebar_color=make_colour_rgb(214,202,170); }
-	else if card_type_a=11 { namebar_color=make_colour_rgb(200,214,170); }
-	else if card_type_a=12 { namebar_color=make_colour_rgb(199,170,213); }
-	else if card_type_a=13 { namebar_color=make_colour_rgb(172,214,208); }
-	else if card_type_a=14 { namebar_color=make_colour_rgb(173,196,214); }
-	else if card_type_a=15 { namebar_color=make_colour_rgb(175,205,214); }
-	else if card_type_a=16 { namebar_color=make_colour_rgb(176,186,214); }
-	else if card_type_a=17 { namebar_color=make_colour_rgb(191,177,214); }
+	if card_type_a=tNOR { namebar_color=make_colour_rgb(169,182,214); }
+	else if card_type_a=tGRA { namebar_color=make_colour_rgb(174,214,170); }
+	else if card_type_a=tFIR { namebar_color=make_colour_rgb(219,181,174); }
+	else if card_type_a=tWAT { namebar_color=make_colour_rgb(170,191,214); }
+	else if card_type_a=tELE { namebar_color=make_colour_rgb(214,207,170); }
+	else if card_type_a=tFLY { namebar_color=make_colour_rgb(170,177,214); }
+	else if card_type_a=tFIG { namebar_color=make_colour_rgb(214,170,183); }
+	else if card_type_a=tPSY { namebar_color=make_colour_rgb(214,170,171); }
+	else if card_type_a=tFAI { namebar_color=make_colour_rgb(214,170,210); }
+	else if card_type_a=tGRO { namebar_color=make_colour_rgb(214,186,170); }
+	else if card_type_a=tROC { namebar_color=make_colour_rgb(214,202,170); }
+	else if card_type_a=tBUG { namebar_color=make_colour_rgb(200,214,170); }
+	else if card_type_a=tPOI { namebar_color=make_colour_rgb(199,170,213); }
+	else if card_type_a=tICE { namebar_color=make_colour_rgb(172,214,208); }
+	else if card_type_a=tDRA { namebar_color=make_colour_rgb(173,196,214); }
+	else if card_type_a=tSTE { namebar_color=make_colour_rgb(175,205,214); }
+	else if card_type_a=tGHO { namebar_color=make_colour_rgb(176,186,214); }
+	else if card_type_a=tDAR { namebar_color=make_colour_rgb(191,177,214); }
 	//
 	if card_innate=0 { card_color=global.color_card_light; }
 	else if card_innate=innate_max { card_color=namebar_color; }

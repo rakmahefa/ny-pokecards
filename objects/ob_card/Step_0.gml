@@ -477,24 +477,24 @@ if ((reference_id=ob_control and ob_control.card_focus=id) or reference_id=ob_ev
 		if card_type_b>=0 and mouse_x>=x+2 and mouse_y>=y+12 and mouse_x<=x+13 and mouse_y<=y+22 { var switch_var=card_type_b; }
 		else if mouse_x>=x+2 and mouse_y>=y+2 and mouse_x<=x+13 and mouse_y<=y+12 { var switch_var=card_type_a; }
 		switch (switch_var) {
-			case 00: reference_id.tooltip_text="Normal"; break;
-			case 01: reference_id.tooltip_text="Grass"; break;
-			case 02: reference_id.tooltip_text="Fire"; break;
-			case 03: reference_id.tooltip_text="Water"; break;
-			case 04: reference_id.tooltip_text="Electric"; break;
-			case 05: reference_id.tooltip_text="Flying"; break;
-			case 06: reference_id.tooltip_text="Fighting"; break;
-			case 07: reference_id.tooltip_text="Psychic"; break;
-			case 08: reference_id.tooltip_text="Fairy"; break;
-			case 09: reference_id.tooltip_text="Ground"; break;
-			case 10: reference_id.tooltip_text="Rock"; break;
-			case 11: reference_id.tooltip_text="Bug"; break;
-			case 12: reference_id.tooltip_text="Poison"; break;
-			case 13: reference_id.tooltip_text="Ice"; break;
-			case 14: reference_id.tooltip_text="Dragon"; break;
-			case 15: reference_id.tooltip_text="Steel"; break;
-			case 16: reference_id.tooltip_text="Ghost"; break;
-			case 17: reference_id.tooltip_text="Dark"; break;
+			case tNOR: reference_id.tooltip_text="Normal"; break;
+			case tGRA: reference_id.tooltip_text="Grass"; break;
+			case tFIR: reference_id.tooltip_text="Fire"; break;
+			case tWAT: reference_id.tooltip_text="Water"; break;
+			case tELE: reference_id.tooltip_text="Electric"; break;
+			case tFLY: reference_id.tooltip_text="Flying"; break;
+			case tFIG: reference_id.tooltip_text="Fighting"; break;
+			case tPSY: reference_id.tooltip_text="Psychic"; break;
+			case tFAI: reference_id.tooltip_text="Fairy"; break;
+			case tGRO: reference_id.tooltip_text="Ground"; break;
+			case tROC: reference_id.tooltip_text="Rock"; break;
+			case tBUG: reference_id.tooltip_text="Bug"; break;
+			case tPOI: reference_id.tooltip_text="Poison"; break;
+			case tICE: reference_id.tooltip_text="Ice"; break;
+			case tDRA: reference_id.tooltip_text="Dragon"; break;
+			case tSTE: reference_id.tooltip_text="Steel"; break;
+			case tGHO: reference_id.tooltip_text="Ghost"; break;
+			case tDAR: reference_id.tooltip_text="Dark"; break;
 		}
 		reference_id.tooltip_lines=1;
 	}
