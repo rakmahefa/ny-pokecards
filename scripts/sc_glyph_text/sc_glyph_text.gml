@@ -31,8 +31,8 @@ if argument1=false {
 		case ref_glyph_setback: return "// SETBACK //\nLowers attack by 1/3 at all times, rounded up."; break;
 		case ref_glyph_might: return "// MIGHT //\nRaises attack by 1 at all times."; break;
 		case ref_glyph_aegis: return "// AEGIS //\nGrants impenetrable defense."; break;
-		case ref_glyph_magnetism_p: return "// MAGNETISM //\nRaises attack by 2 if Minun is also played."; break;
-		case ref_glyph_magnetism_m: return "// MAGNETISM //\nRaises attack by 2 if Plusle is also played."; break;
+		case ref_glyph_magnetism_p: return "// MAGNETISM (+) //\nRaises attack by 2 if the opposite pole (-) is also played."; break;
+		case ref_glyph_magnetism_m: return "// MAGNETISM (-) //\nRaises attack by 2 if the opposite pole (+) is also played."; break;
 		case ref_glyph_sunlight: return "// SUNLIGHT //\nRaises attack and defense by 1 when HP is full."; break;
 		case ref_glyph_mindful: return "// MINDFUL //\nGrants 1 DP (Draw Points) when played."; break;
 		case ref_glyph_intimidate: return "// INTIMIDATE //\nThe opposing card's attack is lowered by 1."; break;

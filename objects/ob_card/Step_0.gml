@@ -188,17 +188,17 @@ if reference_id=ob_control and card_cat=0 and ((card_enemy=false and card_face=t
 	else if card_played=true and card_trash=false {
 		if any_paired_glyph=true {
 			if card_enemy=true { var i=0; } else { var i=5; }
-			var active_plusle=false, active_minun=false;
+			var active_magplus=false, active_magminus=false;
 			repeat (5) {
 				if ob_control.card_space_id[i].occupy_id!=id and ob_control.card_space_id[i].occupy_id!=-1 {
-					if ob_control.card_space_id[i].occupy_id.card_id=311 { active_plusle=true; }
-					else if ob_control.card_space_id[i].occupy_id.card_id=312 { active_minun=true; }
+					if ob_control.card_space_id[i].occupy_id.card_glyph_a=ref_glyph_magnetism_p { active_magplus=true; } //only checks slot A, for optimization
+					else if ob_control.card_space_id[i].occupy_id.card_glyph_a=ref_glyph_magnetism_m { active_magminus=true; } //only checks slot A, for optimization
 				}
 				i++;
 			}
 			//
-			if sc_glyph_check(id,ref_glyph_magnetism_p,true) and active_minun=true { base_atk_boost+=2; } //glyph: magnetism (plusle)
-			else if sc_glyph_check(id,ref_glyph_magnetism_m,true) and active_plusle=true { base_atk_boost+=2; } //glyph: magnetism (minun)
+			if sc_glyph_check(id,ref_glyph_magnetism_p,true) and active_magminus=true { base_atk_boost+=2; } //glyph: magnetism (+)
+			else if sc_glyph_check(id,ref_glyph_magnetism_m,true) and active_magplus=true { base_atk_boost+=2; } //glyph: magnetism (-)
 		}
 		//
 		if card_enemy=true { var i=0; } else { var i=5; }

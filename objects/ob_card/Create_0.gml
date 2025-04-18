@@ -177,28 +177,76 @@ if card_cat=0 {
 			if card_glyph_b=-2 { card_glyph_b=-1; }
 			if card_glyph_c=-2 { card_glyph_c=-1; }
 			//
-			if card_id=109 or card_id=110 { card_glyph_a=choose(-1,ref_glyph_mist); } //koffing, weezing (currently, sc_glyph_check and ob_main.mist_exists only check for slot A, for optimization)
-			else if card_id=132 { card_glyph_a=ref_glyph_imposter; } //ditto
-			else if card_id=235 or card_id=352 { card_glyph_a=ref_glyph_palette; } //smeargle, kecleon
-			else if card_id=287 or card_id=288 or card_id=289 or card_id=486 { card_glyph_a=ref_glyph_setback; } //slakoth, vigoroth, slaking, regigigas
-			else if card_id=298 or card_id=183 or card_id=184 or card_id=175 or card_id=176 or card_id=468 or card_id=222 or card_id=223 or card_id=225 or card_id=137 or card_id=233 or card_id=474 {
-				card_glyph_a=choose(-1,ref_glyph_might); } //azurill, marill, azumarill, togepi, togetic, togekiss, corsola, remoraid (not octillery), delibird, porygon, porygon2, porygon-z
-			else if card_id=307 or card_id=308 { card_glyph_a=ref_glyph_might; } //meditite, medicham
-			else if card_id=292 { card_glyph_a=ref_glyph_aegis; } //shedinja
-			else if card_id=311 { card_glyph_a=ref_glyph_magnetism_p; } //plusle
-			else if card_id=312 { card_glyph_a=ref_glyph_magnetism_m; } //minun
-			else if card_id=420 or card_id=421 { card_glyph_a=ref_glyph_sunlight; } //cherubi, cherrim
-			else if card_id=052 or card_id=190 or card_id=216 or card_id=263 or card_id=264 or card_id=417 or card_id=424 or card_id=446 {
-				card_glyph_a=choose(-1,ref_glyph_mindful); } //meowth, aipom, teddiursa, zigzagoon, linoone, pachirisu, ambipom, munchlax
-			else if card_id=231 { card_glyph_a=ref_glyph_mindful; } //phanpy (not donphan)
-			else if card_id=023 or card_id=024 or card_id=058 or card_id=059 or card_id=128 or card_id=130 or card_id=209 or card_id=210 or card_id=234 or card_id=237 or
-			card_id=262 or card_id=284 or card_id=303 or card_id=373 or card_id=397 or card_id=398 or card_id=403 or card_id=404 or card_id=405 {
+			if card_id=109 or card_id=110 {
+				//koffing, weezing (currently, sc_glyph_check and ob_main.mist_exists only check for slot A, for optimization)
+				card_glyph_a=choose(-1,ref_glyph_mist); }
+			else if card_id=132 {
+				//ditto
+				card_glyph_a=ref_glyph_imposter; }
+			else if card_id=235 or card_id=352 {
+				//smeargle, kecleon
+				card_glyph_a=ref_glyph_palette; }
+			else if card_id=287 or card_id=288 or card_id=289 or card_id=486 {
+				//slakoth, vigoroth, slaking, regigigas
+				card_glyph_a=ref_glyph_setback; }
+			else if card_id=298 or card_id=183 or card_id=184 or card_id=175 or card_id=176 or card_id=468 or card_id=222 or card_id=223 or card_id=225 or card_id=137 or card_id=233 or
+			card_id=474 or card_id=632 {
+				//azurill, marill, azumarill, togepi, togetic, togekiss, corsola, remoraid (not octillery), delibird, porygon, porygon2, porygon-z, durant
+				card_glyph_a=choose(-1,ref_glyph_might); }
+			else if card_id=307 or card_id=308 or card_id=554 or card_id=633 or card_id=634 or card_id=649 {
+				//meditite, medicham, darumaka (not darmanitan), deino/zweilous (not hydreigon), genesect
+				card_glyph_a=ref_glyph_might; }
+			else if card_id=292 {
+				//shedinja
+				card_glyph_a=ref_glyph_aegis; }
+			else if card_id=311 {
+				//plusle
+				card_glyph_a=ref_glyph_magnetism_p; } //currently, ob_card.step only checks slot A, for optimization
+			else if card_id=312 {
+				//minun
+				card_glyph_a=ref_glyph_magnetism_m; } //currently, ob_card.step only checks slot A, for optimization
+			else if card_id=179 or card_id=180 or card_id=181 {
+				//mareep, flaaffy, ampharos
+				card_glyph_a=choose(-1,-1,-1,ref_glyph_magnetism_p); } //currently, ob_card.step only checks slot A, for optimization
+			else if card_id=309 or card_id=310 {
+				//electrike, manectric
+				card_glyph_a=choose(-1,-1,-1,ref_glyph_magnetism_m); } //currently, ob_card.step only checks slot A, for optimization
+			else if card_id=599 or card_id=600 or card_id=601 {
+				//klink, klang, klinklang
+				card_glyph_a=choose(ref_glyph_magnetism_p,ref_glyph_magnetism_m); } //currently, ob_card.step only checks slot A, for optimization
+			else if card_id=420 or card_id=421 {
+				//cherubi, cherrim
+				card_glyph_a=ref_glyph_sunlight; }
+			else if card_id=052 or card_id=190 or card_id=216 or card_id=263 or card_id=264 or card_id=417 or card_id=424 or card_id=446 or card_id=506 {
+				//meowth, aipom, teddiursa, zigzagoon, linoone, pachirisu, ambipom, munchlax, lillipup (not herdier/stoutland)
+				card_glyph_a=choose(-1,ref_glyph_mindful); }
+			else if card_id=231 {
+				//phanpy (not donphan)
+				card_glyph_a=ref_glyph_mindful; }
+			else if card_id=645 {
+				//landorus
+				card_glyph_a=ref_glyph_intimidate; }
+			else if card_id=023 or card_id=024 or card_id=058 or card_id=059 or card_id=128 or card_id=130 or card_id=209 or card_id=210 or card_id=234 or card_id=237 or card_id=262 or
+			card_id=284 or card_id=303 or card_id=373 or card_id=397 or card_id=398 or card_id=403 or card_id=404 or card_id=405 or card_id=507 or card_id=508 or card_id=551 or card_id=552 or
+			card_id=553 {
+				//ekans, arbok, growlithe, arcanine, tauros, gyarados (not magikarp), snubbull, granbull, stantler, hitmontop (not tyrogue), mightyena (not poochyena), masquerain (not surskit),
+				//mawile, salamence (not bagon/shelgon), staravia/staraptor (not starly), shinx, luxio, luxray, herdier/stoutland (not lillipup), sandile, krokorok, krookodile
 				card_glyph_a=choose(-1,ref_glyph_intimidate); }
-				//ekans, arbok, growlithe, arcanine, tauros, gyarados (not magikarp), snubbull, granbull, stantler, hitmontop (not tyrogue), mightyena (not poochyena),
-				//masquerain (not surskit), mawile, salamence (not bagon/shelgon), staravia (not starly), staraptor, shinx, luxio, luxray
+			//
 			if card_glyph_a=-1 and
-			(card_id=056 or card_id=057 or card_id=116 or card_id=117 or card_id=230 or card_id=198 or card_id=430 or card_id=223 or card_id=224 or card_id=359 or card_id=451 or card_id=452) {
-				card_glyph_a=choose(-1,ref_glyph_confidence); } //mankey, primeape, horsea, seadra, kingdra, murkrow, honchkrow, remoraid, octillery, absol, skorupi, drapion
+			(card_id=056 or card_id=057 or card_id=116 or card_id=117 or card_id=230 or card_id=198 or card_id=430 or card_id=223 or card_id=224 or card_id=359 or card_id=451 or card_id=452 or
+			card_id=519 or card_id=520 or card_id=521) {
+				//mankey, primeape, horsea, seadra, kingdra, murkrow, honchkrow, remoraid, octillery, absol, skorupi, drapion, pidove, tranquill, unfezant
+				card_glyph_a=choose(-1,ref_glyph_confidence); }
+			if card_glyph_a=-1 and
+			(card_id=015 or card_id=021 or card_id=022 or card_id=167 or card_id=168 or card_id=175 or card_id=176 or card_id=468 or card_id=323 or card_id=551 or card_id=552 or card_id=553) {
+				//beedrill, spearow, fearow, spinarak, ariados, togepi, togetic, togekiss, camerupt, sandile, krokorok, krookodile
+				//not tauros just because it'd be useless
+				card_glyph_a=choose(-1,-1,-1,ref_glyph_confidence); }
+			if card_glyph_a=-1 and
+			(card_id=211 or card_id=559 or card_id=560) {
+				//qwilfish, scraggy, scrafty
+				card_glyph_a=choose(-1,-1,-1,ref_glyph_intimidate); }
 			//
 			if card_environment=false and (card_glyph_a=-1 or card_glyph_b=-1) {
 				if enemy_randomizer=false { var guru_chance=irandom(99); } //1%
