@@ -839,10 +839,14 @@ else if event_transition=-1 and event_transition_standby=-1 and fade_black<=0 {
 }
 //————————————————————————————————————————————————————————————————————————————————————————————————————
 //CHEATS
-/*if keyboard_check_pressed(vk_multiply) { game_restart(); }
+if keyboard_check_pressed(vk_multiply) { game_restart(); }
 if keyboard_check_pressed(vk_add) { roadmap_area++; }
 if keyboard_check_pressed(vk_numpad0) { money+=1000; }
 if keyboard_check(vk_decimal) { stats_timeplayed+=900; }
+if keyboard_check_pressed(vk_divide) {
+	if cheat_show_stats=false { cheat_show_stats=true; }
+	else { cheat_show_stats=false; }
+}
 //
 if instance_exists(ob_control) and keyboard_check_pressed(vk_numpad8) {
 	ob_control.player_hp=(ob_control.hp_max*2)-1;
@@ -851,7 +855,7 @@ if instance_exists(ob_control) and keyboard_check_pressed(vk_numpad8) {
 if instance_exists(ob_control) and keyboard_check_pressed(vk_numpad7) {
 	ob_control.player_hp=1;
 	ob_control.enemy_hp=(ob_control.hp_max*2)-1;
-}*/
+}//*/
 //————————————————————————————————————————————————————————————————————————————————————————————————————
 if roadmap_area=roadmap_current_max {
 	area_zone++;

@@ -45,6 +45,7 @@ nickname_screen=false;
 nickname_input="";
 ending_screen=false;
 ending_static_timer=-1;
+cheat_show_stats=false;
 //
 #macro area_zone_max 9
 #macro roadmap_full_max 50 //save/load, needs to be bigger than the rest (and their sum, just in case)

@@ -37,8 +37,8 @@ else if instance_exists(ob_event) and occupy_id=-1 and ob_main.cursor_hide=false
 			}
 		}
 		else if ob_event.event_kind=ref_event_evolution {
-			ob_event.tooltip_text="// EVOLUTION //\nThe Pokemon evolves into its next form.\nSome Pokemon will change forms, instead.";
-			ob_event.tooltip_lines=3;
+			ob_event.tooltip_text="// EVOLUTION //\nThe Pokemon evolves into its next form.\nSome Pokemon will change forms, instead.\nEffect on low-level cards may be minimal, if any.";
+			ob_event.tooltip_lines=4;
 		}
 		else if ob_event.event_kind=ref_event_glyph {
 			ob_event.tooltip_text=sc_glyph_text(ob_event.glyph_add_id,false);
@@ -46,14 +46,14 @@ else if instance_exists(ob_event) and occupy_id=-1 and ob_main.cursor_hide=false
 		}
 		else if ob_event.event_kind=ref_event_tribute {
 			if id=ob_event.event_space_id[0] {
-				ob_event.tooltip_text="// TRIBUTE //\nTransfers the intrinsic strength of one Pokemon into another." +
-				"\nThe card placed here will be weakened, and unable to receive\nany further improvements.";
-				ob_event.tooltip_lines=4;
+				ob_event.tooltip_text="// TRIBUTE //\nTransfers the intrinsic will of one Pokemon into another." +
+				"\nThe card placed here will be weakened (*),\nand unable to receive any further improvements.\nEffect on low-level cards may be minimal, if any.";
+				ob_event.tooltip_lines=5;
 			}
 			else if id=ob_event.event_space_id[1] {
-				ob_event.tooltip_text="// TRIBUTE //\nTransfers the intrinsic strength of one Pokemon into another." +
-				"\nThe card placed here will receive a boost to its innate parameters.";
-				ob_event.tooltip_lines=3;
+				ob_event.tooltip_text="// TRIBUTE //\nTransfers the intrinsic will of one Pokemon into another." +
+				"\nThe card placed here will receive a boost to its innate parameters.\nEffect on low-level cards may be minimal, if any.";
+				ob_event.tooltip_lines=4;
 			}
 		}
 	}
