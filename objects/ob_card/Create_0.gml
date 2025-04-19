@@ -201,19 +201,19 @@ if card_cat=0 {
 				card_glyph_a=ref_glyph_aegis; }
 			else if card_id=311 {
 				//plusle
-				card_glyph_a=ref_glyph_magnetism_p; } //currently, ob_card.step only checks slot A, for optimization
+				card_glyph_a=ref_glyph_magnetism_p; } //currently, only checks slot A, for optimization
 			else if card_id=312 {
 				//minun
-				card_glyph_a=ref_glyph_magnetism_m; } //currently, ob_card.step only checks slot A, for optimization
+				card_glyph_a=ref_glyph_magnetism_m; } //currently, only checks slot A, for optimization
 			else if card_id=179 or card_id=180 or card_id=181 {
 				//mareep, flaaffy, ampharos
-				card_glyph_a=choose(-1,-1,-1,ref_glyph_magnetism_p); } //currently, ob_card.step only checks slot A, for optimization
+				card_glyph_a=choose(-1,-1,-1,ref_glyph_magnetism_p); } //currently, only checks slot A, for optimization
 			else if card_id=309 or card_id=310 {
 				//electrike, manectric
-				card_glyph_a=choose(-1,-1,-1,ref_glyph_magnetism_m); } //currently, ob_card.step only checks slot A, for optimization
+				card_glyph_a=choose(-1,-1,-1,ref_glyph_magnetism_m); } //currently, only checks slot A, for optimization
 			else if card_id=599 or card_id=600 or card_id=601 {
 				//klink, klang, klinklang
-				card_glyph_a=choose(ref_glyph_magnetism_p,ref_glyph_magnetism_m); } //currently, ob_card.step only checks slot A, for optimization
+				card_glyph_a=choose(ref_glyph_magnetism_p,ref_glyph_magnetism_m); } //currently, only checks slot A, for optimization
 			else if card_id=420 or card_id=421 {
 				//cherubi, cherrim
 				card_glyph_a=ref_glyph_sunlight; }

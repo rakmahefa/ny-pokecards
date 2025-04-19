@@ -62,11 +62,23 @@ do {
 		(argument0=1 and enemycard_hand[i].card_atk=highest_value and enemycard_hand[i].card_atk>=stat_min) or
 		(argument0=2 and enemycard_hand[i].card_def=highest_value and enemycard_hand[i].card_def>=stat_min) or
 		(argument0=3 and enemycard_hand[i].card_value=highest_value and enemycard_hand[i].card_value>=stat_min)) {
+			var active_magplus=false, active_magminus=false;
+			for (var ii=0; ii<=4; ii++;) {
+				if card_space_id[ii].occupy_id!=-1 { //glyph: magnetism (+) / magnetism (-)
+					if card_space_id[ii].occupy_id.card_glyph_a=ref_glyph_magnetism_p { active_magplus=true; } //only checks slot A, for optimization
+					else if card_space_id[ii].occupy_id.card_glyph_a=ref_glyph_magnetism_m { active_magminus=true; } //only checks slot A, for optimization
+				}
+			}
+			//
 			for (var ii=0; ii<=4; ii++;) {
 				//IMAGINARY DAMAGE CALCULATION (similar code in ob_control draw event)
 				var opposing_card_id=-1, bonus_dmg=false, vs_bonus_dmg=false, turns_to_defeat=-1, turns_to_faint=-1, any_card_hurt=false;
 				//
-				var own_atk=enemycard_hand[i].card_atk+card_space_id[ii].card_bonus_atk-card_space_id[ii].card_penalty_atk;
+				var magbonus_atk=0;
+				if sc_glyph_check(enemycard_hand[i],ref_glyph_magnetism_p,true) and active_magminus=true { magbonus_atk+=2; } //glyph: magnetism (+)
+				else if sc_glyph_check(enemycard_hand[i],ref_glyph_magnetism_m,true) and active_magplus=true { magbonus_atk+=2; } //glyph: magnetism (-)
+				//
+				var own_atk=enemycard_hand[i].card_atk+card_space_id[ii].card_bonus_atk-card_space_id[ii].card_penalty_atk+magbonus_atk;
 				var own_def=enemycard_hand[i].card_def+card_space_id[ii].card_bonus_def-card_space_id[ii].card_penalty_def;
 				if own_atk<0 or enemycard_hand[i].card_environment=true { own_atk=0; }
 				if own_def<0 { own_def=0; }

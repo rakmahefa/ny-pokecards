@@ -105,6 +105,14 @@ if card_focus!=-1 and card_focus.card_cat=0 and card_focus_hand!=-1 and card_hol
 	draw_set_halign(fa_center);
 	draw_set_font(fn_m3x6);
 	//
+	var active_magplus=false, active_magminus=false;
+	for (var i=5; i<=9; i++;) {
+		if card_space_id[i].occupy_id!=-1 { //glyph: magnetism (+) / magnetism (-)
+			if card_space_id[i].occupy_id.card_glyph_a=ref_glyph_magnetism_p { active_magplus=true; } //only checks slot A, for optimization
+			else if card_space_id[i].occupy_id.card_glyph_a=ref_glyph_magnetism_m { active_magminus=true; } //only checks slot A, for optimization
+		}
+	}
+	//
 	for (var i=0; i<=4; i++;) {
 		//IMAGINARY DAMAGE CALCULATION (similar code in AI_play_plan)
 		if card_space_id[i].occupy_id!=-1 {
@@ -127,7 +135,11 @@ if card_focus!=-1 and card_focus.card_cat=0 and card_focus_hand!=-1 and card_hol
 					vs_bonus_dmg=sc_type_bonus(card_space_id[i].occupy_id.card_type_a,card_space_id[i].occupy_id.card_type_b,card_focus.card_type_a,card_focus.card_type_b); }
 			}
 			//
-			var own_atk=card_focus.card_atk+card_space_id[i+5].card_bonus_atk-card_space_id[i+5].card_penalty_atk;
+			var magbonus_atk=0;
+			if sc_glyph_check(card_focus,ref_glyph_magnetism_p,true) and active_magminus=true { magbonus_atk+=2; } //glyph: magnetism (+)
+			else if sc_glyph_check(card_focus,ref_glyph_magnetism_m,true) and active_magplus=true { magbonus_atk+=2; } //glyph: magnetism (-)
+			//
+			var own_atk=card_focus.card_atk+card_space_id[i+5].card_bonus_atk-card_space_id[i+5].card_penalty_atk+magbonus_atk;
 			var own_def=card_focus.card_def+card_space_id[i+5].card_bonus_def-card_space_id[i+5].card_penalty_def;
 			if own_atk<0 or card_focus.card_environment=true { own_atk=0; }
 			if own_def<0 { own_def=0; }
