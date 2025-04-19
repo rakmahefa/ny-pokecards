@@ -4102,6 +4102,12 @@ switch (card_id) {
 		card_type_a=tGRA; card_type_b=tFAI;
 		card_base_hp=65; card_base_atk=70+65; card_base_def=70+65;
 		card_grid_x=4; card_grid_y=1; break;
+	case 2005:
+		card_name="Pika-Partner"; //Pikachu, same stats
+		card_stage=1; card_secret=true;
+		card_type_a=tELE; card_type_b=tNONE;
+		card_base_hp=35; card_base_atk=55+50; card_base_def=40+50;
+		card_grid_x=5; card_grid_y=1; break;
 	//
 	case 2501:
 		card_name="Elm Tree";
@@ -4127,6 +4133,12 @@ switch (card_id) {
 		card_type_a=tGRA; card_type_b=tFIR;
 		card_base_hp=170; card_base_atk=0; card_base_def=150; //hp 3-23, def 0-4
 		card_grid_x=4; card_grid_y=14; break;
+	case 2505:
+		card_name="Swamp Tree";
+		card_stage=1; card_environment=true;
+		card_type_a=tGRA; card_type_b=tWAT;
+		card_base_hp=210; card_base_atk=0; card_base_def=90; //hp 3-25, def 0-3
+		card_grid_x=6; card_grid_y=14; break;
 }
 //————————————————————————————————————————————————————————————————————————————————————————————————————
 }

@@ -1,3 +1,15 @@
+[v3.0.0.0] - April 19, 2025
+
+- Added Generation 5.
+- Modified starter decks and tutorial.
+- Modified most Gym Leader decks and Crystal League decks.
+- Added 2 new natural Glyphs ("Forage" and "Distress").
+- Added "Multicolor reward bonus" system: multi-berry decks now earn higher rewards from battles.
+- Added some new secrets.
+- A ton of other minor improvements.
+
+——————————
+
 [v2.4.0.0] - December 6, 2024
 
 - Raised all money rewards from battles.

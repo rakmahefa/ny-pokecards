@@ -195,6 +195,24 @@ for (var i=0; i<deck_build_used_total; i++;) {
 	}
 }
 //————————————————————————————————————————————————————————————————————————————————————————————————————
+// MULTICOLOR REWARD BONUS CALCULATION
+var mc_need_a=berries_needed_deck[0], mc_need_b=berries_needed_deck[1], mc_need_c=berries_needed_deck[2];
+//
+var mc_need_higher=mc_need_a; //get higher
+if mc_need_b>mc_need_higher { mc_need_higher=mc_need_b; }
+if mc_need_c>mc_need_higher { mc_need_higher=mc_need_c; }
+//
+var mc_summed_rest=(mc_need_higher-mc_need_a)+(mc_need_higher-mc_need_b)+(mc_need_higher-mc_need_c); //summed rests
+var mc_rest_perc=(mc_summed_rest*100)/(mc_need_a+mc_need_b+mc_need_c); //get percentage of rest from total needed, max 200%
+//
+var mc_total=ceil((200-mc_rest_perc)/2.5)+20; //200-percentage, divided by 2.5 (max total 80%), +20
+if mc_need_a=0 { mc_total-=10; }
+if mc_need_b=0 { mc_total-=10; }
+if mc_need_c=0 { mc_total-=10; }
+if mc_total<0 { mc_total=0; }
+//
+ob_main.multiberry_bonus=(mc_total/100)+1;
+//————————————————————————————————————————————————————————————————————————————————————————————————————
 // SCROLL BARS (ob_event & ob_deckbuild)
 if mouse_y>=screen_main_y+stored_y and mouse_y<screen_main_y+stored_y+80+8 and ob_main.cursor_hide=false {
 	if mouse_wheel_up() {

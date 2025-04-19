@@ -31,6 +31,11 @@ if deck_build_used_total>0 {
 	if berries_needed_deck[3]>0 { var_text_berries=var_text_berries + ", x" + string(berries_needed_deck[3]) + " Enigma)."; }
 	else { var_text_berries=var_text_berries + ")."; }
 	sc_drawtext(screen_deck_x+6+string_width(var_text),screen_main_y+used_y-21,var_text_berries,global.color_white,global.color_black,0.5,0.5,0,-1);
+	//
+	if ob_main.multiberry_bonus>1 {
+		var var_text_berrybonus=" Multicolor reward bonus: +" + string_format((ob_main.multiberry_bonus-1)*100,0,0) + "%";
+		sc_drawtext(screen_deck_x+6+string_width(var_text)+string_width(var_text_berries),screen_main_y+used_y-21,var_text_berrybonus,global.color_white,global.color_black,0.5,0.5,0,-1);
+	}
 }
 //
 var var_text="Cards: " + string(deck_build_all_total) + "/" + string(maindeck_total_max) + ".";

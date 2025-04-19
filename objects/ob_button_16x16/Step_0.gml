@@ -39,7 +39,7 @@ else if instance_exists(ob_control) and button_id=4 { //auto-attack
 	else { button_state=0; }
 	//
 	if ob_main.cursor_hide=false and mouse_x>=x and mouse_y>=y+2 and mouse_x<x+sprite_width and mouse_y<y+sprite_height-2 {
-		ob_control.tooltip_text="Attack with all cards (hold).";
+		ob_control.tooltip_text="Attack with all cards (hold) [W].";
 		ob_control.tooltip_lines=1;
 	}
 }
@@ -96,7 +96,7 @@ else { //all other buttons
 					ob_control.button_sorthand=true;
 				}
 				else if button_id=3 {
-					ob_main.type_chart_toggle=true;
+					ob_main.type_chart_toggle_on=true;
 				}
 				else if button_id=5 {
 					if ob_main.autoattack_toggle=false { ob_main.autoattack_toggle=true; }
@@ -145,7 +145,7 @@ else { //all other buttons
 					ob_main.credits_screen_toggle=true;
 				}
 				else if button_id=104 {
-					ob_main.type_chart_toggle=true;
+					ob_main.type_chart_toggle_on=true;
 				}
 				else if button_id=105 {
 					ob_main.statistics_screen_toggle=true;
@@ -193,8 +193,8 @@ else { //all other buttons
 		}
 		else if instance_exists(ob_control) {
 			switch (button_id) {
-				case 01: ob_control.tooltip_text="Sort cards in hand."; break;
-				case 03: ob_control.tooltip_text="Type-advantage chart."; break;
+				case 01: ob_control.tooltip_text="Sort cards in hand [Tab]."; break;
+				case 03: ob_control.tooltip_text="Type-advantage chart [S]."; break;
 				case 05: ob_control.tooltip_text="Always auto-attack."; break;
 			}
 			ob_control.tooltip_lines=1;

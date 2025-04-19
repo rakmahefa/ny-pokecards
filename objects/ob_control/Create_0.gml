@@ -22,8 +22,8 @@ if ob_main.playing_tutorial=false {
 	button_create=instance_create_layer(cam_x+cam_w-20,cam_y+4,"instances",ob_button_16x16);
 	button_create.button_id=2;
 }
-button_create=instance_create_layer(cam_x+76,cam_y+180,"instances",ob_button_16x16);
-button_create.button_id=3;
+button_typechart_id=instance_create_layer(cam_x+76,cam_y+180,"instances",ob_button_16x16);
+button_typechart_id.button_id=3;
 button_autoattack_id=instance_create_layer(cam_x+cam_w-91,cam_y+197,"instances",ob_button_16x16);
 button_autoattack_id.button_id=4;
 button_create=instance_create_layer(cam_x+cam_w-91,cam_y+180,"instances",ob_button_16x16);

@@ -344,10 +344,14 @@ if event_transition=ref_event_victory or event_transition=ref_event_defeat {
 		if playing_gym=false or latest_zone>area_zone { var victory_text_y=screen_main_y+cam_h/2-17; }
 		else { var victory_text_y=screen_main_y+cam_h/2-29; }
 		//
+		var text_money_prize="";
+		if multiberry_bonus>1 { text_money_prize="Received $" + string(money_prize) + " (+" + string_format((multiberry_bonus-1)*100,0,0) + "%)"; }
+		else { text_money_prize="Received $" + string(money_prize); }
+		//
 		draw_set_font(fn_m6x11_XL);
 		sc_drawtext(screen_main_x+cam_w/2,victory_text_y,"VICTORY",global.color_friendly,global.color_black,1,1,0,-1);
 		draw_set_font(fn_matchup);
-		sc_drawtext(screen_main_x+cam_w/2,victory_text_y+22,"Received $" + string(money_prize),global.color_card_light,global.color_black,1,1,0,-1);
+		sc_drawtext(screen_main_x+cam_w/2,victory_text_y+22,text_money_prize,global.color_card_light,global.color_black,1,1,0,-1);
 		if playing_gym=true and latest_zone=area_zone {
 			sc_drawtext(screen_main_x+cam_w/2,victory_text_y+22,"\nDeck size increased!\nMax card level increased!",global.color_card_light,global.color_black,1,1,0,-1); }
 	}

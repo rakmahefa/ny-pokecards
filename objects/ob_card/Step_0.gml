@@ -157,7 +157,7 @@ if reference_id=ob_control and card_cat=0 {
 }
 //————————————————————————————————————————————————————————————————————————————————————————————————————
 if reference_id=ob_control and card_cat=0 and ((card_enemy=false and card_face=true) or card_enemy=true) {
-	var base_atk_multiplier=1, base_atk_divisor=1, base_atk_boost=0, base_def_boost=0, base_atk_divisor_setback=1;
+	var base_atk_multiplier=1, base_atk_divisor=1, base_atk_boost=0, base_def_boost=0, base_atk_divisor_setback=1, base_atk_divisor_distress=1;
 	//
 	if any_common_glyph=true {
 		if sc_glyph_check(id,ref_glyph_berserk,true) and (card_hp<=(card_full_hp/3) or (card_hp=1 and card_hp!=card_full_hp)) { base_atk_multiplier=2; } //glyph: berserk
@@ -178,10 +178,11 @@ if reference_id=ob_control and card_cat=0 and ((card_enemy=false and card_face=t
 		if sc_glyph_check(id,ref_glyph_might,true) { base_atk_boost+=1; } //glyph: might (azurill/marill/azumarill/meditite/medicham)
 		if sc_glyph_check(id,ref_glyph_aegis,true) { base_def_boost+=250; } //glyph: aegis (shedinja)
 		if sc_glyph_check(id,ref_glyph_setback,true) { base_atk_divisor_setback=1.5; } //glyph: setback (slakoth/vigoroth/slaking/regigigas)
+		if sc_glyph_check(id,ref_glyph_distress,true) and card_hp<=(card_full_hp/2) { base_atk_divisor_distress=2; } //glyph: distress (archen/archeops)
 	}
 	//
 	if card_played=false and card_trash=false {
-		card_atk=ceil(card_full_atk*base_atk_multiplier/base_atk_divisor/base_atk_divisor_setback)+base_atk_boost;
+		card_atk=ceil(card_full_atk*base_atk_multiplier/base_atk_divisor/base_atk_divisor_setback/base_atk_divisor_distress)+base_atk_boost;
 		card_def=card_full_def+base_def_boost;
 		if card_def>99 { card_def=99; }
 	}
@@ -204,7 +205,7 @@ if reference_id=ob_control and card_cat=0 and ((card_enemy=false and card_face=t
 		if card_enemy=true { var i=0; } else { var i=5; }
 		repeat (5) {
 			if ob_control.card_space_id[i].occupy_id=id {
-				card_atk=ceil(card_full_atk*base_atk_multiplier/base_atk_divisor/base_atk_divisor_setback)+
+				card_atk=ceil(card_full_atk*base_atk_multiplier/base_atk_divisor/base_atk_divisor_setback/base_atk_divisor_distress)+
 				ob_control.card_space_id[i].card_bonus_atk-ob_control.card_space_id[i].card_penalty_atk+base_atk_boost;
 				card_def=card_full_def+ob_control.card_space_id[i].card_bonus_def-ob_control.card_space_id[i].card_penalty_def+base_def_boost;
 				if card_atk<0 or card_environment=true { card_atk=0; }
@@ -220,7 +221,7 @@ if card_trash=false and card_enemy=false and reference_id=ob_control {
 	if ((mouse_x>=x and mouse_y>=y and mouse_x<x+sprite_width and mouse_y<y+sprite_height) or
 	((keyboard_check_pressed(vk_left) or keyboard_check_pressed(ord("A"))) and num_in_berrydeck>=0) or
 	((keyboard_check_pressed(vk_right) or keyboard_check_pressed(ord("D"))) and num_in_maindeck>=0)) {
-		if (mouse_x>=x and mouse_y>=y and mouse_x<x+sprite_width and mouse_y<y+sprite_height) {
+		if (mouse_x>=x and mouse_y>=y and mouse_x<x+sprite_width and mouse_y<y+sprite_height) and ob_main.mouse_cursor!=3 {
 			if ob_control.card_hold=-1 { ob_main.mouse_cursor=1; }
 			else { ob_main.mouse_cursor=2; }
 		}

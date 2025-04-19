@@ -350,6 +350,13 @@ if button_sorthand=true and card_hold=-1 {
 	}
 }
 //————————————————————————————————————————————————————————————————————————————————————————————————————
+if keyboard_check_pressed(ord("S")) and !mouse_check_button(mb_left) and card_hold=-1 and ob_main.cursor_hide=false {
+	sc_playsound(sn_click,50,false,false);
+	//
+	ob_main.type_chart_toggle_on=true;
+	button_typechart_id.button_state=1;
+}
+//————————————————————————————————————————————————————————————————————————————————————————————————————
 if (((keyboard_check(vk_up) or keyboard_check(ord("W"))) and !mouse_check_button(mb_left)) or (button_autoattack_id.button_state=1) or (ob_main.autoattack_toggle=true)) and
 battler_turn=1 and card_hold=-1 and ob_main.cursor_hide=false {
 	if keyboard_check_pressed(vk_up) or keyboard_check_pressed(ord("W")) { sc_playsound(sn_click,50,false,false); }

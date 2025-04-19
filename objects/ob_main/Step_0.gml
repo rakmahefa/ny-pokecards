@@ -1,12 +1,14 @@
 if mouse_check_button(mb_middle) or instance_exists(ob_splash) or
-type_chart=true or credits_screen=true or statistics_screen=true or nickname_screen=true or ending_screen=true or textbox_string[textbox_current]!="" { cursor_hide=true; }
+type_chart=true or credits_screen=true or statistics_screen=true or nickname_screen=true or ending_screen=true or textbox_string[textbox_current]!="" {
+	cursor_hide=true;
+	if textbox_string[textbox_current]!="" { mouse_cursor=3; }}
 else { cursor_hide=false; }
 //
-if type_chart_toggle=true {
+if type_chart_toggle_on=true {
 	type_chart=true;
-	type_chart_toggle=false;
+	type_chart_toggle_on=false;
 }
-else if type_chart=true and (mouse_check_button_pressed(mb_left) or mouse_check_button_pressed(mb_right)) {
+else if type_chart=true and (mouse_check_button_pressed(mb_left) or mouse_check_button_pressed(mb_right) or (instance_exists(ob_control) and keyboard_check_pressed(ord("S")))) {
 	sc_playsound(sn_click,50,false,false);
 	type_chart=false;
 }
@@ -651,6 +653,8 @@ else if event_transition>-1 and fade_black>=1 {
 		else if (playing_gym=true or playing_elite=true) and latest_zone=area_zone { money_prize=money_prize_badge; } //also shown in battle description
 		else { money_prize=irandom_range(money_prize_min,money_prize_max); } //also shown in battle description
 		//
+		money_prize=round(money_prize*multiberry_bonus);
+		//
 		if event_transition=ref_event_battle {
 			music_player=sc_playsound(ms_battle,100,true,true);
 		}
@@ -839,7 +843,7 @@ else if event_transition=-1 and event_transition_standby=-1 and fade_black<=0 {
 }
 //————————————————————————————————————————————————————————————————————————————————————————————————————
 //CHEATS
-if keyboard_check_pressed(vk_multiply) { game_restart(); }
+/*if keyboard_check_pressed(vk_multiply) { game_restart(); }
 if keyboard_check_pressed(vk_add) { roadmap_area++; }
 if keyboard_check_pressed(vk_numpad0) { money+=1000; }
 if keyboard_check(vk_decimal) { stats_timeplayed+=900; }
@@ -855,7 +859,7 @@ if instance_exists(ob_control) and keyboard_check_pressed(vk_numpad8) {
 if instance_exists(ob_control) and keyboard_check_pressed(vk_numpad7) {
 	ob_control.player_hp=1;
 	ob_control.enemy_hp=(ob_control.hp_max*2)-1;
-}//*/
+}*/
 //————————————————————————————————————————————————————————————————————————————————————————————————————
 if roadmap_area=roadmap_current_max {
 	area_zone++;

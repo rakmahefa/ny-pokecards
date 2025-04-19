@@ -35,7 +35,7 @@ screen_transition=-1;
 auto_deck_transition=false;
 moving_hud=0;
 type_chart=false;
-type_chart_toggle=false;
+type_chart_toggle_on=false;
 credits_screen=false;
 credits_screen_toggle=false;
 statistics_screen=false;
@@ -103,8 +103,8 @@ textbox_timer_max=1;
 textbox_char_pos=0;
 //————————————————————————————————————————————————————————————————————————————————————————————————————
 #macro normal_poke_id_max 649 //normal (non-secret and non-environment) poke cards
-#macro secret_cards_total 4
-#macro environment_cards_total 4
+#macro secret_cards_total 5
+#macro environment_cards_total 5
 //
 #macro deck_setup_max 5 //0: current (always), 1-5: saved setups
 #macro maindeck_total_max 1000
@@ -222,6 +222,8 @@ tooltip_lines=0;
 #macro ref_glyph_intimidate 110
 #macro ref_glyph_guru 111
 #macro ref_glyph_confidence 112
+#macro ref_glyph_forage 113
+#macro ref_glyph_distress 114
 //
 #macro tNONE -1
 #macro tNOR 00

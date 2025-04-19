@@ -60,7 +60,7 @@ else if argument0=7 { //tutorial: drawn
 }
 else if argument0=8 { //tutorial: attacked
 	ob_main.textbox_string[0]="Good job! Your " + misc_card + " attacked my Sentret, dealing damage equal to your " + misc_card + "'s attack minus my Sentret's defense. And your " + normal_card + " was unopposed, dealing damage to my Hit Points directly.";
-	ob_main.textbox_string[1]="As you can see on the right, the Hit Points bar is now tipped in your favor. Each point of damage dealt directly reduces your opponent's Hit Points while increasing your own.";
+	ob_main.textbox_string[1]="As you can see on the right, the Hit Points bar is now tipped in your favor.\nEach point of damage dealt directly reduces your opponent's Hit Points while increasing your own.";
 	ob_main.textbox_string[2]="When your opponent's Hit Points reach 0, you win! You already took an early step towards victory!";
 }
 else if argument0=9 { //tutorial: new turn
@@ -74,7 +74,7 @@ else if argument0=15 { //tutorial: new turn
 }
 else if argument0=16 { //tutorial: drawn
 	ob_main.textbox_string[0]="Excellent! When a Pokemon has a type advantage over another, their attacks will always deal at least +1 extra point of damage (or more), even if the receiving Pokemon has a higher defense.";
-	ob_main.textbox_string[1]="Contrary to real Pokemon though, type advantages in cards only deal bonus damage. This means there are no type resistances or immunities, and Pokemon that are weak to a certain type will always receive extra damage from it.";
+	ob_main.textbox_string[1]="Contrary to real Pokemon though, type advantages in cards only focus on bonus damage. There are no type resistances or immunities, and Pokemon that are weak to a certain type will always receive extra damage from it.";
 	ob_main.textbox_string[2]="This makes it so that, for example, Bulbasaur (a Grass/Poison Pokemon) will always deal bonus damage to other Bulbasaurs, since Poison has an advantage over Grass!";
 	ob_main.textbox_string[3]="But anyway, go ahead and play your " + flying_card + " right in front of my Sunkern. Then attack to take them out in one hit!";
 }
@@ -83,9 +83,10 @@ else if argument0=17 { //tutorial: attacked
 }
 else if argument0=18 { //tutorial: new turn
 	ob_main.textbox_string[0]="My Magikarp has a Glyph! Glyphs are unique abilities that can be added to cards. This one lowers the attack of any card opposing them.";
-	ob_main.textbox_string[1]="Before teaching a Glyph to one of your cards though, you should know that Pokemon usually increase their Berry cost the first time they learn a Glyph, and they can't be forgotten afterwards, so choose carefully!";
-	ob_main.textbox_string[2]="Each card can have up to 3 different Glyphs. You can see what any of them does by placing your mouse over its icon, so look around!";
-	ob_main.textbox_string[3]="But anyway! Draw your last Pokemon from your deck, and play it in front of my Bidoof to take them out. Then attack with the rest of your Pokemon as well!";
+	ob_main.textbox_string[1]="Glyphs can really turn the tide of a battle, but be warned: Pokemon usually increase their Berry cost when learning their first Glyph, and they can't be forgotten afterwards, so choose carefully!";
+	ob_main.textbox_string[2]="Moreover, you may find that some cards already have Glyphs, and some of these (so-called \"Natural Glyphs\") don't even increase their Berry cost at all!";
+	ob_main.textbox_string[3]="In total, each card can have up to 3 different Glyphs. You can see what any of them does by placing your mouse over its icon, so look around!";
+	ob_main.textbox_string[4]="But anyway! Draw your last Pokemon from your deck, and play it in front of my Bidoof to take them out. Then attack with the rest of your Pokemon as well!";
 }
 else if argument0=21 { //tutorial: new turn
 	ob_main.textbox_string[0]="It seems our battle is almost over! Attack once more with your Pokemon to deal the final blow and take me down.";

@@ -103,10 +103,10 @@ if card_cat=0 {
 				if reference_id.create_card_innate=-1 {
 					var card_enemy_innate_value=irandom(999);
 					if ob_main.playing_champion=true {
-						if card_enemy_innate_value<150 { card_innate=innate_max; } //15%
-						else if card_enemy_innate_value<350 { card_innate=3; } //20%
-						else if card_enemy_innate_value<600 { card_innate=2; } //25%
-						else { card_innate=1; } //40%
+						if card_enemy_innate_value<200 { card_innate=innate_max; } //20%
+						else if card_enemy_innate_value<420 { card_innate=3; } //22%
+						else if card_enemy_innate_value<670 { card_innate=2; } //25%
+						else { card_innate=1; } //33%
 					}
 					else if ob_main.playing_gym=true or ob_main.playing_elite=true {
 						if card_enemy_innate_value<(20+ob_main.area_zone*10) { card_innate=innate_max; } //2% - 10%
@@ -126,8 +126,8 @@ if card_cat=0 {
 				var random_id_chance=irandom(99); if random_id_chance<5 { allow_id_enigma=true; } //5% enigma allowed
 				var random_id_chance=irandom(99); if random_id_chance<90 { allow_id_pseudo=true; } //90% pseudo allowed
 				var random_id_chance=irandom(99); if random_id_chance<90 { allow_id_fossil=true; } //90% fossil allowed
-				var random_id_chance=irandom(99); if random_id_chance<75 { allow_id_starter=true; } //75% starter allowed
-				var random_id_chance=irandom(99); if random_id_chance<20 { allow_id_baby=true; } //20% baby allowed
+				var random_id_chance=irandom(99); if random_id_chance<80 { allow_id_starter=true; } //80% starter allowed
+				var random_id_chance=irandom(99); if random_id_chance<15 { allow_id_baby=true; } //15% baby allowed
 			}
 			//
 			if reference_id.create_card_level=-1 {
@@ -232,6 +232,9 @@ if card_cat=0 {
 				//ekans, arbok, growlithe, arcanine, tauros, gyarados (not magikarp), snubbull, granbull, stantler, hitmontop (not tyrogue), mightyena (not poochyena), masquerain (not surskit),
 				//mawile, salamence (not bagon/shelgon), staravia/staraptor (not starly), shinx, luxio, luxray, herdier/stoutland (not lillipup), sandile, krokorok, krookodile
 				card_glyph_a=choose(-1,ref_glyph_intimidate); }
+			else if card_id=566 or card_id=567 {
+				//archen, archeops
+				card_glyph_a=ref_glyph_distress; }
 			//
 			if card_glyph_a=-1 and
 			(card_id=056 or card_id=057 or card_id=116 or card_id=117 or card_id=230 or card_id=198 or card_id=430 or card_id=223 or card_id=224 or card_id=359 or card_id=451 or card_id=452 or
@@ -247,6 +250,10 @@ if card_cat=0 {
 			(card_id=211 or card_id=559 or card_id=560) {
 				//qwilfish, scraggy, scrafty
 				card_glyph_a=choose(-1,-1,-1,ref_glyph_intimidate); }
+			if card_glyph_a=-1 and
+			(card_id=102 or card_id=103 or card_id=215 or card_id=461 or card_id=273 or card_id=274 or card_id=275 or card_id=357) {
+				//exeggcute, exeggutor, sneasel, weavile, seedot, nuzleaf, shiftry, tropius
+				card_glyph_a=choose(-1,-1,-1,ref_glyph_forage); }
 			//
 			if card_environment=false and (card_glyph_a=-1 or card_glyph_b=-1) {
 				if enemy_randomizer=false { var guru_chance=irandom(99); } //1%
@@ -344,7 +351,7 @@ if card_cat=0 {
 					card_rarity_chance=irandom(card_rarity_chance_max-1)+1;
 				}
 				else if ob_main.playing_champion=true {
-					var card_rarity_chance_max=265; //about +75% to increase chance for stronger pokemon
+					var card_rarity_chance_max=270; //about +80% to increase chance for stronger pokemon
 					card_rarity_soft_min=87; //about 350 base stat total (349.69)
 					card_rarity_chance=irandom(card_rarity_chance_max-1)+1;
 				}
@@ -381,12 +388,22 @@ if card_cat=0 {
 				if card_starter=true and allow_id_starter=false { card_rarity_check=false; }
 				if card_stage=0 and allow_id_baby=false { card_rarity_check=false; }
 				//
+				var card_rarity_soft_check=0;
+				//
 				if card_rarity_check=true {
-					if card_rarity<card_rarity_soft_min { card_rarity_check=choose(false,false,false,false,false,false,false,false,false,true); } //10%
+					if card_rarity<card_rarity_soft_min {
+						card_rarity_soft_check=irandom(19);
+						if card_rarity_soft_check=0 { card_rarity_check=true; } //5%
+						else { card_rarity_check=false; }
+					}
 				}
 				//
 				if card_rarity_check=true {
-					if card_rarity_soft_max>-1 and card_rarity>card_rarity_soft_max { card_rarity_check=choose(false,false,false,false,false,false,false,false,false,true); } //10%
+					if card_rarity_soft_max>-1 and card_rarity>card_rarity_soft_max {
+						card_rarity_soft_check=irandom(19);
+						if card_rarity_soft_check=0 { card_rarity_check=true; } //5%
+						else { card_rarity_check=false; }
+					}
 				}
 				//
 				if card_rarity_check=true {

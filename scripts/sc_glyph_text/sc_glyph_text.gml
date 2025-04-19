@@ -22,7 +22,7 @@ if argument1=false {
 		case ref_glyph_berserk: return "// BERSERK //\nWhen HP is 1/3 or less (or just 1, if hurt),\nbase attack is doubled."; break;
 		case ref_glyph_adaptability: return "// ADAPTABILITY //\nType-advantage attacks deal an extra +3 points of bonus damage."; break;
 		case ref_glyph_recovery: return "// RECOVERY //\nRecovers 1 HP at the beginning of each active turn."; break;
-		case ref_glyph_inertia: return "// INERTIA //\nGrants 1 DP (Draw Points) whenever it destroys another card."; break;
+		case ref_glyph_inertia: return "// INERTIA //\nGrants 1 DP (Draw Point) whenever it destroys another card."; break;
 		case ref_glyph_motivation: return "// MOTIVATION //\nRaises a Pokemon's attack and defense by 2 when HP is full."; break;
 		//
 		case ref_glyph_mist: return "// MIST //\nWhile this card is active, Glyphs have no effect."; break;
@@ -34,10 +34,12 @@ if argument1=false {
 		case ref_glyph_magnetism_p: return "// MAGNETISM (+) //\nRaises attack by 2 if the opposite pole (-) is also played."; break;
 		case ref_glyph_magnetism_m: return "// MAGNETISM (-) //\nRaises attack by 2 if the opposite pole (+) is also played."; break;
 		case ref_glyph_sunlight: return "// SUNLIGHT //\nRaises attack and defense by 1 when HP is full."; break;
-		case ref_glyph_mindful: return "// MINDFUL //\nGrants 1 DP (Draw Points) when played."; break;
+		case ref_glyph_mindful: return "// MINDFUL //\nGrants 1 DP (Draw Point) when played."; break;
 		case ref_glyph_intimidate: return "// INTIMIDATE //\nThe opposing card's attack is lowered by 1."; break;
 		case ref_glyph_guru: return "// GURU //\nAdditional Glyphs don't increase this card's Berry cost."; break;
 		case ref_glyph_confidence: return "// CONFIDENCE //\nType-advantage attacks deal an extra +1 point of bonus damage."; break;
+		case ref_glyph_forage: return "// FORAGE //\nGrants 1 DP (Draw Point) when fainting."; break;
+		case ref_glyph_distress: return "// DISTRESS //\nWhen HP is half or less, base attack is halved, rounded up."; break;
 	}
 }
 else {

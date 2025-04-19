@@ -2,7 +2,7 @@ Pocket Crystal League (PCL) is a Poke-card game, although completely different t
 
 After choosing a starter deck, your goal is to travel through Kyoumu, challenging each of the Gym Leaders from the eight major cities in the region, building up your team to reach the ultimate goal, the Crystal League. Along the way, you'll be presented with numerous choices to expand your deck, strengthen your cards, give them unique special abilities, and battle other trainers.
 
-The current release includes Generations I-IV (but with corresponding Fairy types). The game may be expanded with more content in the future, but there are currently no plans for any further updates. It is fully playable in its current state.
+The current release includes Generations I-V (but with corresponding Fairy types). The game may be expanded with more content in the future, but there are currently no plans for any further updates. It is fully playable in its current state.
 Balancing can be a bit tricky at times, but I'm satisfied with the current level of difficulty, overall. The game is not supposed to be too easy, but challenging to a degree. Nevertheless, balance updates may happen if/when needed.
 
 This project was done ultimately just for fun, and I'm not getting any kind of revenue or payment from it— please Nintendo, let it be!
@@ -24,16 +24,6 @@ Gameplay Tips:
 - You can level up multiple cards as many times as you want during a single "Level Up" event, as long as you have enough money and have raised the level cap for your cards.
 
 - Don't add Glyphs to all your cards! A card with any amount of Glyphs costs more Berries than a card with none, so try to keep a balanced deck between single-cost cards and cards with Glyphs.
-
-——————————
-
-Keyboard Shortcuts:
-
-- Spacebar: end turn during battle, grab all cards when opening a pack, and skip victory/defeat screen after random battles.
-- Tab: sort cards in hand during battle.
-- Up arrow key (or W key): hold down to attack with all cards during battle.
-- Left/Right arrow keys (or A/D keys): navigate menus (options/deck), and draw cards during battle.
-- Up/Down arrow keys (or W/S keys): select number of berries when building deck.
 
 ——————————
 
@@ -61,5 +51,5 @@ Community-made handheld port/mod (based on PCL v2.3.1) with minimal changes (dif
 
 ——————————
 
-I really need your help, if you can. Thank you.
+I really need your help, if you can. Thank you so, so much.
 https://moodytail.itch.io/pocket-crystal-league/devlog/828979/i-really-need-your-help

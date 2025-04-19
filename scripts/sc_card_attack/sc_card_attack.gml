@@ -131,6 +131,12 @@ with (argument1) {
 						}
 						else { ob_control.enemycard_draw_points+=2; }
 					}
+					if sc_glyph_check(card_target,ref_glyph_forage,true) { //glyph: forage
+						if card_target.card_enemy=false {
+							ob_control.card_draw_points+=1;
+						}
+						else { ob_control.enemycard_draw_points+=1; }
+					}
 					//
 					if sc_glyph_check(id,ref_glyph_inertia,true) { //glyph: inertia
 						if card_target.card_enemy=false {

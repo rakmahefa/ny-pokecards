@@ -57,7 +57,7 @@ if card_cat=0 and card_face=true and in_view=true {
 		}
 	}
 	else if card_innate=0 {
-		draw_sprite_general(sp_sheet,0,16*2,16*1,3,3,draw_x+27,draw_y+3,1,1,0,card_color,card_color,card_color,card_color,1);
+		draw_sprite_general(sp_sheet,0,16*2,16*1,5,3,draw_x+26,draw_y+3,1,1,0,card_color,card_color,card_color,card_color,1);
 	}
 	//
 	//NAMEBAR
@@ -71,6 +71,8 @@ if card_cat=0 and card_face=true and in_view=true {
 	if card_nickname!="" {
 		if string_lower(card_nickname)="moody" and card_id=447 { secret_sprite_x=1; secret_sprite_y=13; } //riolu
 		else if string_lower(card_nickname)="moody" and card_id=448 { secret_sprite_x=2; secret_sprite_y=13; } //lucario
+		else if string_lower(card_nickname)="mooji" and card_id=427 { secret_sprite_x=6; secret_sprite_y=13; } //buneary
+		else if string_lower(card_nickname)="mooji" and card_id=428 { secret_sprite_x=7; secret_sprite_y=13; } //lopunny
 		else if card_nickname="176861" and card_id=035 { secret_sprite_x=3; secret_sprite_y=13;  } //clefairy
 		else if card_nickname="977194" and card_id=158 { secret_sprite_x=4; secret_sprite_y=13;  } //totodile
 		else if string_lower(card_nickname)="sapporo" and card_id=250 { secret_sprite_x=5; secret_sprite_y=13;  } //ho-oh
