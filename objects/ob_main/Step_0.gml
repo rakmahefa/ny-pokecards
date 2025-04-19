@@ -199,7 +199,7 @@ if roadmap_generated=false {
 		else if whisperer_chance=0 { //WHISPERER (2%)
 			trainer_kind[i]=150;
 			trainer_sprite[i]=playericon_max+10+5;
-			}
+		}
 		else {
 			switch (location_type[i]) {
 				//forest: CAMPER/PICNICKER, FISHER, BUG CATCHER, BIRD KEEPER, YOUNGSTER, LAD/LASS, AROMA MAN/AROMA LADY, RANGER

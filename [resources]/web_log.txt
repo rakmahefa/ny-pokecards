@@ -4,7 +4,8 @@
 - Modified starter decks and tutorial.
 - Modified most Gym Leader decks and Crystal League decks.
 - Added 2 new natural Glyphs ("Forage" and "Distress").
-- Added "Multicolor reward bonus" system: multi-berry decks now earn higher rewards from battles.
+- Increased pool of cards with natural Glyphs.
+- Added "Multicolor reward bonus" system: multi-berry decks can now earn higher rewards from battles.
 - Added some new secrets.
 - A ton of other minor improvements.
 
