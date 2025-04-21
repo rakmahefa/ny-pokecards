@@ -73,6 +73,7 @@ if card_cat=0 and card_face=true and in_view=true {
 		else if string_lower(card_nickname)="moody" and card_id=448 { secret_sprite_x=2; secret_sprite_y=13; } //lucario
 		else if string_lower(card_nickname)="mooji" and card_id=427 { secret_sprite_x=6; secret_sprite_y=13; } //buneary
 		else if string_lower(card_nickname)="mooji" and card_id=428 { secret_sprite_x=7; secret_sprite_y=13; } //lopunny
+		else if string_lower(card_nickname)="moody" and card_id=235 { secret_sprite_x=8; secret_sprite_y=13; } //smeargle
 		else if card_nickname="176861" and card_id=035 { secret_sprite_x=3; secret_sprite_y=13;  } //clefairy
 		else if card_nickname="977194" and card_id=158 { secret_sprite_x=4; secret_sprite_y=13;  } //totodile
 		else if string_lower(card_nickname)="sapporo" and card_id=250 { secret_sprite_x=5; secret_sprite_y=13;  } //ho-oh
@@ -84,7 +85,7 @@ if card_cat=0 and card_face=true and in_view=true {
 		else if string_lower(card_nickname)="north" and card_id=445 { secret_sprite_x=6; secret_sprite_y=12; } //garchomp
 		else if string_lower(card_nickname)="cupid" and card_id=135 { secret_sprite_x=7; secret_sprite_y=12; } //jolteon
 		else if (string_lower(card_nickname)="night" or string_lower(card_nickname)="nightcore") and card_id=059 { secret_sprite_x=8; secret_sprite_y=12; } //arcanine
-		else if string_lower(card_nickname)="ace" and card_id=448 { secret_sprite_x=9; secret_sprite_y=12; } //lucario
+		else if (string_lower(card_nickname)="ace" or string_lower(card_nickname)="acx") and card_id=448 { secret_sprite_x=9; secret_sprite_y=12; } //lucario
 		else if (string_lower(card_nickname)="mr wolf" or string_lower(card_nickname)="mrwolf") and card_id=448 { secret_sprite_x=10; secret_sprite_y=12; } //lucario
 		else if string_lower(card_nickname)="jessico" and card_id=162 { secret_sprite_x=11; secret_sprite_y=12; } //furret
 		else if (string_lower(card_nickname)="kotaro" or string_lower(card_nickname)="kota") and card_id=150 { secret_sprite_x=12; secret_sprite_y=12; } //mewtwo

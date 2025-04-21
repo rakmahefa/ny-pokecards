@@ -71,12 +71,15 @@ if !instance_exists(ob_control) and !instance_exists(ob_event) and !instance_exi
 	else if zone_first_lap=false { zone_name_text="Outskirts: " + zone_name; }
 	sc_drawtext(road_win_x+120,road_win_y+120,zone_name_text,global.color_card_light,global.color_black,0.6,0.5,0,-1);
 	//
-	if (area_zone<area_zone_max-1 and roadmap_area=roadmap_current_max-1) or (area_zone=area_zone_max-1 and roadmap_area>=roadmap_current_max-roadmap_league_max) {
-		if area_zone>0 { var fly_alpha=0.5, fly_color=make_color_hsv(fly_hue,100,255); } else { var fly_alpha=0.1, fly_color=c_white; }
-		draw_sprite_general(sp_sheet,0,16*29,16*7,16,16,fly_prev_x,fly_prev_y,1,1,0,fly_color,fly_color,fly_color,fly_color,fly_alpha);
-		if area_zone<area_zone_max-1 and latest_zone>area_zone { var fly_alpha=0.5, fly_color=make_color_hsv(fly_hue,100,255); } else { var fly_alpha=0.1, fly_color=c_white; }
-		draw_sprite_general(sp_sheet,0,16*29,16*8,16,16,fly_next_x,fly_next_y,1,1,0,fly_color,fly_color,fly_color,fly_color,fly_alpha);
-	}
+	if ((area_zone<area_zone_max-1 and roadmap_area=roadmap_current_max-1) or (area_zone=area_zone_max-1 and roadmap_area>=roadmap_current_max-roadmap_league_max)) and area_zone>0 {
+		var fly_alpha=0.5, fly_color=make_color_hsv(fly_hue,100,255); }
+	else { var fly_alpha=0.1, fly_color=c_white; }
+	draw_sprite_general(sp_sheet,0,16*29,16*7,16,16,fly_prev_x,fly_prev_y,1,1,0,fly_color,fly_color,fly_color,fly_color,fly_alpha);
+	//
+	if area_zone<area_zone_max-1 and roadmap_area=roadmap_current_max-1 and latest_zone>area_zone {
+		var fly_alpha=0.5, fly_color=make_color_hsv(fly_hue,100,255); }
+	else { var fly_alpha=0.1, fly_color=c_white; }
+	draw_sprite_general(sp_sheet,0,16*29,16*8,16,16,fly_next_x,fly_next_y,1,1,0,fly_color,fly_color,fly_color,fly_color,fly_alpha);
 	//————————————————————————————————————————————————————————————————————————————————————————————————————
 	draw_set_alpha(1);
 	//

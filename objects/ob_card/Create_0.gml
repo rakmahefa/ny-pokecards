@@ -301,16 +301,16 @@ if card_cat=0 {
 					if card_glyph_b=ref_glyph_guru {
 						card_glyph_total=3; }
 					else if ob_main.playing_champion=true {
+						if card_glyph_chance<50 { card_glyph_total=3; } //50%
+						else if card_glyph_chance<80 { card_glyph_total=2; } //30%
+						else if card_glyph_chance<100 and card_glyph_a=ref_glyph_guru { card_glyph_total=2; } //20%
+						else if card_glyph_chance<100 and card_glyph_a!=ref_glyph_guru { card_glyph_total=1; } //20%
+					}
+					else if ob_main.playing_gym=true or ob_main.playing_elite=true {
 						if card_glyph_chance<40 { card_glyph_total=3; } //40%
 						else if card_glyph_chance<75 { card_glyph_total=2; } //35%
 						else if card_glyph_chance<100 and card_glyph_a=ref_glyph_guru { card_glyph_total=2; } //25%
 						else if card_glyph_chance<100 and card_glyph_a!=ref_glyph_guru { card_glyph_total=1; } //25%
-					}
-					else if ob_main.playing_gym=true or ob_main.playing_elite=true {
-						if card_glyph_chance<25 { card_glyph_total=3; } //25%
-						else if card_glyph_chance<60 { card_glyph_total=2; } //35%
-						else if card_glyph_chance<100 and card_glyph_a=ref_glyph_guru { card_glyph_total=2; } //40%
-						else if card_glyph_chance<100 and card_glyph_a!=ref_glyph_guru { card_glyph_total=1; } //40%
 					}
 					else {
 						if card_glyph_chance<20 { card_glyph_total=3; } //20%
