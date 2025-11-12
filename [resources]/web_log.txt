@@ -10,14 +10,10 @@
 - Minor balancing improvements to all trainer decks.
 - Some other minor additions and improvements.
 
-——————————
-
 [v3.0.1.0] - April 19, 2025
 
 - Fixed minor bug related to the "Magnetism" Glyph.
 - Some other minor improvements.
-
-——————————
 
 [v3.0.0.0] - April 19, 2025
 
