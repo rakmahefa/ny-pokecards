@@ -1,9 +1,17 @@
+[v3.1.0.0] - November 12, 2025
+
+- Added something special. Don't worry about it.
+- Some other minor improvements (including bug fixes and engine updates).
+
+——————————
+
 [v3.0.2.0] - April 21, 2025
 
 - Minor balancing improvements to all trainer decks.
 - Some other minor additions and improvements.
 
 ——————————
+
 [v3.0.1.0] - April 19, 2025
 
 - Fixed minor bug related to the "Magnetism" Glyph.
