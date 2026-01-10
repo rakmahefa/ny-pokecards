@@ -43,13 +43,16 @@ Neither the mods nor vanilla are gonna receive any further updates. The mod team
 For more details, please check this post: https://moodytail.itch.io/pocket-crystal-league/devlog/704889/should-you-play-vanilla-or-the-mods
 
 - Pocket Crystal League + (2022): https://github.com/Hyperion-21/pokecards_plus
-Community-made PCL expansion (based on PCL v1.6) that adds new cards and features. Now outdated, no longer being worked on, and a little buggy. Save files are separate from vanilla.
+PCL expansion (based on PCL v1.6) that adds new cards and features. No longer updated, and a little buggy. Save files are separate from vanilla. Created by Hyperion_21, Tukurai, and DarkAnarchist.
 
-- Pocket Crystal League ++ (2023):
-Community-made PCL expansion (based on PCL+, from PCL v1.6), with even more new cards and features. Now outdated, no longer being worked on, and with some game-breaking bugs, so please be careful! Save files are separate both from vanilla and PCL+.
+- Pocket Crystal League ++ (2023): https://github.com/Hyperion-21/pokecards_plus
+PCL expansion (based on PCL+), with new cards and features. No longer updated, and with some game-breaking bugs, so please be careful! Save files are separate vanilla and PCL+. Created by Criminon.
 
-- PortMaster Handheld Port (2024-2025): https://portmaster.games/detail.html?name=pocketcrystalleague
-Community-made handheld port/mod with some changes. May have some issues, as reported by some players.
+- PortMaster Handheld Port (2024-2025): https://jeodc.github.io/RHH-Ports
+Handheld port with some changes. May have some issues, as reported by some players. Created by Jeod.
+
+- Mobile Port (2025):
+Android port. May have some issues, as reported by some players. Created by Jeod and TAYL0M.
 
 ——————————
 
