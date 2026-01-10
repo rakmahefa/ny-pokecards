@@ -27,7 +27,14 @@ Gameplay Tips:
 
 ——————————
 
-Mods & Discord:
+​- Pocket Crystal Discord: https://discord.gg/PEUqB45Hmy
+Community-made server for discussion about the game. Non-official, but I'm in there too and I can help with issues, answer questions, or you can just talk to other people, show us your decks and such.
+
+- Public code (vanilla): https://gitlab.com/moodytail/pokecards
+
+——————————
+
+Community-made content:
 
 ​​PCL+ and PCL++ are both standalone mods based on the v1.6 base game (not the latest release). They have a bunch of different features and additions (glyphs, events, cards, etc.), and they also changed some core stuff altogether as well. Because of these changes though, sadly, they can also be somewhat unbalanced (further than the base game), and multiple people have been reporting bugs that can either cause major issues, or even break save files completely. Consider them as a different, alternate version of PCL, with some additions, changes, and some things missing as well (mostly due to the older version they're based on). Other than that, though, the mods can be pretty fun, and worth checking out! I suggest doing so after playing through vanilla first, though- but yeah! I am genuinely honored that people were able to build such cool things from the base game.
 
@@ -35,19 +42,14 @@ Neither the mods nor vanilla are gonna receive any further updates. The mod team
 
 For more details, please check this post: https://moodytail.itch.io/pocket-crystal-league/devlog/704889/should-you-play-vanilla-or-the-mods
 
-​- Pocket Crystal Discord: https://discord.gg/PEUqB45Hmy
-Community-made server for discussion about the game. Non-official, but I'm in there too and I can help with issues, answer questions, or you can just talk to other people, show us your decks and such.
-
 - Pocket Crystal League + (2022): https://github.com/Hyperion-21/pokecards_plus
 Community-made PCL expansion (based on PCL v1.6) that adds new cards and features. Now outdated, no longer being worked on, and a little buggy. Save files are separate from vanilla.
 
-- Pocket Crystal League ++ (2023): https://discord.gg/gc2GvSGp5f
+- Pocket Crystal League ++ (2023):
 Community-made PCL expansion (based on PCL+, from PCL v1.6), with even more new cards and features. Now outdated, no longer being worked on, and with some game-breaking bugs, so please be careful! Save files are separate both from vanilla and PCL+.
 
 - PortMaster Handheld Port (2024-2025): https://portmaster.games/detail.html?name=pocketcrystalleague
-Community-made handheld port/mod with minimal changes (different music tracks and keyboard shortcuts).
-
-- Public code (vanilla): https://gitlab.com/moodytail/pokecards
+Community-made handheld port/mod with some changes. May have some issues, as reported by some players.
 
 ——————————
 
