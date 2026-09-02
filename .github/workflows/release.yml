@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       tag:
-        description: Existing tag to publish (for example v1.0.0)
+        description: Release tag to create (for example v1.0.0)
         required: true
         type: string
 
@@ -12,50 +12,57 @@ permissions:
   contents: write
 
 jobs:
-  validate:
-    name: Validate release source
+  release:
+    name: Create and publish release
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout tag
-        uses: actions/checkout@v5
-        with:
-          ref: ${{ inputs.tag }}
-          fetch-depth: 0
-
       - name: Validate tag format
         shell: bash
+        env:
+          RELEASE_TAG: ${{ inputs.tag }}
         run: |
           set -euo pipefail
-          if [[ ! "${{ inputs.tag }}" =~ ^v[0-9]+\.[0-9]+\.[0-9]+([.-][0-9A-Za-z.-]+)?$ ]]; then
-            echo "Invalid release tag: ${{ inputs.tag }}"
+          if [[ ! "$RELEASE_TAG" =~ ^v[0-9]+\.[0-9]+\.[0-9]+([.-][0-9A-Za-z.-]+)?$ ]]; then
+            echo "Invalid release tag: $RELEASE_TAG"
             echo "Expected a semantic version tag such as v1.0.0 or v1.0.0-beta.1"
             exit 1
           fi
 
-      - name: Set up Python
-        uses: actions/setup-python@v6
-        with:
-          python-version: "3.x"
-
-      - name: Validate GameMaker paths
-        run: python .github/scripts/validate-gamemaker-paths.py
-
-  publish:
-    name: Publish GitHub release
-    needs: validate
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout tagged source
+      - name: Checkout main
         uses: actions/checkout@v5
         with:
-          ref: ${{ inputs.tag }}
+          ref: main
           fetch-depth: 0
+          fetch-tags: true
+
+      - name: Validate GameMaker paths
+        run: |
+          python3 -m pip install --disable-pip-version-check --no-input --quiet --upgrade pip
+          python3 .github/scripts/validate-gamemaker-paths.py
+
+      - name: Create and push release tag
+        shell: bash
+        env:
+          RELEASE_TAG: ${{ inputs.tag }}
+        run: |
+          set -euo pipefail
+          if git rev-parse -q --verify "refs/tags/$RELEASE_TAG" >/dev/null; then
+            echo "Tag already exists: $RELEASE_TAG"
+            exit 1
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git tag -a "$RELEASE_TAG" -m "Release $RELEASE_TAG"
+          git push origin "$RELEASE_TAG"
 
       - name: Build source archives
         shell: bash
+        env:
+          RELEASE_TAG: ${{ inputs.tag }}
         run: |
           set -euo pipefail
-          name="PocketCrystalLeague-${{ inputs.tag }}"
+          name="PocketCrystalLeague-${RELEASE_TAG}"
           mkdir -p release-assets
           tar \
             --exclude=.git \
@@ -64,12 +71,14 @@ jobs:
             .
           (cd release-assets && sha256sum "${name}-source.tar.gz" > SHA256SUMS)
 
-      - name: Publish release
+      - name: Publish GitHub release
         env:
           GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ inputs.tag }}
         run: |
-          gh release create "${{ inputs.tag }}" \
+          set -euo pipefail
+          gh release create "$RELEASE_TAG" \
             release-assets/* \
-            --repo "${GITHUB_REPOSITORY}" \
-            --title "${{ inputs.tag }}" \
+            --repo "$GITHUB_REPOSITORY" \
+            --title "$RELEASE_TAG" \
             --generate-notes
