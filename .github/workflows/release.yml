@@ -121,20 +121,21 @@ jobs:
             --target=linux \
             --runtime=vm \
             --toolchain-options '{"linux":{"packageType":"appimage"}}' \
-            --output="release-assets/PocketCrystalLeague-${RELEASE_TAG}.AppImage"
+            --output="../../release-assets/PocketCrystalLeague-${RELEASE_TAG}.AppImage"
 
-          appimage=$(find release-assets -maxdepth 1 -type f -iname '*.AppImage' -print -quit)
+          appimage="$(find release-assets -maxdepth 1 -type f -iname '*.AppImage' -print -quit)"
           if [[ -z "$appimage" ]]; then
-            echo "ERROR: GameMaker did not produce an AppImage."
-            find . -maxdepth 4 -type f | sort | tail -200
+            echo "ERROR: GameMaker did not produce an AppImage in repo release-assets/."
+            find . -maxdepth 5 -type f \( -iname '*.AppImage' -o -iname '*AppImage*' \) -print
             exit 1
           fi
 
-          if [[ "$appimage" != "release-assets/PocketCrystalLeague-${RELEASE_TAG}.AppImage" ]]; then
-            mv "$appimage" "release-assets/PocketCrystalLeague-${RELEASE_TAG}.AppImage"
+          expected="release-assets/PocketCrystalLeague-${RELEASE_TAG}.AppImage"
+          if [[ "$appimage" != "$expected" ]]; then
+            mv "$appimage" "$expected"
           fi
-          chmod +x "release-assets/PocketCrystalLeague-${RELEASE_TAG}.AppImage"
-          sha256sum "release-assets/PocketCrystalLeague-${RELEASE_TAG}.AppImage" > release-assets/SHA256SUMS
+          chmod +x "$expected"
+          sha256sum "$expected" > release-assets/SHA256SUMS
 
       - name: Build source archive
         shell: bash
