@@ -13,7 +13,7 @@ permissions:
 
 jobs:
   release:
-    name: Create and publish release
+    name: Build and publish Linux release
     runs-on: ubuntu-latest
     steps:
       - name: Validate tag format
@@ -35,10 +35,62 @@ jobs:
           fetch-depth: 0
           fetch-tags: true
 
-      - name: Validate GameMaker paths
+      - name: Install Linux build dependencies
         run: |
-          python3 -m pip install --disable-pip-version-check --no-input --quiet --upgrade pip
-          python3 .github/scripts/validate-gamemaker-paths.py
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+
+      - name: Validate GameMaker paths
+        run: python3 .github/scripts/validate-gamemaker-paths.py
+
+      - name: Verify release tag does not exist
+        shell: bash
+        env:
+          RELEASE_TAG: ${{ inputs.tag }}
+        run: |
+          set -euo pipefail
+          if git ls-remote --exit-code --tags origin "refs/tags/$RELEASE_TAG" >/dev/null 2>&1; then
+            echo "Tag already exists: $RELEASE_TAG"
+            exit 1
+          fi
+
+      - name: Build Linux AppImage
+        shell: bash
+        env:
+          RELEASE_TAG: ${{ inputs.tag }}
+        run: |
+          set -euo pipefail
+          mkdir -p release-assets
+          npx --yes @gamemaker/gm-cli@2.3.0 package \
+            --target=linux \
+            --runtime=vm \
+            --toolchain-options '{"linux":{"packageType":"appimage"}}' \
+            --output="release-assets/PocketCrystalLeague-${RELEASE_TAG}.AppImage"
+
+          appimage=$(find release-assets -maxdepth 1 -type f -iname '*.AppImage' -print -quit)
+          if [[ -z "$appimage" ]]; then
+            echo "ERROR: GameMaker did not produce an AppImage."
+            find . -maxdepth 4 -type f | sort | tail -200
+            exit 1
+          fi
+
+          mv "$appimage" "release-assets/PocketCrystalLeague-${RELEASE_TAG}.AppImage"
+          chmod +x "release-assets/PocketCrystalLeague-${RELEASE_TAG}.AppImage"
+          sha256sum "release-assets/PocketCrystalLeague-${RELEASE_TAG}.AppImage" > release-assets/SHA256SUMS
+
+      - name: Build source archive
+        shell: bash
+        env:
+          RELEASE_TAG: ${{ inputs.tag }}
+        run: |
+          set -euo pipefail
+          name="PocketCrystalLeague-${RELEASE_TAG}"
+          tar \
+            --exclude=.git \
+            --exclude=release-assets \
+            -czf "release-assets/${name}-source.tar.gz" \
+            .
+          sha256sum "release-assets/${name}-source.tar.gz" >> release-assets/SHA256SUMS
 
       - name: Create and push release tag
         shell: bash
@@ -46,30 +98,10 @@ jobs:
           RELEASE_TAG: ${{ inputs.tag }}
         run: |
           set -euo pipefail
-          if git rev-parse -q --verify "refs/tags/$RELEASE_TAG" >/dev/null; then
-            echo "Tag already exists: $RELEASE_TAG"
-            exit 1
-          fi
-
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git tag -a "$RELEASE_TAG" -m "Release $RELEASE_TAG"
           git push origin "$RELEASE_TAG"
-
-      - name: Build source archives
-        shell: bash
-        env:
-          RELEASE_TAG: ${{ inputs.tag }}
-        run: |
-          set -euo pipefail
-          name="PocketCrystalLeague-${RELEASE_TAG}"
-          mkdir -p release-assets
-          tar \
-            --exclude=.git \
-            --exclude=release-assets \
-            -czf "release-assets/${name}-source.tar.gz" \
-            .
-          (cd release-assets && sha256sum "${name}-source.tar.gz" > SHA256SUMS)
 
       - name: Publish GitHub release
         env:
