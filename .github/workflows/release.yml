@@ -121,19 +121,15 @@ jobs:
             --target=linux \
             --runtime=vm \
             --toolchain-options '{"linux":{"packageType":"appimage"}}' \
-            --output="../../release-assets/PocketCrystalLeague-${RELEASE_TAG}.AppImage"
+            --output="../release-assets/PocketCrystalLeague-${RELEASE_TAG}.AppImage"
 
-          appimage="$(find release-assets -maxdepth 1 -type f -iname '*.AppImage' -print -quit)"
-          if [[ -z "$appimage" ]]; then
-            echo "ERROR: GameMaker did not produce an AppImage in repo release-assets/."
+          expected="release-assets/PocketCrystalLeague-${RELEASE_TAG}.AppImage"
+          if [[ ! -f "$expected" ]]; then
+            echo "ERROR: GameMaker did not produce the expected AppImage: $expected"
             find . -maxdepth 5 -type f \( -iname '*.AppImage' -o -iname '*AppImage*' \) -print
             exit 1
           fi
 
-          expected="release-assets/PocketCrystalLeague-${RELEASE_TAG}.AppImage"
-          if [[ "$appimage" != "$expected" ]]; then
-            mv "$appimage" "$expected"
-          fi
           chmod +x "$expected"
           sha256sum "$expected" > release-assets/SHA256SUMS
 
