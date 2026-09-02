@@ -14,11 +14,22 @@ PATH_RE = re.compile(r'"(?:path|folderPath)"\s*:\s*"([^"]+)"')
 def build_case_map(root: Path) -> dict[str, str]:
     result: dict[str, str] = {}
     for path in root.rglob("*"):
-        if ".git" in path.parts:
-            continue
         rel = path.relative_to(root).as_posix()
         result[rel.casefold()] = rel
     return result
+
+
+def resolve_reference(raw: str, source: Path, project_root: Path, repo_root: Path, case_maps: dict[Path, dict[str, str]]) -> tuple[str, str] | None:
+    normalized = raw.replace("\\", "/").lstrip("./")
+    for base in (source.parent, project_root, repo_root):
+        if base not in case_maps:
+            case_maps[base] = build_case_map(base)
+        case_map = case_maps[base]
+        key = normalized.casefold()
+        actual = case_map.get(key)
+        if actual is not None:
+            return normalized, actual
+    return None
 
 
 def main() -> int:
@@ -26,12 +37,13 @@ def main() -> int:
         print(f"ERROR: GameMaker project file not found: {PROJECT_FILE}", file=sys.stderr)
         return 1
 
-    root = Path(".").resolve()
-    case_map = build_case_map(root)
-    text_files = [p for p in root.rglob("*.yy")] + [PROJECT_FILE]
-    checked: set[str] = set()
+    repo_root = Path(".").resolve()
+    project_root = (repo_root / PROJECT_FILE.parent).resolve()
+    case_maps: dict[Path, dict[str, str]] = {}
+    checked: set[tuple[Path, str]] = set()
     errors: list[str] = []
 
+    text_files = sorted(set(repo_root.rglob("*.yy")) | {repo_root / PROJECT_FILE})
     for file in text_files:
         if not file.is_file():
             continue
@@ -41,26 +53,24 @@ def main() -> int:
             continue
 
         for raw in PATH_RE.findall(text):
-            raw = raw.replace("\\", "/")
-            if not raw or "${" in raw or raw.startswith("http:") or raw.startswith("https:"):
+            if not raw or "${" in raw or raw.startswith(("http:", "https:")):
                 continue
-
-            candidate = Path(raw)
+            candidate = Path(raw.replace("\\", "/"))
             if candidate.is_absolute():
                 continue
 
-            normalized = candidate.as_posix().lstrip("./")
-            key = normalized.casefold()
+            resolved = resolve_reference(raw, file, project_root, repo_root, case_maps)
+            if resolved is None:
+                continue
+
+            normalized, actual = resolved
+            key = (file, normalized.casefold())
             if key in checked:
                 continue
             checked.add(key)
 
-            exact = case_map.get(key)
-            if exact is None:
-                # Some GameMaker fields are logical IDs rather than filesystem paths.
-                continue
-            if exact != normalized:
-                errors.append(f"{file}: references '{raw}', actual path is '{exact}'")
+            if normalized != actual:
+                errors.append(f"{file.relative_to(repo_root)}: references '{raw}', actual path is '{actual}'")
 
     if errors:
         print("Linux case-sensitivity validation failed:")
