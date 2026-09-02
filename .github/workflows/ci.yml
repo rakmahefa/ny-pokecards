@@ -27,8 +27,8 @@ jobs:
 
   linux-compile:
     name: GameMaker Linux compile
-    # A GameMaker Access Key is required. Fork PRs intentionally skip this job.
-    if: github.event_name != 'pull_request'
+    # Secrets are unavailable to fork PRs. Same-repository PRs and pushes can compile normally.
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
     runs-on: windows-2025
     env:
       GAMEMAKER_ACCESS_KEY: ${{ secrets.GAMEMAKER_ACCESS_KEY }}
