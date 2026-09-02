@@ -35,6 +35,11 @@ jobs:
           fetch-depth: 0
           fetch-tags: true
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 24
+
       - name: Install Linux build dependencies
         run: |
           sudo apt-get update
@@ -62,6 +67,7 @@ jobs:
           set -euo pipefail
           mkdir -p release-assets
           npx --yes @gamemaker/gm-cli@2.3.0 package \
+            PocketCrystalLeague.yyp/PocketCrystalLeague.yyp \
             --target=linux \
             --runtime=vm \
             --toolchain-options '{"linux":{"packageType":"appimage"}}' \
@@ -74,7 +80,9 @@ jobs:
             exit 1
           fi
 
-          mv "$appimage" "release-assets/PocketCrystalLeague-${RELEASE_TAG}.AppImage"
+          if [[ "$appimage" != "release-assets/PocketCrystalLeague-${RELEASE_TAG}.AppImage" ]]; then
+            mv "$appimage" "release-assets/PocketCrystalLeague-${RELEASE_TAG}.AppImage"
+          fi
           chmod +x "release-assets/PocketCrystalLeague-${RELEASE_TAG}.AppImage"
           sha256sum "release-assets/PocketCrystalLeague-${RELEASE_TAG}.AppImage" > release-assets/SHA256SUMS
 
