@@ -68,6 +68,14 @@ jobs:
             libxfixes-dev \
             "$fuse_package"
 
+      - name: Allow unprivileged user namespaces for GameMaker
+        shell: bash
+        run: |
+          set -euo pipefail
+          if sysctl -n kernel.apparmor_restrict_unprivileged_userns >/dev/null 2>&1; then
+            sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
+          fi
+
       - name: Install GameMaker Ubuntu packaging tools
         shell: bash
         run: |
