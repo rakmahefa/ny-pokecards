@@ -1,13 +1,10 @@
 name: Publish Release
 
 on:
-  push:
-    tags:
-      - "v*"
   workflow_dispatch:
     inputs:
       tag:
-        description: Existing tag to publish
+        description: Existing tag to publish (for example v1.0.0)
         required: true
         type: string
 
@@ -19,8 +16,21 @@ jobs:
     name: Validate release source
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout tag
         uses: actions/checkout@v5
+        with:
+          ref: ${{ inputs.tag }}
+          fetch-depth: 0
+
+      - name: Validate tag format
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ ! "${{ inputs.tag }}" =~ ^v[0-9]+\.[0-9]+\.[0-9]+([.-][0-9A-Za-z.-]+)?$ ]]; then
+            echo "Invalid release tag: ${{ inputs.tag }}"
+            echo "Expected a semantic version tag such as v1.0.0 or v1.0.0-beta.1"
+            exit 1
+          fi
 
       - name: Set up Python
         uses: actions/setup-python@v6
@@ -34,20 +44,18 @@ jobs:
     name: Publish GitHub release
     needs: validate
     runs-on: ubuntu-latest
-    env:
-      RELEASE_TAG: ${{ github.event_name == 'workflow_dispatch' && inputs.tag || github.ref_name }}
     steps:
       - name: Checkout tagged source
         uses: actions/checkout@v5
         with:
-          ref: ${{ env.RELEASE_TAG }}
+          ref: ${{ inputs.tag }}
           fetch-depth: 0
 
       - name: Build source archives
         shell: bash
         run: |
           set -euo pipefail
-          name="PocketCrystalLeague-${RELEASE_TAG}"
+          name="PocketCrystalLeague-${{ inputs.tag }}"
           mkdir -p release-assets
           tar \
             --exclude=.git \
@@ -60,8 +68,8 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release create "${RELEASE_TAG}" \
+          gh release create "${{ inputs.tag }}" \
             release-assets/* \
             --repo "${GITHUB_REPOSITORY}" \
-            --title "${RELEASE_TAG}" \
+            --title "${{ inputs.tag }}" \
             --generate-notes
