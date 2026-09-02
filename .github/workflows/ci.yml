@@ -1,0 +1,79 @@
+name: CI
+
+on:
+  push:
+    branches: [main, "ci/**"]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  linux-validation:
+    name: Linux compatibility
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.x"
+
+      - name: Validate GameMaker paths
+        run: python .github/scripts/validate-gamemaker-paths.py
+
+  linux-compile:
+    name: GameMaker Linux compile
+    # A GameMaker Access Key is required. Fork PRs intentionally skip this job.
+    if: github.event_name != 'pull_request'
+    runs-on: windows-2025
+    env:
+      GAMEMAKER_ACCESS_KEY: ${{ secrets.GAMEMAKER_ACCESS_KEY }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Set up Igor
+        if: env.GAMEMAKER_ACCESS_KEY != ''
+        id: igor
+        uses: bscotch/igor-setup@v2
+        with:
+          access-key: ${{ env.GAMEMAKER_ACCESS_KEY }}
+          target-yyp: PocketCrystalLeague.yyp/PocketCrystalLeague.yyp
+          modules: linux
+          cache: true
+
+      - name: Locate Igor
+        if: env.GAMEMAKER_ACCESS_KEY != ''
+        id: locate-igor
+        shell: pwsh
+        run: |
+          $igor = Get-ChildItem -Path "${{ steps.igor.outputs.runtime-dir }}" -Recurse -Filter Igor.exe |
+            Select-Object -First 1 -ExpandProperty FullName
+          if (-not $igor) {
+            throw "Igor.exe was not found under the installed GameMaker runtime."
+          }
+          "igor=$igor" >> $env:GITHUB_OUTPUT
+
+      - name: Compile Linux target
+        if: env.GAMEMAKER_ACCESS_KEY != ''
+        shell: pwsh
+        run: |
+          & "${{ steps.locate-igor.outputs.igor }}" `
+            "/uf=${{ steps.igor.outputs.user-dir }}" `
+            "/rp=${{ steps.igor.outputs.runtime-dir }}" `
+            "/project=${{ github.workspace }}\PocketCrystalLeague.yyp\PocketCrystalLeague.yyp" `
+            "/cache=${{ steps.igor.outputs.cache-dir }}" `
+            "/temp=${{ steps.igor.outputs.temp-dir }}" `
+            -- Linux Compile
+
+      - name: Report missing GameMaker secret
+        if: env.GAMEMAKER_ACCESS_KEY == ''
+        shell: pwsh
+        run: |
+          Write-Host "GAMEMAKER_ACCESS_KEY is not configured; Linux compile was skipped."
+          Write-Host "Add a repository Actions secret named GAMEMAKER_ACCESS_KEY to enable the GameMaker compile job."
